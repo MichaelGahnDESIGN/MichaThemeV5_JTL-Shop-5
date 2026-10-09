@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- AUTOMATISCH ERZEUGT aus themes/core/options.json (php bin/build-themes.php). Nicht von Hand ändern. -->
+<Template isFullResponsive="true">
+    <Name>MichaThemeV5</Name>
+    <Author>Michael Gahn DESIGN</Author>
+    <URL>https://theme.michael-gahn.de</URL>
+    <Version>0.2.0</Version>
+    <MinShopVersion>5.0.0</MinShopVersion>
+    <Preview>preview.png</Preview>
+    <Parent>NOVA</Parent>
+    <Settings>
+        <Section Name="Farben" Key="mt_colors">
+            <Setting Description="Farbmodus" Key="mt_color_mode" Type="select" Value="system">
+                <Option Value="system">Wie das Gerät</Option>
+                <Option Value="light">Hell</Option>
+                <Option Value="dark">Dunkel</Option>
+            </Setting>
+            <Setting Description="Akzentfarbe" Key="mt_accent" Type="select" Value="indigo">
+                <Option Value="teal">Petrol</Option>
+                <Option Value="indigo">Indigo</Option>
+                <Option Value="amber">Bernstein</Option>
+                <Option Value="rose">Rose</Option>
+                <Option Value="graphite">Graphit</Option>
+            </Setting>
+            <Setting Description="Eigene Akzentfarbe (Experte)" Key="mt_accent_custom" Type="text" Value=""/>
+            <Setting Description="Umschalter Hell/Dunkel im Header anzeigen" Key="mt_mode_toggle" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Schriften" Key="mt_typography">
+            <Setting Description="Schrift für Text" Key="mt_font_body" Type="select" Value="inter">
+                <Option Value="system">Systemschrift (Arial/Helvetica)</Option>
+                <Option Value="roboto">Roboto</Option>
+                <Option Value="open-sans">Open Sans</Option>
+                <Option Value="inter">Inter</Option>
+                <Option Value="lato">Lato</Option>
+                <Option Value="montserrat">Montserrat</Option>
+                <Option Value="source-sans-3">Source Sans 3</Option>
+                <Option Value="nunito">Nunito</Option>
+                <Option Value="merriweather">Merriweather</Option>
+                <Option Value="playfair-display">Playfair Display</Option>
+            </Setting>
+            <Setting Description="Schrift für Überschriften" Key="mt_font_heading" Type="select" Value="inter">
+                <Option Value="system">Systemschrift (Arial/Helvetica)</Option>
+                <Option Value="roboto">Roboto</Option>
+                <Option Value="open-sans">Open Sans</Option>
+                <Option Value="inter">Inter</Option>
+                <Option Value="lato">Lato</Option>
+                <Option Value="montserrat">Montserrat</Option>
+                <Option Value="source-sans-3">Source Sans 3</Option>
+                <Option Value="nunito">Nunito</Option>
+                <Option Value="merriweather">Merriweather</Option>
+                <Option Value="playfair-display">Playfair Display</Option>
+            </Setting>
+            <Setting Description="Schriftgröße" Key="mt_font_size" Type="select" Value="normal">
+                <Option Value="small">Klein</Option>
+                <Option Value="normal">Normal</Option>
+                <Option Value="large">Groß</Option>
+            </Setting>
+        </Section>
+        <Section Name="Form und Stil" Key="mt_shape">
+            <Setting Description="Ecken" Key="mt_radius" Type="select" Value="soft">
+                <Option Value="sharp">Eckig</Option>
+                <Option Value="soft">Leicht gerundet</Option>
+                <Option Value="round">Stark gerundet</Option>
+            </Setting>
+            <Setting Description="Abstände" Key="mt_density" Type="select" Value="normal">
+                <Option Value="compact">Kompakt</Option>
+                <Option Value="normal">Normal</Option>
+                <Option Value="airy">Luftig</Option>
+            </Setting>
+            <Setting Description="Schatten (Experte)" Key="mt_shadows" Type="select" Value="soft">
+                <Option Value="none">Keine</Option>
+                <Option Value="soft">Weich</Option>
+                <Option Value="strong">Kräftig</Option>
+            </Setting>
+            <Setting Description="Button-Stil (Experte)" Key="mt_buttons" Type="select" Value="solid">
+                <Option Value="solid">Gefüllt</Option>
+                <Option Value="outline">Umrandet</Option>
+                <Option Value="pill">Pillenform</Option>
+            </Setting>
+        </Section>
+        <Section Name="Logo" Key="mt_logo">
+            <Setting Description="Alternativtext des Logos" Key="mt_logo_alt" Type="text" Value=""/>
+            <Setting Description="Logohöhe in Pixel" Key="mt_logo_height" Type="text" Value="40"/>
+        </Section>
+        <Section Name="Header" Key="mt_header">
+            <Setting Description="Header-Layout" Key="mt_header_layout" Type="select" Value="classic">
+                <Option Value="classic">Klassisch (Logo links)</Option>
+                <Option Value="centered">Zentriert (Logo mittig)</Option>
+                <Option Value="compact">Kompakt (eine Zeile)</Option>
+            </Setting>
+            <Setting Description="Header beim Scrollen fixieren" Key="mt_header_sticky" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Suche" Key="mt_header_search" Type="select" Value="field">
+                <Option Value="icon">Nur Symbol</Option>
+                <Option Value="field">Suchfeld</Option>
+                <Option Value="expanded">Großes Suchfeld</Option>
+            </Setting>
+            <Setting Description="Ankündigungsleiste anzeigen" Key="mt_announcement" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Text der Ankündigungsleiste" Key="mt_announcement_text" Type="text" Value="Kostenloser Versand ab 50 €"/>
+        </Section>
+        <Section Name="Footer" Key="mt_footer">
+            <Setting Description="Footer-Layout" Key="mt_footer_layout" Type="select" Value="columns">
+                <Option Value="columns">Mehrspaltig</Option>
+                <Option Value="centered">Zentriert</Option>
+                <Option Value="minimal">Minimal</Option>
+            </Setting>
+            <Setting Description="Zahlungsarten im Footer zeigen" Key="mt_footer_payment" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Vertrauens-Hinweise zeigen" Key="mt_footer_trust" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Vertrauens-Hinweis 1" Key="mt_trust_1" Type="text" Value=""/>
+            <Setting Description="Vertrauens-Hinweis 2" Key="mt_trust_2" Type="text" Value=""/>
+            <Setting Description="Vertrauens-Hinweis 3" Key="mt_trust_3" Type="text" Value=""/>
+        </Section>
+        <Section Name="Startseite" Key="mt_hero">
+            <Setting Description="Hero-Bereich" Key="mt_hero_style" Type="select" Value="image">
+                <Option Value="image">Bild mit Text</Option>
+                <Option Value="gradient">Farbverlauf</Option>
+                <Option Value="none">Ohne</Option>
+            </Setting>
+            <Setting Description="Hero-Höhe (Experte)" Key="mt_hero_height" Type="select" Value="medium">
+                <Option Value="small">Niedrig</Option>
+                <Option Value="medium">Mittel</Option>
+                <Option Value="large">Hoch</Option>
+            </Setting>
+            <Setting Description="Überschrift" Key="mt_hero_title" Type="text" Value="Willkommen in unserem Shop"/>
+            <Setting Description="Text" Key="mt_hero_text" Type="text" Value=""/>
+            <Setting Description="Button-Beschriftung" Key="mt_hero_cta_label" Type="text" Value="Jetzt entdecken"/>
+            <Setting Description="Button-Ziel (Adresse)" Key="mt_hero_cta_url" Type="text" Value="/"/>
+        </Section>
+        <Section Name="Kategorie und Listing" Key="mt_listing">
+            <Setting Description="Produktliste" Key="mt_listing_layout" Type="select" Value="grid">
+                <Option Value="grid">Raster</Option>
+                <Option Value="large">Große Bilder</Option>
+                <Option Value="list">Liste</Option>
+            </Setting>
+            <Setting Description="Spalten auf dem Desktop" Key="mt_listing_columns" Type="text" Value="4"/>
+            <Setting Description="Bildformat (Experte)" Key="mt_listing_ratio" Type="select" Value="square">
+                <Option Value="square">Quadrat (1:1)</Option>
+                <Option Value="portrait">Hochformat (4:5)</Option>
+                <Option Value="landscape">Querformat (4:3)</Option>
+            </Setting>
+            <Setting Description="Effekt beim Darüberfahren (Experte)" Key="mt_listing_hover" Type="select" Value="zoom">
+                <Option Value="none">Keiner</Option>
+                <Option Value="zoom">Zoom</Option>
+                <Option Value="second">Zweites Bild</Option>
+            </Setting>
+            <Setting Description="Sonderpreis- und Neu-Siegel zeigen" Key="mt_listing_badges" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Filter" Key="mt_listing_filter" Type="select" Value="sidebar">
+                <Option Value="sidebar">Seitenleiste</Option>
+                <Option Value="top">Oben</Option>
+            </Setting>
+        </Section>
+        <Section Name="Artikelseite" Key="mt_detail">
+            <Setting Description="Artikelseite" Key="mt_detail_layout" Type="select" Value="classic">
+                <Option Value="classic">Klassisch (Galerie links)</Option>
+                <Option Value="stacked">Untereinander</Option>
+                <Option Value="sticky">Kaufbox bleibt sichtbar</Option>
+            </Setting>
+            <Setting Description="Galerie (Experte)" Key="mt_detail_gallery" Type="select" Value="thumbs-bottom">
+                <Option Value="thumbs-bottom">Vorschau unten</Option>
+                <Option Value="thumbs-left">Vorschau links</Option>
+                <Option Value="dots">Punkte</Option>
+            </Setting>
+            <Setting Description="Fixierter Warenkorb-Button auf dem Handy" Key="mt_detail_sticky_cart" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Beschreibung (Experte)" Key="mt_detail_tabs" Type="select" Value="tabs">
+                <Option Value="tabs">Reiter</Option>
+                <Option Value="accordion">Aufklappbar</Option>
+            </Setting>
+        </Section>
+        <Section Name="Recht" Key="mt_legal">
+            <Setting Description="Hinweis neben dem Preis" Key="mt_legal_price_note" Type="text" Value="inkl. MwSt., zzgl. Versand"/>
+            <Setting Description="Grundpreis anzeigen" Key="mt_legal_unit_price" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Barrierefreiheit" Key="mt_a11y">
+            <Setting Description="Fokusrahmen" Key="mt_a11y_focus" Type="select" Value="standard">
+                <Option Value="standard">Standard</Option>
+                <Option Value="strong">Kräftig</Option>
+            </Setting>
+            <Setting Description="Textgrößen-Schalter anzeigen (Experte)" Key="mt_a11y_text_widget" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Geschwindigkeit" Key="mt_performance">
+            <Setting Description="Bilder erst beim Scrollen laden (Experte)" Key="mt_perf_lazy" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Haupt-Schrift vorladen (Experte)" Key="mt_perf_preload_fonts" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Erweitert" Key="mt_advanced">
+            <Setting Description="Eigenes CSS (Experte)" Key="mt_custom_css" Type="text" Value=""/>
+            <Setting Description="Eigenes JavaScript (Experte)" Key="mt_custom_js" Type="text" Value=""/>
+        </Section>
+    </Settings>
+</Template>
