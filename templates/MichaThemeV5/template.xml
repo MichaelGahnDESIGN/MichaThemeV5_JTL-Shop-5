@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -212,6 +212,9 @@
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
             </Setting>
+        </Section>
+        <Section Name="Lizenz" Key="mt_license">
+            <Setting Description="Lizenzschlüssel" Key="mt_license_token" Type="text" Value=""/>
         </Section>
         <Section Name="Erweitert" Key="mt_advanced">
             <Setting Description="Eigenes CSS (Experte)" Key="mt_custom_css" Type="text" Value=""/>
