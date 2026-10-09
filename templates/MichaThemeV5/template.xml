@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.6.0</Version>
+    <Version>0.7.1</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -218,7 +218,6 @@
         </Section>
         <Section Name="Erweitert" Key="mt_advanced">
             <Setting Description="Eigenes CSS (Experte)" Key="mt_custom_css" Type="text" Value=""/>
-            <Setting Description="Eigenes JavaScript (Experte)" Key="mt_custom_js" Type="text" Value=""/>
         </Section>
     </Settings>
 </Template>
