@@ -14,7 +14,6 @@
     {* Eigenes CSS/JS: nur mit Pro-Modul "custom-code" ($mtPro kommt aus Bootstrap.php, fehlt es, bleibt alles aus). *}
     {if isset($mtPro['custom-code']) && $mtPro['custom-code']}
         {if $Einstellungen.template.mt_advanced.mt_custom_css !== ''}<style id="mt-custom-css">{$Einstellungen.template.mt_advanced.mt_custom_css|strip_tags}</style>{/if}
-        {if $Einstellungen.template.mt_advanced.mt_custom_js !== ''}<script id="mt-custom-js">{$Einstellungen.template.mt_advanced.mt_custom_js nofilter}</script>{/if}
     {/if}
 {/block}
 
