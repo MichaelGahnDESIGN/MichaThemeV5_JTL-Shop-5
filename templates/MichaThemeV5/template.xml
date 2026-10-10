@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.7.1</Version>
+    <Version>0.9.0</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -212,6 +212,41 @@
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
             </Setting>
+        </Section>
+        <Section Name="Pro-Module" Key="mt_modules">
+            <Setting Description="Popup: Überschrift" Key="mt_popup_title" Type="text" Value=""/>
+            <Setting Description="Popup: Text" Key="mt_popup_text" Type="text" Value=""/>
+            <Setting Description="Popup: Button-Beschriftung" Key="mt_popup_cta_label" Type="text" Value=""/>
+            <Setting Description="Popup: Button-Ziel (Adresse)" Key="mt_popup_cta_url" Type="text" Value=""/>
+            <Setting Description="Popup: Auslöser" Key="mt_popup_trigger" Type="select" Value="delay">
+                <Option Value="delay">Nach einigen Sekunden</Option>
+                <Option Value="scroll">Nach dem Scrollen</Option>
+                <Option Value="exit">Beim Verlassen der Seite (Desktop)</Option>
+            </Setting>
+            <Setting Description="Popup: Sekunden bis zur Anzeige (Experte)" Key="mt_popup_delay" Type="text" Value="10"/>
+            <Setting Description="Popup: Wie oft zeigen?" Key="mt_popup_frequency" Type="select" Value="session">
+                <Option Value="session">Einmal pro Besuch</Option>
+                <Option Value="day">Einmal pro Tag</Option>
+                <Option Value="week">Einmal pro Woche</Option>
+            </Setting>
+            <Setting Description="Popup: nur auf der Startseite (Experte)" Key="mt_popup_home_only" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Versandkosten-Balken: ab diesem Warenwert versandkostenfrei" Key="mt_ship_threshold" Type="text" Value="0"/>
+            <Setting Description="Versandkosten-Balken: Text (Experte)" Key="mt_ship_text" Type="text" Value="Noch {rest} bis zum kostenlosen Versand"/>
+            <Setting Description="Versandkosten-Balken: Text bei Erreichen (Experte)" Key="mt_ship_done_text" Type="text" Value="Der Versand ist kostenlos."/>
+            <Setting Description="Bestands-Balken: anzeigen ab Restbestand" Key="mt_stock_threshold" Type="text" Value="10"/>
+            <Setting Description="Bestands-Balken: Text (Experte)" Key="mt_stock_text" Type="text" Value="Nur noch {n} auf Lager"/>
+            <Setting Description="Rabattanzeige: Prozent-Siegel zeigen" Key="mt_discount_percent" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Rabattanzeige: Countdown zeigen" Key="mt_discount_countdown" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Rabattanzeige: Text zum 30-Tage-Preis (Experte)" Key="mt_discount_lowest_label" Type="text" Value="Niedrigster Preis der letzten 30 Tage"/>
         </Section>
         <Section Name="Lizenz" Key="mt_license">
             <Setting Description="Lizenzschlüssel" Key="mt_license_token" Type="text" Value=""/>

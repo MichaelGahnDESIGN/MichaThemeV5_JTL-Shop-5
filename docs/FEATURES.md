@@ -75,7 +75,7 @@ Status: **planned** = geplant · **in_progress** = in Arbeit · **existing** = a
 - **Special FX** (geplant): Schnee, Regen und weitere Effekte; abschaltbar, respektiert Reduced-Motion, kein Blitzen. _Recht:_ WCAG 2.3.1 (keine Blitze), Barrierefreiheit; Besucher können Effekte ausschalten.
 - **Smarte Suche** (geplant): Vorschläge, Fehlertoleranz, Synonyme, Filter in der Suche; läuft im Shop ohne Drittanbieter, anonyme Suchstatistik.
 - **Erweiterte Statistiken** (geplant): Erweiterung der kostenlosen Statistik: Trichter, Kampagnen, Produktleistung, Export; weiterhin cookielos und ohne Dritte. _Recht:_ Wie die kostenlose Statistik; Dokumentation anpassen.
-- **Popup-Manager** (geplant): Regeln, Häufigkeitsgrenzen, Zeitpläne; barrierefrei, ohne aufdringliche Vollbild-Einblendungen auf Mobilgeräten. _Recht:_ Nur mit Rechtsgrundlage für verarbeitete Daten; Google-Richtlinien zu Interstitials beachten.
+- **Popup-Manager** (in Arbeit): Regeln, Häufigkeitsgrenzen, Zeitpläne; barrierefrei, ohne aufdringliche Vollbild-Einblendungen auf Mobilgeräten. _Recht:_ Nur mit Rechtsgrundlage für verarbeitete Daten; Google-Richtlinien zu Interstitials beachten.
 - **Mega-Menü** (geplant): Mehrspaltiges Menü mit Bildern und Hervorhebungen.
 - **Schnellansicht** (geplant): Artikel in der Liste in einem Dialog ansehen und in den Warenkorb legen.
 - **Cross-Selling und Bundles** (geplant): Zubehör, „Oft zusammen gekauft“, Bundle-Rabatte. _Recht:_ Preisangaben nach PAngV.
