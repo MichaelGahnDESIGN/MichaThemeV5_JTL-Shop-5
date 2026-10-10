@@ -56,7 +56,7 @@
 - [ ] **Gewinnspiel** [Premium] – geplant
 - [ ] **Special FX** [Premium] – geplant
 - [ ] **Erweiterte Statistiken** [Premium] – geplant
-- [ ] **Popup-Manager** [Premium] – geplant
+- [ ] **Popup-Manager** [Premium] – in Arbeit
 - [ ] **Mega-Menü** [Premium] – geplant
 - [ ] **Schnellansicht** [Premium] – geplant
 - [ ] **Cross-Selling und Bundles** [Premium] – geplant
