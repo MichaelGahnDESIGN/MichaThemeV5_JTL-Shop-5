@@ -16,7 +16,7 @@ require_once __DIR__ . '/php/LicenseClient.php';
  */
 class Bootstrap extends Bootstrapper
 {
-    private const MODULES = ['custom-code', 'popup', 'versand-progress', 'stock-progress', 'rabatt'];
+    private const MODULES = ['custom-code', 'popup', 'versand-progress', 'stock-progress', 'rabatt', 'lieferanzeige'];
 
     public function boot(): void
     {
