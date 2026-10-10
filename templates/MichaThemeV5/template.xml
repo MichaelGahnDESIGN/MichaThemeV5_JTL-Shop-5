@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.9.0</Version>
+    <Version>0.10.0</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -247,6 +247,12 @@
                 <Option Value="N">Nein</Option>
             </Setting>
             <Setting Description="Rabattanzeige: Text zum 30-Tage-Preis (Experte)" Key="mt_discount_lowest_label" Type="text" Value="Niedrigster Preis der letzten 30 Tage"/>
+            <Setting Description="Lieferanzeige: Bearbeitungszeit in Werktagen" Key="mt_delivery_handling_days" Type="text" Value="1"/>
+            <Setting Description="Lieferanzeige: Versandlaufzeit früheste Lieferung (Werktage)" Key="mt_delivery_transit_min" Type="text" Value="2"/>
+            <Setting Description="Lieferanzeige: Versandlaufzeit späteste Lieferung (Werktage)" Key="mt_delivery_transit_max" Type="text" Value="4"/>
+            <Setting Description="Lieferanzeige: Bestellschluss (Uhr, deutsche Zeit)" Key="mt_delivery_cutoff_hour" Type="text" Value="14"/>
+            <Setting Description="Lieferanzeige: Feiertage und Betriebsferien (Experte)" Key="mt_delivery_holidays" Type="text" Value=""/>
+            <Setting Description="Lieferanzeige: Text (Experte)" Key="mt_delivery_text" Type="text" Value="Lieferung voraussichtlich {von} bis {bis}"/>
         </Section>
         <Section Name="Lizenz" Key="mt_license">
             <Setting Description="Lizenzschlüssel" Key="mt_license_token" Type="text" Value=""/>

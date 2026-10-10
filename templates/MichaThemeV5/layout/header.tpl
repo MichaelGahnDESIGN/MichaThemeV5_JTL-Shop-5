@@ -13,7 +13,7 @@
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-theme.js" defer></script>
     {* Pro-Module (Popup, Fortschrittsbalken, Rabatt): Konfiguration nur bei gültiger Lizenz *}
     {include file='snippets/mt-modules.tpl'}
-    {if isset($mtPro['popup']) || isset($mtPro['versand-progress']) || isset($mtPro['stock-progress']) || isset($mtPro['rabatt'])}
+    {if isset($mtPro['popup']) || isset($mtPro['versand-progress']) || isset($mtPro['stock-progress']) || isset($mtPro['rabatt']) || isset($mtPro['lieferanzeige'])}
         <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-modules.css">
         <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-modules.js" defer></script>
     {/if}
