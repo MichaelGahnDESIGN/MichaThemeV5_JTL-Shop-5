@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-base.css">
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.css">
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-theme.js" defer></script>
+    <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.css">
+    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.js" defer></script>
 {/block}
 
 {block name='layout-header-header' prepend}
@@ -25,4 +27,5 @@
             </button>
         </div>
     {/if}
+    {include file='snippets/mt-notification-center.tpl' placement='menu'}
 {/block}

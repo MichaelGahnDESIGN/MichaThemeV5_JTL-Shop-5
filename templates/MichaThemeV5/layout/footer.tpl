@@ -13,3 +13,8 @@
         {/if}
     {/if}
 {/block}
+
+{block name='layout-footer' append}
+    {include file='snippets/mt-notification-center.tpl' placement='footer'}
+    {include file='snippets/mt-notification-center.tpl' placement='floating-bottom-right'}
+{/block}
