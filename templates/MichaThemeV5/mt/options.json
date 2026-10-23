@@ -32,6 +32,11 @@
             "help": "Fußbereich"
         },
         {
+            "id": "notification",
+            "label": "Benachrichtigungen",
+            "help": "Platzierung des Notification Center"
+        },
+        {
             "id": "hero",
             "label": "Startseite",
             "help": "Hero-Bereich"
@@ -68,6 +73,24 @@
         }
     ],
     "options": [
+        {
+            "id": "notification_placement",
+            "group": "notification",
+            "type": "select",
+            "mode": "simple",
+            "label": "Platzierung des Notification Center",
+            "default": "floating-bottom-right",
+            "help": "Die Glocke kann schwebend, im Hauptmenü oder im Footer erscheinen.",
+            "choices": {
+                "floating-top-left": "Schwebend oben links",
+                "floating-top-right": "Schwebend oben rechts",
+                "floating-bottom-left": "Schwebend unten links",
+                "floating-bottom-right": "Schwebend unten rechts",
+                "menu": "Im Hauptmenü",
+                "footer": "Im Footer",
+                "none": "Nur per Template-Einbindung"
+            }
+        },
         {
             "id": "color_mode",
             "group": "colors",

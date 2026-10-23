@@ -27,5 +27,7 @@
             </button>
         </div>
     {/if}
-    {include file='snippets/mt-notification-center.tpl' placement='menu'}
+    {if $Einstellungen.template.mt_notification.mt_notification_placement === 'menu'}
+        {include file='snippets/mt-notification-center.tpl' placement='menu'}
+    {/if}
 {/block}

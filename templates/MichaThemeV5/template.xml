@@ -129,6 +129,17 @@
             <Setting Description="Vertrauens-Hinweis 2" Key="mt_trust_2" Type="text" Value=""/>
             <Setting Description="Vertrauens-Hinweis 3" Key="mt_trust_3" Type="text" Value=""/>
         </Section>
+        <Section Name="Benachrichtigungen" Key="mt_notification">
+            <Setting Description="Platzierung des Notification Center" Key="mt_notification_placement" Type="select" Value="floating-bottom-right">
+                <Option Value="floating-top-left">Schwebend oben links</Option>
+                <Option Value="floating-top-right">Schwebend oben rechts</Option>
+                <Option Value="floating-bottom-left">Schwebend unten links</Option>
+                <Option Value="floating-bottom-right">Schwebend unten rechts</Option>
+                <Option Value="menu">Im Hauptmenü</Option>
+                <Option Value="footer">Im Footer</Option>
+                <Option Value="none">Nur per Template-Einbindung</Option>
+            </Setting>
+        </Section>
         <Section Name="Startseite" Key="mt_hero">
             <Setting Description="Hero-Bereich" Key="mt_hero_style" Type="select" Value="image">
                 <Option Value="image">Bild mit Text</Option>
