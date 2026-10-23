@@ -181,6 +181,10 @@
                 <Option Value="sidebar">Seitenleiste</Option>
                 <Option Value="top">Oben</Option>
             </Setting>
+            <Setting Description="Ausverkaufte Artikel kennzeichnen" Key="mt_soldout_display" Type="select" Value="mark">
+                <Option Value="mark">Kennzeichnen</Option>
+                <Option Value="off">Nicht kennzeichnen</Option>
+            </Setting>
         </Section>
         <Section Name="Artikelseite" Key="mt_detail">
             <Setting Description="Artikelseite" Key="mt_detail_layout" Type="select" Value="classic">
@@ -208,6 +212,21 @@
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
             </Setting>
+            <Setting Description="Lieferzeit (Ersatzanzeige)" Key="mt_legal_shipping_time" Type="text" Value="Lieferzeit: 2–4 Werktage"/>
+            <Setting Description="Niedrigster Preis der letzten 30 Tage bei Streichpreisen" Key="mt_legal_lowest_price" Type="select" Value="attribute">
+                <Option Value="attribute">Aus Artikelattribut anzeigen</Option>
+                <Option Value="off">Nicht anzeigen</Option>
+            </Setting>
+            <Setting Description="Hinweis zur gesetzlichen Gewährleistung" Key="mt_legal_warranty" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Text zur Gewährleistung" Key="mt_legal_warranty_text" Type="text" Value="Für alle Artikel gilt die gesetzliche Gewährleistung (Mängelhaftung) von mindestens zwei Jahren."/>
+            <Setting Description="Produktsicherheit (GPSR) auf der Artikelseite" Key="mt_legal_gpsr" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Adresse der Widerrufs-Seite" Key="mt_legal_withdrawal_page" Type="text" Value=""/>
         </Section>
         <Section Name="Barrierefreiheit" Key="mt_a11y">
             <Setting Description="Fokusrahmen" Key="mt_a11y_focus" Type="select" Value="standard">
@@ -218,6 +237,7 @@
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
             </Setting>
+            <Setting Description="Adresse der Barrierefreiheitserklärung" Key="mt_a11y_statement_page" Type="text" Value=""/>
         </Section>
         <Section Name="Geschwindigkeit" Key="mt_performance">
             <Setting Description="Bilder erst beim Scrollen laden (Experte)" Key="mt_perf_lazy" Type="select" Value="Y">
