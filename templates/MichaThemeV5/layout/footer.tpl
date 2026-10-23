@@ -33,3 +33,12 @@
         </nav>
     {/if}
 {/block}
+
+{block name='layout-footer' append}
+    {assign var='mtNotificationPlacement' value=$Einstellungen.template.mt_notification.mt_notification_placement|default:'floating-bottom-right'}
+    {if $mtNotificationPlacement === 'footer'}
+        {include file='snippets/mt-notification-center.tpl' placement='footer'}
+    {elseif $mtNotificationPlacement === 'floating-top-left' || $mtNotificationPlacement === 'floating-top-right' || $mtNotificationPlacement === 'floating-bottom-left' || $mtNotificationPlacement === 'floating-bottom-right'}
+        {include file='snippets/mt-notification-center.tpl' placement=$mtNotificationPlacement}
+    {/if}
+{/block}

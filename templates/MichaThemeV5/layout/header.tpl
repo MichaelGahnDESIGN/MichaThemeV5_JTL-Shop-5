@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.css">
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-theme.js" defer></script>
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.js" defer></script>
+    <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.css">
+    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.js" defer></script>
 {/block}
 
 {block name='layout-header-header' prepend}
@@ -26,5 +28,8 @@
                 <span aria-hidden="true">◐</span> <span data-mt-mode-label>Wie das Gerät</span>
             </button>
         </div>
+    {/if}
+    {if $Einstellungen.template.mt_notification.mt_notification_placement === 'menu'}
+        {include file='snippets/mt-notification-center.tpl' placement='menu'}
     {/if}
 {/block}

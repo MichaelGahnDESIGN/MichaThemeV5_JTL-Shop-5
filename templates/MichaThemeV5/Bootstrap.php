@@ -61,6 +61,18 @@ class Bootstrap extends NovaBootstrap
             $license = [];
         }
         $smarty->assign('mtLicense', $license);
+        // Das Theme greift nur auf die ausdrücklich vom installierten Plugin freigegebenen Daten zu.
+        // Ohne Plugin bleibt die Glocke leer; es gibt keinen Fallback mit Kundendaten im Template.
+        $notifications = ['public' => [], 'personal' => []];
+        if (class_exists('Plugin\\MichaThemeV5NotificationCenter\\NotificationBridge')) {
+            try {
+                $customerId = (int) (Shop::getCustomer()->kKunde ?? 0);
+                $notifications = \Plugin\MichaThemeV5NotificationCenter\NotificationBridge::forTemplate($this->getDB(), $customerId);
+            } catch (\Throwable) {
+                $notifications = ['public' => [], 'personal' => []];
+            }
+        }
+        $smarty->assign('mtNotifications', $notifications);
     }
 
     /**
