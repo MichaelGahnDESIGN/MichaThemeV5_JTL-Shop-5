@@ -69,3 +69,7 @@ header a, #header-top-bar a, .nav-link { color: var(--mt-text); }
 .mt-section { margin-block: calc(var(--mt-gap) * 2); }
 
 .btn:focus-visible, .form-control:focus-visible, a:focus-visible { outline: var(--mt-focus-width) solid var(--mt-focus); outline-offset: 2px; box-shadow: none; }
+
+/* NOVA setzt Link-Farben mit hoeherer Spezifitaet (inline + clear.css), im Dark-Mode dunkelgrau auf dunkel */
+body header a:not(.dropdown-item):not(.btn), body #header-top-bar a:not(.dropdown-item):not(.btn), body #footer a:not(.btn) { color: var(--mt-text); }
+body header a.nav-link:hover:not(.btn), body header a.nav-link.active:not(.btn), body #footer a:not(.btn):hover { color: var(--mt-accent-text); }
