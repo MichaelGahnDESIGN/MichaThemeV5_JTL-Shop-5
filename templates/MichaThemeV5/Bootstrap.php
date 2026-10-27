@@ -61,18 +61,32 @@ class Bootstrap extends NovaBootstrap
             $license = [];
         }
         $smarty->assign('mtLicense', $license);
-        // Das Theme greift nur auf die ausdrücklich vom installierten Plugin freigegebenen Daten zu.
-        // Ohne Plugin bleibt die Glocke leer; es gibt keinen Fallback mit Kundendaten im Template.
+        // Glocke nur, wenn das Plugin aktiv ist UND seine Tabellen da sind (sonst wäre sie leer)
+        // Das Theme greift nur auf die ausdrücklich vom Plugin freigegebenen Daten zu, kein Fallback mit Kundendaten
         $notifications = ['public' => [], 'personal' => []];
-        if (class_exists('Plugin\\MichaThemeV5NotificationCenter\\NotificationBridge')) {
+        $available = false;
+        if (class_exists('Plugin\\MichaThemeV5NotificationCenter\\NotificationBridge', false)) {
             try {
-                $customerId = (int) (Shop::getCustomer()->kKunde ?? 0);
-                $notifications = \Plugin\MichaThemeV5NotificationCenter\NotificationBridge::forTemplate($this->getDB(), $customerId);
+                // JTL schluckt SQL-Fehler (nur Log), deshalb Tabellen vorher prüfen; Treffer kurz im Cache
+                $ready = $this->getCache()->get('mt_notification_tables') === true;
+                if (!$ready) {
+                    $ready = $this->getDB()->tableExists('xplugin_mgd_notifications')
+                        && $this->getDB()->tableExists('xplugin_mgd_notification_recipients');
+                    if ($ready) {
+                        $this->getCache()->set('mt_notification_tables', true, ['mt_notification'], 600);
+                    }
+                }
+                if ($ready) {
+                    $customerId = (int) (Shop::getCustomer()->kKunde ?? 0);
+                    $notifications = \Plugin\MichaThemeV5NotificationCenter\NotificationBridge::forTemplate($this->getDB(), $customerId);
+                    $available = true;
+                }
             } catch (\Throwable) {
                 $notifications = ['public' => [], 'personal' => []];
             }
         }
         $smarty->assign('mtNotifications', $notifications);
+        $smarty->assign('mtNotificationsAvailable', $available);
     }
 
     /**

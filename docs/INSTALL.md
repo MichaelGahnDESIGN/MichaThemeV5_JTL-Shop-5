@@ -18,7 +18,7 @@
 3. Shop-Cache leeren.
 4. Die gespeicherten Einstellungen bleiben erhalten. Neue Einstellungen starten mit ihrem Standardwert.
 
-Neu in 0.2.2: Die Glocke (Notification Center) erscheint standardmäßig unten rechts. Wer sie nicht möchte: Einstellungen, Benachrichtigungen, Platzierung auf „Nur per Template-Einbindung“ stellen.
+Glocke (Notification Center): Ab 0.2.3 ist sie standardmäßig aus und erscheint nur mit installiertem, aktivem Plugin und gewählter Platzierung (siehe `docs/NOTIFICATION-CENTER.md`). Wer von 0.2.2 aktualisiert, behält seine gespeicherte Platzierung. Ohne das Plugin bleibt die Glocke trotzdem unsichtbar.
 
 ## Widerruf
 

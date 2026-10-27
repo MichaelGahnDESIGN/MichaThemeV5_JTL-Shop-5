@@ -2,6 +2,20 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.2.3
+
+Geändert und behoben:
+
+- Notification Center: Die Glocke ist jetzt standardmäßig aus. Bisher erschien sie unten rechts, auch wenn das Plugin gar nicht installiert war, und blieb dann leer. Jetzt erscheint sie nur, wenn das Plugin `MichaThemeV5NotificationCenter` aktiv ist und eine Platzierung gewählt wurde. Ohne Plugin werden auch das dazugehörige CSS und JavaScript nicht mehr geladen. Wer von 0.2.2 aktualisiert, behält seine gespeicherte Platzierung; ohne Plugin ist die Glocke trotzdem weg.
+- Die Auswahl „Nur per Template-Einbindung“ heißt jetzt „Aus (keine Glocke)“.
+- Dokumentation zur Glocke ehrlicher: Das Plugin muss separat installiert werden, die Datei `schema.sql` muss einmal von Hand ausgeführt werden, und es gibt noch keine Oberfläche zum Schreiben von Meldungen.
+
+Neu:
+
+- Datei `LICENSE` und Abschnitt „Lizenz“ in der README: Alle Rechte vorbehalten, Schriften unter der SIL Open Font License, Fremdcode behält seine Lizenz. Keine Rechtsberatung; die Lizenzfrage wird noch rechtlich geprüft.
+
+Geprüft: Aufbau und Syntax der Dateien (PHP, Smarty, XML, JSON), Free-Prüfung (keine Pro-Dateien) und der Build aus dem Generator (er ändert in diesem Repo nur die Versionsnummer). Das Plugin wurde weiterhin nicht in einem Shop installiert.
+
 ## 0.2.2
 
 Neu seit 0.2.1:

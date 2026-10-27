@@ -8,7 +8,10 @@
     {/if}
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-theme.js" defer></script>
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.js" defer></script>
-    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.js" defer></script>
+    {* Glocke: Skript nur mit aktivem Plugin und gewählter Platzierung *}
+    {if $mtNotificationsAvailable === true && ($Einstellungen.template.mt_notification.mt_notification_placement|default:'none') !== 'none'}
+        <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.js" defer></script>
+    {/if}
 {/block}
 
 {* CSS erst nach NOVA, sonst gewinnt dessen Body-Farbe (gleiche Spezifitaet, spaeter geladen) *}
@@ -18,7 +21,9 @@
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-base.css">
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.css">
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.css">
-    <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.css">
+    {if $mtNotificationsAvailable === true && ($Einstellungen.template.mt_notification.mt_notification_placement|default:'none') !== 'none'}
+        <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.css">
+    {/if}
 {/block}
 
 {block name='layout-header-header' prepend}
@@ -33,7 +38,7 @@
             </button>
         </div>
     {/if}
-    {if $Einstellungen.template.mt_notification.mt_notification_placement === 'menu'}
+    {if $mtNotificationsAvailable === true && $Einstellungen.template.mt_notification.mt_notification_placement === 'menu'}
         {include file='snippets/mt-notification-center.tpl' placement='menu'}
     {/if}
 {/block}

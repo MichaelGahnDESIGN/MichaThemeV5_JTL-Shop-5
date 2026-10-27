@@ -757,8 +757,8 @@
             "type": "select",
             "mode": "simple",
             "label": "Platzierung des Notification Center",
-            "default": "floating-bottom-right",
-            "help": "Die Glocke kann schwebend, im Hauptmenü oder im Footer erscheinen.",
+            "default": "none",
+            "help": "Standard ist aus. Die Glocke erscheint nur, wenn das Plugin MichaThemeV5NotificationCenter installiert und aktiv ist und hier eine Platzierung gewählt ist.",
             "choices": {
                 "floating-top-left": "Schwebend oben links",
                 "floating-top-right": "Schwebend oben rechts",
@@ -766,7 +766,7 @@
                 "floating-bottom-right": "Schwebend unten rechts",
                 "menu": "Im Hauptmenü",
                 "footer": "Im Footer",
-                "none": "Nur per Template-Einbindung"
+                "none": "Aus (keine Glocke)"
             }
         }
     ]
