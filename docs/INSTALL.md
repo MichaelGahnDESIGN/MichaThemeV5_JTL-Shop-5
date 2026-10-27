@@ -1,13 +1,32 @@
-# Installation (Entwicklungsstand)
+# Installation (Pre-Alpha)
 
-> Pre-Alpha. Das Template wurde statisch geprüft (XML, CSS) und noch nicht in einem laufenden JTL-Shop 5 getestet. Smarty-Blocknamen (`layout-header-head-meta`, `layout-header-header`, `layout-footer`) und Einstellungstypen müssen im Shop verifiziert werden.
+> **Wichtig:** Das Theme ist eine frühe Testversion (Pre-Alpha). Es wurde in einem Demo-Shop mit JTL-Shop 5.8.2 getestet. In anderen Shops und Versionen ist es nicht geprüft. Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop. Vorher eine Sicherung machen.
 
-1. Ordner `templates/MichaThemeV5` nach `<shop>/templates/` kopieren. Voraussetzung: das Template NOVA ist vorhanden (MichaThemeV5 erbt davon).
-2. Im Admin-Bereich unter Darstellung, Template, MichaThemeV5 aktivieren.
-3. Einstellungen sind nach Bereichen gegliedert. Mit "(Experte)" markierte Optionen sind für Fortgeschrittene.
-4. Shop-Cache leeren (Wartung, Cache).
+## Neu installieren
 
-`template.xml`, `snippets/mt-config.tpl` und `mt/*` (außer `mt-jtl.css`) werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt. Nicht von Hand ändern.
+1. Auf GitHub unter „Releases“ die Datei `michatheme-v5-jtl5-<Version>.zip` herunterladen. Daneben liegt eine Datei mit der Endung `.sha256`. Damit lässt sich prüfen, ob die ZIP-Datei unverändert ist.
+2. ZIP-Datei entpacken.
+3. Den Ordner `templates/MichaThemeV5` in den Ordner `<Ihr Shop>/templates/` kopieren. Das Template NOVA muss im Shop vorhanden sein (MichaThemeV5 erbt davon).
+4. Im Admin-Bereich: Darstellung, Template, MichaThemeV5 aktivieren.
+5. Shop-Cache leeren (Wartung, Cache).
+6. Einstellungen sind nach Bereichen gegliedert. Mit „(Experte)“ markierte Optionen sind für Fortgeschrittene.
+
+## Von einer älteren Version aktualisieren
+
+1. Sicherung des Ordners `templates/MichaThemeV5` machen.
+2. Den Ordner durch den neuen ersetzen.
+3. Shop-Cache leeren.
+4. Die gespeicherten Einstellungen bleiben erhalten. Neue Einstellungen starten mit ihrem Standardwert.
+
+Neu in 0.2.2: Die Glocke (Notification Center) erscheint standardmäßig unten rechts. Wer sie nicht möchte: Einstellungen, Benachrichtigungen, Platzierung auf „Nur per Template-Einbindung“ stellen.
+
+## Widerruf
+
+JTL-Shop hat ab Version 5.7 ein eigenes Widerrufsformular. Das Theme zeigt deshalb standardmäßig keinen zweiten Widerrufs-Link. Das Feld „Adresse der Widerrufs-Seite“ bleibt leer. Nur wer eine eigene Widerrufsseite hat, trägt dort ihren Pfad ein, zum Beispiel `/widerruf`. Dann erscheint der Link „Vertrag widerrufen“ im Footer.
+
+## Dateien aus dem Generator
+
+`template.xml`, `snippets/mt-config.tpl` und `mt/*` (außer `mt-jtl.css`, `mt-legal.*` und `mt-notification-center.*`) werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt. Nicht von Hand ändern.
 
 ## Erweiterungen
 

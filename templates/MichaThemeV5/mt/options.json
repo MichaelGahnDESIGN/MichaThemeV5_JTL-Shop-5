@@ -74,24 +74,6 @@
     ],
     "options": [
         {
-            "id": "notification_placement",
-            "group": "notification",
-            "type": "select",
-            "mode": "simple",
-            "label": "Platzierung des Notification Center",
-            "default": "floating-bottom-right",
-            "help": "Die Glocke kann schwebend, im Hauptmenü oder im Footer erscheinen.",
-            "choices": {
-                "floating-top-left": "Schwebend oben links",
-                "floating-top-right": "Schwebend oben rechts",
-                "floating-bottom-left": "Schwebend unten links",
-                "floating-bottom-right": "Schwebend unten rechts",
-                "menu": "Im Hauptmenü",
-                "footer": "Im Footer",
-                "none": "Nur per Template-Einbindung"
-            }
-        },
-        {
             "id": "color_mode",
             "group": "colors",
             "type": "select",
@@ -768,6 +750,24 @@
             "default": "",
             "help": "Pfad oder Adresse, z. B. /barrierefreiheit. Wird im Footer verlinkt. Ab JTL-Shop 5.7 gibt es eine Standardseite „Barrierefreiheit“.",
             "input": "url"
+        },
+        {
+            "id": "notification_placement",
+            "group": "notification",
+            "type": "select",
+            "mode": "simple",
+            "label": "Platzierung des Notification Center",
+            "default": "floating-bottom-right",
+            "help": "Die Glocke kann schwebend, im Hauptmenü oder im Footer erscheinen.",
+            "choices": {
+                "floating-top-left": "Schwebend oben links",
+                "floating-top-right": "Schwebend oben rechts",
+                "floating-bottom-left": "Schwebend unten links",
+                "floating-bottom-right": "Schwebend unten rechts",
+                "menu": "Im Hauptmenü",
+                "footer": "Im Footer",
+                "none": "Nur per Template-Einbindung"
+            }
         }
     ]
 }
