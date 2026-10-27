@@ -1,0 +1,8 @@
+Copyright (c) 2026 Michael Gahn DESIGN. Alle Rechte vorbehalten.
+
+MichaThemeV5 für JTL-Shop 5 ist proprietäre Software (wie die Schwester-Themes für WooCommerce und Shopware).
+
+Ausnahmen:
+
+- Die enthaltenen Schriften (Ordner templates/MichaThemeV5/mt/fonts) behalten ihre eigene Lizenz, die SIL Open Font License 1.1. Die Lizenztexte liegen bei den Schriften (Dateien LICENSE-*.txt).
+- Fremdcode und andere Fremdbestandteile behalten ihre eigenen Lizenzen. Dazu gehören JTL-Shop und das Eltern-Template NOVA, die nicht Teil dieses Repos sind.
