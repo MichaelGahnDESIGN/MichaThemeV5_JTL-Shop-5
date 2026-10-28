@@ -2,6 +2,25 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.3.0
+
+Neues Design (siehe `docs/INSTALL.md`, Abschnitt „Neues Aussehen“):
+
+- Farben: Hell ist Weiß und Hellgrau, Dunkel ist Anthrazit. Standard-Akzent ist Rot, die anderen Akzente und die eigene Akzentfarbe bleiben wählbar. Wer schon eine Akzentfarbe gespeichert hat, behält sie.
+- Kopfzeile: Logo links, Suche mittig (höchstens 40 rem breit), Konto, Warenkorb und Hell/Dunkel-Schalter rechts, Menü in zweiter Zeile (`Menü in eigener Zeile` ist jetzt standardmäßig an). Der Schalter sitzt bei den Icons, nur im Bestellvorgang bleibt die eigene Zeile.
+- Buttons: `btn-primary` in Akzentfarbe, alle anderen (`btn-secondary`, `btn-outline-secondary`, `btn-outline-primary`, `btn-light`, `btn-info`) neutral umrandet. Gefahr-, Erfolg- und Warn-Buttons getönt.
+- Siegel: Sale (`ribbon-2`) blassrot mit Text, Neu (`ribbon-3`) dunkel, Ausverkauft (`ribbon-7`) grau umrandet. Nie weiße Schrift auf Rot. Vorher griffen die Siegel-Regeln des Themes nicht (falsche Klassennamen).
+- Produktkarten: Rahmen, kein Hochspringen mehr, Hover hell mit Schatten, dunkel mit hellerer Fläche. Preise fett mit gleich breiten Ziffern, Streichpreis grau und durchgestrichen.
+- Formulare, Hinweise (Fehler mit dem Wort „Fehler:“), Breadcrumb, Seitenzahlen, Tabs, Tabellen, Dropdowns, Footer (graue Fläche), Cookie-Banner von JTL: alles über die Theme-Farben, hell und dunkel.
+- Fokus: neutraler Ring in Textfarbe statt gelb.
+- Glocke (Notification Center): feste Farben durch Theme-Farben ersetzt.
+- Schriftgewichte: nur 400 und 700.
+- Vorschaubild `preview.png` neu (fehlte, `template.xml` verwies darauf).
+- Hell/Dunkel-Schalter speichert den Modus erst beim Klick (nicht schon beim Laden). Eigene Akzentfarbe: bessere Schriftfarbe auf dem Button und abgeleitete Hover-Farbe.
+- Weniger erfundene Texte: Ersatz-Lieferzeit und Text der Ankündigungsleiste sind standardmäßig leer.
+
+Geprüft: Vorschau mit dem echten NOVA-Stylesheet 1.8.0 und dem Theme-CSS (hell und dunkel, 1280 und 390 Pixel, Akzent Rot, Indigo und eine eigene Farbe), Kontraste der Farben rechnerisch (Test im Pro-Repo), alle Templates im Demo-Shop mit der echten Smarty-Engine übersetzt (JTL-Shop 5.8.2), Free-Prüfung und Build aus dem Generator. Nicht geprüft: die fertigen Shop-Seiten live (Demo-Shop im Wartungsmodus).
+
 ## 0.2.3
 
 Geändert und behoben:

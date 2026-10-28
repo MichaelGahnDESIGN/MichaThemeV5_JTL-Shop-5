@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.2.3</Version>
+    <Version>0.3.0</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -14,13 +14,20 @@
                 <Option Value="clear">clear</Option>
             </Setting>
         </Section>
+        <Section Name="Header" Key="header">
+            <Setting Description="Menü in eigener Zeile anzeigen" Key="menu_single_row" Type="select" Value="Y" override="true">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
         <Section Name="Farben" Key="mt_colors">
             <Setting Description="Farbmodus" Key="mt_color_mode" Type="select" Value="system">
                 <Option Value="system">Wie das Gerät</Option>
                 <Option Value="light">Hell</Option>
                 <Option Value="dark">Dunkel</Option>
             </Setting>
-            <Setting Description="Akzentfarbe" Key="mt_accent" Type="select" Value="indigo">
+            <Setting Description="Akzentfarbe" Key="mt_accent" Type="select" Value="red">
+                <Option Value="red">Rot</Option>
                 <Option Value="teal">Petrol</Option>
                 <Option Value="indigo">Indigo</Option>
                 <Option Value="amber">Bernstein</Option>
@@ -109,7 +116,7 @@
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
             </Setting>
-            <Setting Description="Text der Ankündigungsleiste" Key="mt_announcement_text" Type="text" Value="Kostenloser Versand ab 50 €"/>
+            <Setting Description="Text der Ankündigungsleiste" Key="mt_announcement_text" Type="text" Value=""/>
         </Section>
         <Section Name="Footer" Key="mt_footer">
             <Setting Description="Footer-Layout" Key="mt_footer_layout" Type="select" Value="columns">
@@ -212,7 +219,7 @@
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
             </Setting>
-            <Setting Description="Lieferzeit (Ersatzanzeige)" Key="mt_legal_shipping_time" Type="text" Value="Lieferzeit: 2–4 Werktage"/>
+            <Setting Description="Lieferzeit (Ersatzanzeige)" Key="mt_legal_shipping_time" Type="text" Value=""/>
             <Setting Description="Niedrigster Preis der letzten 30 Tage bei Streichpreisen" Key="mt_legal_lowest_price" Type="select" Value="attribute">
                 <Option Value="attribute">Aus Artikelattribut anzeigen</Option>
                 <Option Value="off">Nicht anzeigen</Option>

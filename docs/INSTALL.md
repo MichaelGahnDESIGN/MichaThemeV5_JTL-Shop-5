@@ -20,6 +20,23 @@
 
 Glocke (Notification Center): Ab 0.2.3 ist sie standardmäßig aus und erscheint nur mit installiertem, aktivem Plugin und gewählter Platzierung (siehe `docs/NOTIFICATION-CENTER.md`). Wer von 0.2.2 aktualisiert, behält seine gespeicherte Platzierung. Ohne das Plugin bleibt die Glocke trotzdem unsichtbar.
 
+## Neues Aussehen (ab 0.3.0)
+
+Das Theme hat ein neues Design. So ist es gemeint:
+
+- Hell ist ein ruhiges Weiß mit Hellgrau. Dunkel ist ein weiches Anthrazit (kein Schwarz).
+- Die Standard-Akzentfarbe ist Rot. Unter Einstellungen, Farben, Akzentfarbe kann man weiter eine andere Farbe oder eine eigene Farbe wählen.
+- Rot ist nur für Dinge zum Anklicken da, vor allem für den einen Haupt-Button einer Seite („In den Warenkorb“, „Zur Kasse“). Alle anderen Buttons sind grau umrandet.
+- Sale-Siegel sind blassrot mit Text (zum Beispiel „Sale −25 %“), nicht mehr knallrot. „Neu“ ist dunkel, „Ausverkauft“ ist grau umrandet.
+- Kopfzeile: Logo links, Suche in der Mitte, Konto, Warenkorb und Hell/Dunkel-Schalter rechts, das Menü steht in einer zweiten Zeile. Dafür setzt das Theme „Menü in eigener Zeile anzeigen“ standardmäßig auf „Ja“. Wer in den Template-Einstellungen unter Header schon einmal gespeichert hat, behält seinen Wert und kann ihn dort auf „Ja“ stellen.
+- Produktkarten haben einen feinen Rahmen und springen beim Darüberfahren nicht mehr hoch.
+
+Wichtig beim Aktualisieren: Wer die Akzentfarbe schon gespeichert hat (zum Beispiel „Indigo“), behält sie. Nur neue Installationen starten mit Rot.
+
+Weniger erfundene Texte: Die Ersatz-Lieferzeit und der Text der Ankündigungsleiste sind jetzt leer. Bitte nur eintragen, was im Shop wirklich gilt.
+
+Ehrlich gesagt: Das neue Aussehen wurde mit einer Vorschau aus dem echten NOVA-Stylesheet und dem Theme-Stylesheet geprüft (hell und dunkel, Computer und Handy). Alle Templates lassen sich in JTL-Shop 5.8.2 übersetzen. Die fertigen Shop-Seiten wurden nicht live angesehen, weil der Demo-Shop im Wartungsmodus ist.
+
 ## Widerruf
 
 JTL-Shop hat ab Version 5.7 ein eigenes Widerrufsformular. Das Theme zeigt deshalb standardmäßig keinen zweiten Widerrufs-Link. Das Feld „Adresse der Widerrufs-Seite“ bleibt leer. Nur wer eine eigene Widerrufsseite hat, trägt dort ihren Pfad ein, zum Beispiel `/widerruf`. Dann erscheint der Link „Vertrag widerrufen“ im Footer.

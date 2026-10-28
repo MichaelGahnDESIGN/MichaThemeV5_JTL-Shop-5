@@ -31,6 +31,7 @@
     {if $Einstellungen.template.mt_header.mt_announcement === 'Y' && $Einstellungen.template.mt_header.mt_announcement_text !== ''}
         <div class="mt-announcement" role="note">{$Einstellungen.template.mt_header.mt_announcement_text|escape:'html'}</div>
     {/if}
+    {* Schalter sitzt im Header bei den Icons, nur im Checkout (ohne Icons) bleibt die eigene Zeile *}
     {if $Einstellungen.template.mt_colors.mt_mode_toggle === 'Y'}
         <div class="mt-mode-wrap">
             <button type="button" class="mt-mode-toggle" data-mt-mode-toggle aria-label="Farbmodus wechseln">
