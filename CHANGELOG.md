@@ -2,6 +2,16 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.3.1
+
+Geändert (kleine Korrektur):
+
+- Der Text der Ankündigungsleiste ist jetzt auch in `mt/options.json` standardmäßig leer (keine erfundene Versandgrenze).
+- Link-Hover nutzt die Textfarbe der Akzentfarbe (aus dem gemeinsamen Kern), im Theme-CSS bleibt der Hover gleich.
+- Prozent-Siegel und Countdown sind in den Kern-Einstellungen standardmäßig aus (im kostenlosen JTL-Theme nicht enthalten).
+
+Geprüft: Build aus dem Generator, Free-Prüfung, Versionen, Tests im Pro-Repo.
+
 ## 0.3.0
 
 Neues Design (siehe `docs/INSTALL.md`, Abschnitt „Neues Aussehen“):
