@@ -28,7 +28,7 @@ Das Theme hat ein neues Design. So ist es gemeint:
 - Die Standard-Akzentfarbe ist Rot. Unter Einstellungen, Farben, Akzentfarbe kann man weiter eine andere Farbe oder eine eigene Farbe wählen.
 - Rot ist nur für Dinge zum Anklicken da, vor allem für den einen Haupt-Button einer Seite („In den Warenkorb“, „Zur Kasse“). Alle anderen Buttons sind grau umrandet.
 - Sale-Siegel sind blassrot mit Text (zum Beispiel „Sale −25 %“), nicht mehr knallrot. „Neu“ ist dunkel, „Ausverkauft“ ist grau umrandet.
-- Kopfzeile: Logo links, Suche in der Mitte, Konto, Warenkorb und Hell/Dunkel-Schalter rechts, das Menü steht in einer zweiten Zeile. Dafür setzt das Theme „Menü in eigener Zeile anzeigen“ standardmäßig auf „Ja“. Wer in den Template-Einstellungen unter Header schon einmal gespeichert hat, behält seinen Wert und kann ihn dort auf „Ja“ stellen.
+- Kopfzeile: Logo links, Suche in der Mitte, Werkzeuge rechts (ab 0.4.0 als Icon-Leiste, siehe unten), das Menü steht in einer zweiten Zeile. Dafür setzt das Theme „Menü in eigener Zeile anzeigen“ standardmäßig auf „Ja“. Wer in den Template-Einstellungen unter Header schon einmal gespeichert hat, behält seinen Wert und kann ihn dort auf „Ja“ stellen.
 - Produktkarten haben einen feinen Rahmen und springen beim Darüberfahren nicht mehr hoch.
 
 Wichtig beim Aktualisieren: Wer die Akzentfarbe schon gespeichert hat (zum Beispiel „Indigo“), behält sie. Nur neue Installationen starten mit Rot.
@@ -37,13 +37,32 @@ Weniger erfundene Texte: Die Ersatz-Lieferzeit und der Text der Ankündigungslei
 
 Ehrlich gesagt: Das neue Aussehen wurde mit einer Vorschau aus dem echten NOVA-Stylesheet und dem Theme-Stylesheet geprüft (hell und dunkel, Computer und Handy). Alle Templates lassen sich in JTL-Shop 5.8.2 übersetzen. Die fertigen Shop-Seiten wurden nicht live angesehen, weil der Demo-Shop im Wartungsmodus ist.
 
+## Icon-Leiste in der Kopfzeile (ab 0.4.0)
+
+Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
+
+So stellen Sie es ein (Admin-Bereich: Darstellung, Template, MichaThemeV5, Einstellungen):
+
+1. **Ort des Hell/Dunkel-Schalters** (Bereich Farben): Header (Standard, nur ein Symbol), Footer (eine Zeile „Farbmodus“ ganz unten) oder Benutzerkonto (Eintrag im Konto-Menü und in der Konto-Übersicht, nur für angemeldete Kunden).
+2. **Favoriten (Herz-Liste) anzeigen** (Bereich Header): Standard an. Aus = es gibt keine Herzen und kein Herz-Symbol.
+3. **Platzierung des Notification Center** (Bereich Benachrichtigungen): „In der Icon-Leiste (Header)“ setzt die Glocke in die Leiste. Standard bleibt aus (siehe `docs/NOTIFICATION-CENTER.md`).
+
+Was Besucher sehen:
+
+- Die **Merkliste** ist die JTL-Wunschliste. Das Lesezeichen erscheint nur, wenn etwas auf der Liste steht. NOVA zeigt die Wunschliste nur angemeldeten Kunden und nur, wenn sie in JTL eingeschaltet ist.
+- **Favoriten** sind eine eigene Liste im Browser. Sie hat nichts mit der JTL-Wunschliste zu tun und wird nicht an den Shop gesendet. Das Herz-Symbol im Header erscheint, sobald es einen Favoriten gibt.
+- Die **Vergleichsliste** bleibt wie in NOVA.
+- Die **Glocke** ist unsichtbar, solange es keinen Eintrag gibt.
+
+Einschränkung: Wer den Schalter im Benutzerkonto platziert, nimmt ihn Besuchern ohne Konto weg (sie bekommen dann die Einstellung ihres Geräts). Wer keine Herzen auf den Produktkarten möchte, schaltet die Favoriten aus.
+
 ## Widerruf
 
 JTL-Shop hat ab Version 5.7 ein eigenes Widerrufsformular. Das Theme zeigt deshalb standardmäßig keinen zweiten Widerrufs-Link. Das Feld „Adresse der Widerrufs-Seite“ bleibt leer. Nur wer eine eigene Widerrufsseite hat, trägt dort ihren Pfad ein, zum Beispiel `/widerruf`. Dann erscheint der Link „Vertrag widerrufen“ im Footer.
 
 ## Dateien aus dem Generator
 
-`template.xml`, `snippets/mt-config.tpl` und `mt/*` (außer `mt-jtl.css`, `mt-legal.*` und `mt-notification-center.*`) werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt. Nicht von Hand ändern.
+`template.xml`, `snippets/mt-config.tpl` und `mt/*` (außer `mt-jtl.css`, `mt-jtl.js`, `mt-legal.*` und `mt-notification-center.*`) werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt. Nicht von Hand ändern.
 
 ## Erweiterungen
 

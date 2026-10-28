@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.3.1</Version>
+    <Version>0.4.0</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -35,9 +35,14 @@
                 <Option Value="graphite">Graphit</Option>
             </Setting>
             <Setting Description="Eigene Akzentfarbe (Experte)" Key="mt_accent_custom" Type="text" Value=""/>
-            <Setting Description="Umschalter Hell/Dunkel im Header anzeigen" Key="mt_mode_toggle" Type="select" Value="Y">
+            <Setting Description="Umschalter Hell/Dunkel anzeigen" Key="mt_mode_toggle" Type="select" Value="Y">
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Ort des Hell/Dunkel-Schalters" Key="mt_mode_toggle_place" Type="select" Value="header">
+                <Option Value="header">Header</Option>
+                <Option Value="footer">Footer</Option>
+                <Option Value="account">Benutzerkonto-Einstellungen</Option>
             </Setting>
         </Section>
         <Section Name="Schriften" Key="mt_typography">
@@ -117,6 +122,10 @@
                 <Option Value="N">Nein</Option>
             </Setting>
             <Setting Description="Text der Ankündigungsleiste" Key="mt_announcement_text" Type="text" Value=""/>
+            <Setting Description="Favoriten (Herz-Liste) anzeigen" Key="mt_favorites" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
         </Section>
         <Section Name="Footer" Key="mt_footer">
             <Setting Description="Footer-Layout" Key="mt_footer_layout" Type="select" Value="columns">
@@ -138,6 +147,7 @@
         </Section>
         <Section Name="Benachrichtigungen" Key="mt_notification">
             <Setting Description="Platzierung des Notification Center" Key="mt_notification_placement" Type="select" Value="none">
+                <Option Value="header">In der Icon-Leiste (Header)</Option>
                 <Option Value="floating-top-left">Schwebend oben links</Option>
                 <Option Value="floating-top-right">Schwebend oben rechts</Option>
                 <Option Value="floating-bottom-left">Schwebend unten links</Option>

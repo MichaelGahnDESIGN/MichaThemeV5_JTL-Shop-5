@@ -2,6 +2,21 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.4.0
+
+Neu: Icon-Leiste in der Kopfzeile. Von links nach rechts: Hell/Dunkel-Schalter, Benachrichtigungen (Glocke), Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
+
+- Hell/Dunkel-Schalter im Header ist jetzt nur noch ein Symbol (44 x 44 Pixel, ohne Text). Der aktuelle Zustand steht im Tooltip und für Screenreader im Label (zum Beispiel „Farbmodus: Hell. Zum Wechseln klicken.“).
+- Neue Einstellung „Ort des Hell/Dunkel-Schalters“ (Farben): Header (Standard), Footer oder Benutzerkonto. Der Schalter erscheint nur an dem gewählten Ort. Footer: eine Zeile „Farbmodus“ im Fußbereich. Benutzerkonto: ein Eintrag im Konto-Menü der Kopfzeile und in der Konto-Übersicht. Er ist dort nur für angemeldete Kunden sichtbar.
+- Merkliste: Das ist die normale JTL-Wunschliste. Das Symbol (Lesezeichen, nicht Herz) erscheint nur, wenn mindestens ein Artikel auf der Liste steht. Die Zahl daneben ist grau, nicht rot. Das Symbol gibt es nur, wenn NOVA die Wunschliste selbst zeigt (angemeldeter Kunde, Wunschliste in JTL eingeschaltet).
+- Favoriten (neu, Einstellung „Favoriten (Herz-Liste) anzeigen“, Standard an): Besucher können auf Produktkarten (Liste, Slider, Suche) und auf der Artikelseite ein Herz setzen. Die Liste liegt nur im Browser (localStorage), nichts geht an den Shop. Das Herz-Symbol im Header erscheint erst, wenn es mindestens einen Favoriten gibt.
+- Glocke: neue Platzierung „In der Icon-Leiste (Header)“. Die Glocke erscheint nur mit aktivem Plugin und mindestens einem echten Eintrag, sonst ist sie unsichtbar (vorher stand dort „Keine neuen Benachrichtigungen“). Standard bleibt aus. Zähler grau statt rot, Panel schließt mit Escape.
+- Die Vergleichsliste bleibt wie in NOVA. Sie ist weder Merkliste noch Favoriten.
+- Handy (390 Pixel): Die Symbole bleiben 44 Pixel groß. Wenn die Leiste nicht neben das Logo passt, rutscht sie in eine zweite Zeile. Es wird nichts abgeschnitten.
+- Update von 0.3.x: Die beiden neuen Einstellungen bekommen beim ersten Seitenaufruf automatisch ihren Standardwert. Wer vorher schon Einstellungen gespeichert hat, behält alle bisherigen Werte.
+
+Ehrlich gesagt: Die Templates wurden im Demo-Shop (JTL 5.8.2) mit der echten Smarty-Engine übersetzt und die Kopfzeile mit dem echten Template-Code erzeugt; die Bilder dazu sind eine Vorschau mit dem NOVA-Stylesheet. Der Demo-Shop steht im Wartungsmodus, die fertigen Shop-Seiten wurden deshalb nicht im Browser aufgerufen.
+
 ## 0.3.1
 
 Geändert (kleine Korrektur):

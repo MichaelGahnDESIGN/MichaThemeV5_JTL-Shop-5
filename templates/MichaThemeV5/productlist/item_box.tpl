@@ -1,7 +1,10 @@
 {extends file="{$parentTemplateDir}productlist/item_box.tpl"}
 
-{* Ausverkauft Badge in der Liste *}
+{* Ausverkauft Badge + Herz in der Liste (Listing, Slider, Suche) *}
 {block name='productlist-item-box-image' append}
+    {if ($Einstellungen.template.mt_header.mt_favorites|default:'Y') === 'Y'}
+        {include file='snippets/mt-fav-toggle.tpl' favId=$Artikel->kArtikel favTitle=$Artikel->cName favUrl=$Artikel->cURLFull favCard=true}
+    {/if}
     {if $Einstellungen.template.mt_listing.mt_soldout_display === 'mark' && $Artikel->inWarenkorbLegbar != 1 && $Artikel->nErscheinendesProdukt != 1 && $Artikel->cLagerBeachten === 'Y' && $Artikel->fLagerbestand <= 0}
         <span class="mt-soldout">Ausverkauft</span>
     {/if}
