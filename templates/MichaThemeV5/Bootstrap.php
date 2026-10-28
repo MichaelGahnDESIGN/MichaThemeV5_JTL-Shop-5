@@ -30,6 +30,7 @@ class Bootstrap extends NovaBootstrap
         if ($smarty === null) {
             return;
         }
+        $this->ensureNewDefaults();
         $license = [];
         try {
             $client = new \MichaThemeV5\Client\LicenseClient(
@@ -87,6 +88,39 @@ class Bootstrap extends NovaBootstrap
         }
         $smarty->assign('mtNotifications', $notifications);
         $smarty->assign('mtNotificationsAvailable', $available);
+    }
+
+    /**
+     * Neue Optionen aus 0.4.0 (Ort des Hell/Dunkel-Schalters, Favoriten) haben nach einem Update noch keinen Wert in
+     * der Datenbank, JTL legt Standardwerte nur beim Aktivieren oder Speichern an. Fehlt ein Wert, kommt der
+     * Standard aus template.xml hinein (einmalig, danach nur noch ein Cache-Treffer). Ohne das wären Herz und
+     * Favoriten-Icon nach dem Update weg, bis jemand die Einstellungen speichert.
+     */
+    private function ensureNewDefaults(): void
+    {
+        try {
+            if ($this->getCache()->get('mt_defaults_040') === true) {
+                return;
+            }
+            $config   = new \JTL\Template\Config('MichaThemeV5', $this->getDB());
+            $saved    = $config->loadConfigFromDB();
+            $defaults = ['mt_colors' => ['mt_mode_toggle_place' => 'header'], 'mt_header' => ['mt_favorites' => 'Y']];
+            $changed  = false;
+            foreach ($defaults as $section => $pairs) {
+                foreach ($pairs as $name => $value) {
+                    if (!isset($saved[$section][$name])) {
+                        $config->updateConfigInDB($section, $name, $value);
+                        $changed = true;
+                    }
+                }
+            }
+            if ($changed) {
+                $this->getCache()->flushTags([\CACHING_GROUP_TEMPLATE, \CACHING_GROUP_OPTION]);
+            }
+            $this->getCache()->set('mt_defaults_040', true, ['mt_notification'], 3600);
+        } catch (\Throwable) {
+            // kein Abbruch, die Templates haben eigene Rückfallwerte (|default)
+        }
     }
 
     /**

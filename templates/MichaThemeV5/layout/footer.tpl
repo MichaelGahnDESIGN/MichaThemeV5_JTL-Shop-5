@@ -32,6 +32,12 @@
             </ul>
         </nav>
     {/if}
+    {* Zeile Farbmodus, nur wenn Ort = Footer *}
+    {if $Einstellungen.template.mt_colors.mt_mode_toggle === 'Y' && $Einstellungen.template.mt_colors.mt_mode_toggle_place === 'footer'}
+        <div class="container mt-mode-row">
+            {include file='snippets/mt-mode-toggle.tpl' place='footer'}
+        </div>
+    {/if}
 {/block}
 
 {block name='layout-footer' append}

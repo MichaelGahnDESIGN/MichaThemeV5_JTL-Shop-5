@@ -8,6 +8,7 @@
     {/if}
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-theme.js" defer></script>
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.js" defer></script>
+    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.js" defer></script>
     {* Glocke: Skript nur mit aktivem Plugin und gewählter Platzierung *}
     {if $mtNotificationsAvailable === true && ($Einstellungen.template.mt_notification.mt_notification_placement|default:'none') !== 'none'}
         <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.js" defer></script>
@@ -31,12 +32,10 @@
     {if $Einstellungen.template.mt_header.mt_announcement === 'Y' && $Einstellungen.template.mt_header.mt_announcement_text !== ''}
         <div class="mt-announcement" role="note">{$Einstellungen.template.mt_header.mt_announcement_text|escape:'html'}</div>
     {/if}
-    {* Schalter sitzt im Header bei den Icons, nur im Checkout (ohne Icons) bleibt die eigene Zeile *}
-    {if $Einstellungen.template.mt_colors.mt_mode_toggle === 'Y'}
+    {* Schalter sitzt bei den Icons (header_nav_icons.tpl), nur im Checkout (ohne Icons) bleibt die eigene Zeile *}
+    {if $Einstellungen.template.mt_colors.mt_mode_toggle === 'Y' && ($Einstellungen.template.mt_colors.mt_mode_toggle_place|default:'header') === 'header'}
         <div class="mt-mode-wrap">
-            <button type="button" class="mt-mode-toggle" data-mt-mode-toggle aria-label="Farbmodus wechseln">
-                <span aria-hidden="true">◐</span> <span data-mt-mode-label>Wie das Gerät</span>
-            </button>
+            {include file='snippets/mt-mode-toggle.tpl' place='header'}
         </div>
     {/if}
     {if $mtNotificationsAvailable === true && $Einstellungen.template.mt_notification.mt_notification_placement === 'menu'}

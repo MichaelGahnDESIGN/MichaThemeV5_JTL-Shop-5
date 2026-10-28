@@ -2,6 +2,7 @@
 {assign var='mtAttrs' value=[]}{assign var='mtVars' value=[]}
 {capture assign='mtV'}{$Einstellungen.template.mt_colors.mt_color_mode}{/capture}{append var='mtAttrs' value=$mtV index='data-theme'}
 {capture assign='mtV'}{$Einstellungen.template.mt_colors.mt_accent}{/capture}{append var='mtAttrs' value=$mtV index='data-accent'}
+{capture assign='mtV'}{$Einstellungen.template.mt_colors.mt_mode_toggle_place}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-mode-place'}
 {capture assign='mtV'}{$Einstellungen.template.mt_typography.mt_font_body}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-font-body'}
 {capture assign='mtV'}{$Einstellungen.template.mt_typography.mt_font_heading}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-font-heading'}
 {capture assign='mtV'}{$Einstellungen.template.mt_typography.mt_font_size}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-size'}
@@ -13,6 +14,7 @@
 {capture assign='mtV'}{if $Einstellungen.template.mt_header.mt_header_sticky === 'Y'}1{else}0{/if}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-sticky'}
 {capture assign='mtV'}{$Einstellungen.template.mt_header.mt_header_search}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-search'}
 {capture assign='mtV'}{if $Einstellungen.template.mt_header.mt_announcement === 'Y'}1{else}0{/if}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-announcement'}
+{capture assign='mtV'}{if $Einstellungen.template.mt_header.mt_favorites === 'Y'}1{else}0{/if}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-favorites'}
 {capture assign='mtV'}{$Einstellungen.template.mt_footer.mt_footer_layout}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-footer'}
 {capture assign='mtV'}{$Einstellungen.template.mt_hero.mt_hero_style}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-hero'}
 {capture assign='mtV'}{$Einstellungen.template.mt_hero.mt_hero_height}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-hero-height'}
