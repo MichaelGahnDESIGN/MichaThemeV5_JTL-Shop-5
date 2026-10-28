@@ -14,7 +14,9 @@
     if (link) {
       var name = item.getAttribute('data-mt-wish-name') || '';
       var unit = item.getAttribute('data-mt-wish-unit') || '';
-      link.setAttribute('aria-label', name + ', ' + n + ' ' + unit);
+      var unitOne = item.getAttribute('data-mt-wish-unit-one') || unit;
+      // Einzahl bei genau 1
+      link.setAttribute('aria-label', name + ', ' + n + ' ' + (n === 1 ? unitOne : unit));
     }
   }
 
