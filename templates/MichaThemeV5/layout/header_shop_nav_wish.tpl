@@ -10,11 +10,14 @@
         {/if}
         {capture assign='mtWishName'}{lang key='wishlist'}{/capture}
         {capture assign='mtWishUnit'}{lang key='products'}{/capture}
+        {capture assign='mtWishUnitOne'}{lang key='product'}{/capture}
+        {* Einzahl/Mehrzahl: 1 Artikel (Einzahl-Wort), sonst Mehrzahl-Wort *}
+        {if $wlCount === 1}{assign var='mtWishUnitNow' value=$mtWishUnitOne}{else}{assign var='mtWishUnitNow' value=$mtWishUnit}{/if}
         <li id='shop-nav-wish'
             class="nav-item dropdown mt-hdr-item mt-hdr-item--wish{if $wlCount === 0} mt-hdr-item--empty{/if}{if $nSeitenTyp === $smarty.const.PAGE_WUNSCHLISTE} active{/if}"
-            data-mt-wish-item data-mt-wish-name="{$mtWishName|escape:'html'}" data-mt-wish-unit="{$mtWishUnit|escape:'html'}">
+            data-mt-wish-item data-mt-wish-name="{$mtWishName|escape:'html'}" data-mt-wish-unit="{$mtWishUnit|escape:'html'}" data-mt-wish-unit-one="{$mtWishUnitOne|escape:'html'}">
             {block name='layout-header-shop-nav-wish-link'}
-                {link class='nav-link mt-hdr-btn' aria=['expanded' => 'false', 'label' => "{$mtWishName}, {$wlCount} {$mtWishUnit}", 'controls'=>'nav-wishlist-collapse'] data=['toggle' => 'dropdown'] role='button'}
+                {link class='nav-link mt-hdr-btn' aria=['expanded' => 'false', 'label' => "{$mtWishName}, {$wlCount} {$mtWishUnitNow}", 'controls'=>'nav-wishlist-collapse'] data=['toggle' => 'dropdown'] role='button'}
                     <svg class="mt-hdr-ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
                     <span id="badge-wl-count" class="mt-list-count{if $wlCount === 0} d-none{/if}" aria-hidden="true">{$wlCount}</span>
                 {/link}

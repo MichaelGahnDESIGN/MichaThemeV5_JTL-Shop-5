@@ -56,6 +56,17 @@ Was Besucher sehen:
 
 Einschränkung: Wer den Schalter im Benutzerkonto platziert, nimmt ihn Besuchern ohne Konto weg (sie bekommen dann die Einstellung ihres Geräts). Wer keine Herzen auf den Produktkarten möchte, schaltet die Favoriten aus.
 
+## Farben und Colorpicker
+
+Der Colorpicker ist ein Farbwähler mit Farbfläche, Farbton-Regler, HEX-Feld (zum Beispiel `#c8161a`) mit Kopieren-Knopf, einer Palette für bis zu 12 gespeicherte Farben und einer Warnung bei schlecht lesbarem Text auf der Akzentfarbe.
+
+Wichtig: Er ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er kommt mit den Einstellungsseiten der Plugins in Version 0.5.0. Bis dahin gilt:
+
+1. Öffne die Theme-Einstellungen (Admin-Bereich: Darstellung, Template, MichaThemeV5, Einstellungen, Bereich Farben).
+2. Wähle bei „Akzentfarbe“ eine Farbe aus der Liste.
+3. Oder wähle „Eigene Akzentfarbe“ und trage den HEX-Wert ein, zum Beispiel `#c8161a`.
+4. Prüfe die Seite hell und dunkel. Text auf der Farbe muss gut lesbar bleiben.
+
 ## Widerruf
 
 JTL-Shop hat ab Version 5.7 ein eigenes Widerrufsformular. Das Theme zeigt deshalb standardmäßig keinen zweiten Widerrufs-Link. Das Feld „Adresse der Widerrufs-Seite“ bleibt leer. Nur wer eine eigene Widerrufsseite hat, trägt dort ihren Pfad ein, zum Beispiel `/widerruf`. Dann erscheint der Link „Vertrag widerrufen“ im Footer.

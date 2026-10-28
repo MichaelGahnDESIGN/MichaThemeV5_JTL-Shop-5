@@ -2,6 +2,13 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.4.1
+
+Kleine Korrektur zu 0.4.0 und bessere Anleitung.
+
+- Korrigiert: Zähl-Texte für Screenreader stimmen jetzt in der Einzahl. Bei genau einem Favoriten heißt es „Favoriten, 1 Eintrag“, bei mehreren „Favoriten, 2 Einträge“ (vorher stand bei einem Favoriten „1 Einträge“). Auch beim Lesezeichen der Merkliste steht jetzt das Einzahl-Wort der Sprache, wenn genau ein Artikel drauf liegt.
+- Doku: `README.md` und `docs/INSTALL.md` erklären Icon-Leiste und Farben Schritt für Schritt. Der Colorpicker ist fertig, aber noch nicht im Theme sichtbar (kommt mit den Plugin-Einstellungsseiten in Version 0.5.0).
+
 ## 0.4.0
 
 Neu: Icon-Leiste in der Kopfzeile. Von links nach rechts: Hell/Dunkel-Schalter, Benachrichtigungen (Glocke), Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
