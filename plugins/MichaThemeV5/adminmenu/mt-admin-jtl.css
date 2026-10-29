@@ -1,0 +1,19 @@
+/* JTL-Admin Anpassungen für die MichaThemeV5-Oberfläche (Bootstrap 4 im Admin) */
+.mtadm-note--ok { border-left-color: var(--ok); }
+.mtadm-note--err { border-left-color: var(--bad); }
+/* Admin-Schrift und Zeilenhöhe von JTL nicht erben */
+.mtadm h2, .mtadm h3 { font-family: inherit; font-weight: 700; letter-spacing: 0; text-transform: none; }
+.mtadm fieldset { min-width: 0; }
+.mtadm legend { float: none; width: auto; font-size: inherit; }
+.mtadm label { margin-bottom: 0; font-weight: inherit; }
+.mtadm-flabel label, .mtadm-check { font-weight: 600; }
+.mtadm input[type=checkbox], .mtadm input[type=radio] { position: static; opacity: 1; margin: 0; flex: 0 0 auto; min-width: 1.5rem; }
+/* Checkbox/Radio nicht schmaler als 24px (Handy, WCAG Zielgröße) */
+.mtadm code { color: inherit; background: var(--soft); padding: 0 .25rem; border-radius: 4px; }
+/* Speicherleiste klebt am Rand des Tabs, ohne Rückgriff auf feste Fensterhöhen */
+.mtadm-savebar { position: sticky; bottom: 0; }
+.mtadm-sysbox { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+/* Plugin-Seite von JTL: kein zusätzlicher Außenabstand durch .mtadm in verschachtelten Karten */
+.mtadm .mtadm { margin: 0; padding: 0; background: transparent; }
+/* "Code anzeigen" unter das Lizenz-Feld, nicht direkt dran geklebt */
+.mtadm input[data-mtadm-secret] + .mtadm-check { display: flex; margin-top: .25rem; }

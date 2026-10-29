@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>0.4.1</Version>
+    <Version>0.5.1</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -18,6 +18,11 @@
             <Setting Description="Menü in eigener Zeile anzeigen" Key="menu_single_row" Type="select" Value="Y" override="true">
                 <Option Value="Y">Ja</Option>
                 <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Tipp" Key="mt_hint">
+            <Setting Description="Tipp: Das kostenlose Plugin MichaThemeV5 bietet eine übersichtliche Einstellungsseite mit Farbwähler, Lizenzverwaltung und Plugin-Empfehlungen (Menü Plugins). Das Template funktioniert auch ohne das Plugin." Key="mt_hint_plugin" Type="select" Value="seen">
+                <Option Value="seen">Hinweis gelesen</Option>
             </Setting>
         </Section>
         <Section Name="Farben" Key="mt_colors">
@@ -44,6 +49,40 @@
                 <Option Value="footer">Footer</Option>
                 <Option Value="account">Benutzerkonto-Einstellungen</Option>
             </Setting>
+        </Section>
+        <Section Name="Eigene Farben" Key="mt_colors_custom">
+            <Setting Description="Seitenhintergrund (Hell) (Experte)" Key="mt_color_bg_light" Type="text" Value=""/>
+            <Setting Description="Seitenhintergrund (Dunkel) (Experte)" Key="mt_color_bg_dark" Type="text" Value=""/>
+            <Setting Description="Karten und Flächen (Hell) (Experte)" Key="mt_color_surface_light" Type="text" Value=""/>
+            <Setting Description="Karten und Flächen (Dunkel) (Experte)" Key="mt_color_surface_dark" Type="text" Value=""/>
+            <Setting Description="Fläche 2 (Chips, Ränder von Flächen) (Hell) (Experte)" Key="mt_color_surface2_light" Type="text" Value=""/>
+            <Setting Description="Fläche 2 (Chips, Ränder von Flächen) (Dunkel) (Experte)" Key="mt_color_surface2_dark" Type="text" Value=""/>
+            <Setting Description="Text (Hell) (Experte)" Key="mt_color_text_light" Type="text" Value=""/>
+            <Setting Description="Text (Dunkel) (Experte)" Key="mt_color_text_dark" Type="text" Value=""/>
+            <Setting Description="Text gedämpft (Hell) (Experte)" Key="mt_color_text_muted_light" Type="text" Value=""/>
+            <Setting Description="Text gedämpft (Dunkel) (Experte)" Key="mt_color_text_muted_dark" Type="text" Value=""/>
+            <Setting Description="Rahmen (Hell) (Experte)" Key="mt_color_border_light" Type="text" Value=""/>
+            <Setting Description="Rahmen (Dunkel) (Experte)" Key="mt_color_border_dark" Type="text" Value=""/>
+            <Setting Description="Link (Hell) (Experte)" Key="mt_color_link_light" Type="text" Value=""/>
+            <Setting Description="Link (Dunkel) (Experte)" Key="mt_color_link_dark" Type="text" Value=""/>
+            <Setting Description="Button-Text auf Akzent (Hell) (Experte)" Key="mt_color_on_accent_light" Type="text" Value=""/>
+            <Setting Description="Button-Text auf Akzent (Dunkel) (Experte)" Key="mt_color_on_accent_dark" Type="text" Value=""/>
+            <Setting Description="Header-Hintergrund (Hell) (Experte)" Key="mt_color_header_bg_light" Type="text" Value=""/>
+            <Setting Description="Header-Hintergrund (Dunkel) (Experte)" Key="mt_color_header_bg_dark" Type="text" Value=""/>
+            <Setting Description="Footer-Hintergrund (Hell) (Experte)" Key="mt_color_footer_bg_light" Type="text" Value=""/>
+            <Setting Description="Footer-Hintergrund (Dunkel) (Experte)" Key="mt_color_footer_bg_dark" Type="text" Value=""/>
+            <Setting Description="Ankündigungsleiste (Hell) (Experte)" Key="mt_color_announce_bg_light" Type="text" Value=""/>
+            <Setting Description="Ankündigungsleiste (Dunkel) (Experte)" Key="mt_color_announce_bg_dark" Type="text" Value=""/>
+            <Setting Description="Sale-/Fehler-Farbe (Hell) (Experte)" Key="mt_color_danger_light" Type="text" Value=""/>
+            <Setting Description="Sale-/Fehler-Farbe (Dunkel) (Experte)" Key="mt_color_danger_dark" Type="text" Value=""/>
+            <Setting Description="Erfolg (Hell) (Experte)" Key="mt_color_success_light" Type="text" Value=""/>
+            <Setting Description="Erfolg (Dunkel) (Experte)" Key="mt_color_success_dark" Type="text" Value=""/>
+            <Setting Description="Warnung (Hell) (Experte)" Key="mt_color_warning_light" Type="text" Value=""/>
+            <Setting Description="Warnung (Dunkel) (Experte)" Key="mt_color_warning_dark" Type="text" Value=""/>
+            <Setting Description="Info (Hell) (Experte)" Key="mt_color_info_light" Type="text" Value=""/>
+            <Setting Description="Info (Dunkel) (Experte)" Key="mt_color_info_dark" Type="text" Value=""/>
+            <Setting Description="Fokusring (Hell) (Experte)" Key="mt_color_focus_light" Type="text" Value=""/>
+            <Setting Description="Fokusring (Dunkel) (Experte)" Key="mt_color_focus_dark" Type="text" Value=""/>
         </Section>
         <Section Name="Schriften" Key="mt_typography">
             <Setting Description="Schrift für Text" Key="mt_font_body" Type="select" Value="inter">
@@ -96,6 +135,20 @@
                 <Option Value="solid">Gefüllt</Option>
                 <Option Value="outline">Umrandet</Option>
                 <Option Value="pill">Pillenform</Option>
+            </Setting>
+            <Setting Description="Kartenstil" Key="mt_cards_style" Type="select" Value="outlined">
+                <Option Value="flat">Flach</Option>
+                <Option Value="outlined">Mit Rahmen</Option>
+                <Option Value="elevated">Mit Schatten</Option>
+            </Setting>
+            <Setting Description="Flächenstil" Key="mt_surface_style" Type="select" Value="solid">
+                <Option Value="solid">Einfarbig</Option>
+                <Option Value="glass">Glas</Option>
+            </Setting>
+            <Setting Description="Inhaltsbreite" Key="mt_container_width" Type="select" Value="normal">
+                <Option Value="narrow">Schmal</Option>
+                <Option Value="normal">Normal</Option>
+                <Option Value="wide">Breit</Option>
             </Setting>
         </Section>
         <Section Name="Logo" Key="mt_logo">

@@ -25,6 +25,10 @@
     {if $mtNotificationsAvailable === true && ($Einstellungen.template.mt_notification.mt_notification_placement|default:'none') !== 'none'}
         <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.css">
     {/if}
+    {* Eigene Farben - Block kommt aus Bootstrap.php, nur geprüfte Hex-Werte *}
+    {if isset($mtColorCss) && $mtColorCss !== ''}
+        <style id="mt-color-overrides">{$mtColorCss|strip_tags nofilter}</style>
+    {/if}
 {/block}
 
 {block name='layout-header-header' prepend}

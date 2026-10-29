@@ -8,6 +8,13 @@ use JTL\Shop;
 use Template\NOVA\Bootstrap as NovaBootstrap;
 
 require_once __DIR__ . '/php/LicenseClient.php';
+// Kernklassen für eigene Farben, auch ohne Plugin (das Plugin bringt dieselben mit, wer zuerst da ist gewinnt)
+foreach (['Sanitizer', 'ColorOverrides'] as $mtCore) {
+    if (!class_exists('MichaThemeV5\\Plugin\\' . $mtCore, false)) {
+        require_once __DIR__ . '/php/mt-core/' . $mtCore . '.php';
+    }
+}
+unset($mtCore);
 
 /**
  * Stellt dem Template den Lizenzstatus als Variable $mtLicense bereit (valid, tier, modules, reason).
@@ -62,6 +69,9 @@ class Bootstrap extends NovaBootstrap
             $license = [];
         }
         $smarty->assign('mtLicense', $license);
+        // Eigene Farben als CSS-Block (leer = nichts ändern), Plugin-Hinweis nur zur Info
+        $smarty->assign('mtColorCss', $this->colorCss());
+        $smarty->assign('mtPluginActive', class_exists('Plugin\\MichaThemeV5\\Bridge', false));
         // Glocke nur, wenn das Plugin aktiv ist UND seine Tabellen da sind (sonst wäre sie leer)
         // Das Theme greift nur auf die ausdrücklich vom Plugin freigegebenen Daten zu, kein Fallback mit Kundendaten
         $notifications = ['public' => [], 'personal' => []];
@@ -91,25 +101,32 @@ class Bootstrap extends NovaBootstrap
     }
 
     /**
-     * Neue Optionen aus 0.4.0 (Ort des Hell/Dunkel-Schalters, Favoriten) haben nach einem Update noch keinen Wert in
-     * der Datenbank, JTL legt Standardwerte nur beim Aktivieren oder Speichern an. Fehlt ein Wert, kommt der
-     * Standard aus template.xml hinein (einmalig, danach nur noch ein Cache-Treffer). Ohne das wären Herz und
-     * Favoriten-Icon nach dem Update weg, bis jemand die Einstellungen speichert.
+     * Neue Optionen haben nach einem Update noch keinen Wert in der Datenbank (JTL legt Standardwerte nur beim
+     * Aktivieren oder Speichern an). Fehlt ein Wert, kommt der Standard aus template.xml hinein (einmalig je
+     * Version, danach nur ein Cache-Treffer). Ohne das wären z. B. Herz und Favoriten-Icon nach dem Update weg.
      */
     private function ensureNewDefaults(): void
     {
         try {
-            if ($this->getCache()->get('mt_defaults_040') === true) {
+            $xml = @simplexml_load_file(__DIR__ . '/template.xml');
+            $version = $xml !== false ? (string) $xml->Version : '';
+            $flag = 'mt_defaults_' . md5($version);
+            if ($xml === false || $this->getCache()->get($flag) === true) {
                 return;
             }
-            $config   = new \JTL\Template\Config('MichaThemeV5', $this->getDB());
-            $saved    = $config->loadConfigFromDB();
-            $defaults = ['mt_colors' => ['mt_mode_toggle_place' => 'header'], 'mt_header' => ['mt_favorites' => 'Y']];
-            $changed  = false;
-            foreach ($defaults as $section => $pairs) {
-                foreach ($pairs as $name => $value) {
-                    if (!isset($saved[$section][$name])) {
-                        $config->updateConfigInDB($section, $name, $value);
+            $config  = new \JTL\Template\Config('MichaThemeV5', $this->getDB());
+            $saved   = $config->loadConfigFromDB();
+            $changed = false;
+            foreach ($xml->Settings->Section as $section) {
+                $key = (string) $section['Key'];
+                // nur unsere Abschnitte, nicht Theme/Header von NOVA, und nicht den reinen Hinweis
+                if (!str_starts_with($key, 'mt_') || $key === 'mt_hint') {
+                    continue;
+                }
+                foreach ($section->Setting as $setting) {
+                    $name = (string) $setting['Key'];
+                    if (!isset($saved[$key][$name])) {
+                        $config->updateConfigInDB($key, $name, (string) $setting['Value']);
                         $changed = true;
                     }
                 }
@@ -117,9 +134,41 @@ class Bootstrap extends NovaBootstrap
             if ($changed) {
                 $this->getCache()->flushTags([\CACHING_GROUP_TEMPLATE, \CACHING_GROUP_OPTION]);
             }
-            $this->getCache()->set('mt_defaults_040', true, ['mt_notification'], 3600);
+            $this->getCache()->set($flag, true, ['mt_notification'], 3600);
         } catch (\Throwable) {
             // kein Abbruch, die Templates haben eigene Rückfallwerte (|default)
+        }
+    }
+
+    /**
+     * Eigene Farben (Plugin oder Template-Einstellungen, gleiche Schlüssel) als CSS-Variablen im <head>.
+     * Wird zwischengespeichert und beim Speichern der Einstellungen automatisch geleert. Nur geprüfte Farbwerte.
+     */
+    private function colorCss(): string
+    {
+        try {
+            $hit = $this->getCache()->get('mt_color_css');
+            if (is_string($hit)) {
+                return $hit;
+            }
+            $options = json_decode((string) file_get_contents(__DIR__ . '/mt/options.json'), true)['options'] ?? [];
+            $saved   = (new \JTL\Template\Config('MichaThemeV5', $this->getDB()))->loadConfigFromDB();
+            $entries = [];
+            foreach ($options as $o) {
+                if (!isset($o['color'])) {
+                    continue;
+                }
+                $v = $saved['mt_' . $o['group']]['mt_' . $o['id']] ?? '';
+                if (is_string($v) && $v !== '') {
+                    $entries[] = ['token' => $o['color']['token'], 'mode' => $o['color']['mode'], 'value' => $v];
+                }
+            }
+            $css = \MichaThemeV5\Plugin\ColorOverrides::css($entries, $saved['mt_colors']['mt_accent_custom'] ?? '');
+            $this->getCache()->set('mt_color_css', $css, [\CACHING_GROUP_TEMPLATE, \CACHING_GROUP_OPTION], 86400);
+
+            return $css;
+        } catch (\Throwable) {
+            return '';
         }
     }
 

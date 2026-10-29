@@ -28,7 +28,12 @@
 {capture assign='mtV'}{if $Einstellungen.template.mt_detail.mt_detail_sticky_cart === 'Y'}1{else}0{/if}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-sticky-cart'}
 {capture assign='mtV'}{$Einstellungen.template.mt_detail.mt_detail_tabs}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-tabs'}
 {capture assign='mtV'}{$Einstellungen.template.mt_a11y.mt_a11y_focus}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-focus'}
+{capture assign='mtV'}{$Einstellungen.template.mt_shape.mt_cards_style}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-cards'}
+{capture assign='mtV'}{$Einstellungen.template.mt_shape.mt_surface_style}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-surface'}
+{capture assign='mtV'}{$Einstellungen.template.mt_shape.mt_container_width}{/capture}{append var='mtAttrs' value=$mtV index='data-mt-container'}
 {capture assign='mtV'}{if $Einstellungen.template.mt_colors.mt_accent_custom !== ''}{$Einstellungen.template.mt_colors.mt_accent_custom}{/if}{/capture}{append var='mtVars' value=$mtV index='--mt-accent-custom'}
 {capture assign='mtV'}{if $Einstellungen.template.mt_logo.mt_logo_height !== ''}{$Einstellungen.template.mt_logo.mt_logo_height}px{/if}{/capture}{append var='mtVars' value=$mtV index='--mt-logo-height'}
 {capture assign='mtV'}{if $Einstellungen.template.mt_listing.mt_listing_columns !== ''}{$Einstellungen.template.mt_listing.mt_listing_columns}{/if}{/capture}{append var='mtVars' value=$mtV index='--mt-listing-cols'}
+{capture assign='mtV'}{if $Einstellungen.template.mt_colors_custom.mt_color_on_accent_light !== ''}{$Einstellungen.template.mt_colors_custom.mt_color_on_accent_light}{/if}{/capture}{append var='mtVars' value=$mtV index='--mt-ov-on-accent-light'}
+{capture assign='mtV'}{if $Einstellungen.template.mt_colors_custom.mt_color_on_accent_dark !== ''}{$Einstellungen.template.mt_colors_custom.mt_color_on_accent_dark}{/if}{/capture}{append var='mtVars' value=$mtV index='--mt-ov-on-accent-dark'}
 <meta name="mt-config" content="{ldelim}&quot;attrs&quot;:{$mtAttrs|json_encode|escape:'html'},&quot;vars&quot;:{$mtVars|json_encode|escape:'html'}{rdelim}">
