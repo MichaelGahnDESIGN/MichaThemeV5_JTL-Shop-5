@@ -15,10 +15,6 @@ Pre-Alpha: getestet nur mit JTL-Shop 5.8.2. Bitte zuerst in einem Test-Shop ausp
 
 **Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Das Plugin legt seine Tabellen nicht selbst an: Die Datei `plugins/MichaThemeV5NotificationCenter/database/schema.sql` muss einmal von Hand ausgeführt werden. Eine Oberfläche zum Schreiben von Meldungen gibt es noch nicht. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
 
-## Plugin MichaThemeV5 (ab Version 0.5.1)
-
-Das Plugin gibt dem Template eine übersichtliche Einstellungsseite. Es hat vier Tabs: **Einstellungen** (Presets, Farben mit Farbwähler, Layout), **Lizenzen**, **Plugin-Empfehlungen** und **Info**. Es ist freiwillig: Das Template läuft auch ohne Plugin. Die Werte liegen am selben Ort wie die normalen Template-Einstellungen, es wird nichts umgezogen. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
-
 ## Aussehen (ab Version 0.3.0)
 
 Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lässt sich in den Theme-Einstellungen ändern. Rot steht nur bei bedienbaren Dingen (Kaufen-Button, Menüpunkt, Seitenzahl). Alle anderen Buttons sind neutral. Der Hell/Dunkel-Umschalter sitzt standardmäßig in der Kopfzeile.
@@ -27,7 +23,9 @@ Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lä
 
 Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regler und ein Feld für den HEX-Wert (zum Beispiel `#c8161a`) mit Kopieren-Knopf. Dazu kommt eine Palette für bis zu 12 gespeicherte Farben und eine Warnung, wenn Text auf deinen Farben schlecht lesbar wäre.
 
-Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5 (WooCommerce ab 0.5.0, JTL-Shop 5 ab 0.5.1). Dort gibt es 16 Farbfelder je Hell und Dunkel. Ohne Plugin wählst du die Akzentfarbe wie bisher aus der Liste oder als eigene Farbe (HEX-Wert) in den Template-Einstellungen. Das Plugin ist in diesem Repo (Ordner `plugins/MichaThemeV5`) noch nicht in einem Test-Shop außer dem Demo-Shop geprüft.
+Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5: bei WooCommerce ab Plugin 0.5.0, bei JTL-Shop 5 ab Plugin 0.5.1 und bei Shopware 6 im Admin-Modul ab 0.5.1. Dort gibt es 16 Farbfelder je Hell und Dunkel. Ohne Plugin wählst du die Akzentfarbe wie bisher aus der Liste oder als eigene Farbe (HEX-Wert) in den Theme-Einstellungen. Bei Shopify gibt es den Colorpicker nicht: Der Theme-Editor hat einen eigenen Farbwähler, und gespeicherte Paletten sind dort nicht möglich.
+
+Ehrlich gesagt: Die Plugins sind Pre-Alpha und bisher nur in Test- und Demo-Umgebungen geprüft.
 
 ## Icon-Leiste in der Kopfzeile (ab Version 0.4.0)
 
@@ -39,6 +37,19 @@ Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto
 - **Favoriten:** Eine eigene Herz-Liste im Browser des Besuchers. Nichts geht an den Shop. Abschaltbar bei „Favoriten (Herz-Liste) anzeigen“ im Bereich Header.
 
 Mehr dazu: [`docs/INSTALL.md`](docs/INSTALL.md).
+
+## Plugin MichaThemeV5 (ab Version 0.5.1)
+
+Das Plugin gibt dem Template eine übersichtliche Einstellungsseite. Es ist freiwillig: Das Template läuft auch ohne Plugin, dann stellst du alles wie bisher unter Darstellung, Template ein. Die Werte liegen am selben Ort wie die normalen Template-Einstellungen, es wird nichts umgezogen.
+
+Das Plugin hat vier Tabs:
+
+1. **Einstellungen**: oben die **Design-Presets** (Standard, Glas, Kompakt), ein Klick setzt mehrere Einstellungen, vorher wird gesichert. Darunter alle Optionen mit Suche. In der Gruppe „Eigene Farben“ stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Leer heißt: Standard des Templates. Dazu kommt das Layout: **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit).
+2. **Lizenzen**: Lizenzcode einfügen und prüfen. Ohne Code läuft alles in der Free-Version.
+3. **Plugin-Empfehlungen**: weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
+4. **Info**: Versionen, Template einrichten (mit Rückfrage und ZIP-Sicherung), Sicherung der Einstellungen und Changelog.
+
+Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Ehrlich gesagt: Die Admin-Seiten des Plugins sind im Demo-Shop (JTL-Shop 5.8.2) geprüft, die fertigen Shop-Seiten dort nicht im Browser.
 
 ## Weitere Funktionen (Pro)
 
