@@ -20,6 +20,25 @@
 
 Glocke (Notification Center): Ab 0.2.3 ist sie standardmäßig aus und erscheint nur mit installiertem, aktivem Plugin und gewählter Platzierung (siehe `docs/NOTIFICATION-CENTER.md`). Wer von 0.2.2 aktualisiert, behält seine gespeicherte Platzierung. Ohne das Plugin bleibt die Glocke trotzdem unsichtbar.
 
+## Plugin MichaThemeV5 installieren (ab 0.5.1, freiwillig)
+
+Das Plugin bringt eine Einstellungsseite mit Farbwähler, die Lizenzverwaltung und Plugin-Empfehlungen. Das Template funktioniert auch ohne.
+
+1. Auf GitHub unter „Releases“ die Datei `MichaThemeV5-plugin-<Version>.zip` herunterladen (daneben liegt die `.sha256`-Datei zum Prüfen).
+2. Im Admin-Bereich: Plugins, Pluginverwaltung, Hochladen. Die ZIP-Datei auswählen und installieren, dann aktivieren.
+3. Im Menü „Plugins“ erscheint MichaThemeV5 mit den Tabs Einstellungen, Lizenzen, Plugin-Empfehlungen und Info.
+4. Ist das Template noch nicht installiert: Tab „Info“, Karte „Template einrichten“. Häkchen „Ich habe ein Backup“ setzen, „Template kopieren“ klicken, die Rückfrage bestätigen. Ein altes Template wird vorher als ZIP gesichert (Ordner `plugins/MichaThemeV5/backup`). Das Plugin schaltet das Template **nie** selbst um.
+5. Template aktivieren: Darstellung, Template, MichaThemeV5 (das machen Sie selbst).
+6. Geht das Kopieren nicht (zum Beispiel weil der Ordner `templates/` nicht beschreibbar ist), kopieren Sie den Ordner `templates/MichaThemeV5` von Hand wie oben unter „Neu installieren“.
+
+Gut zu wissen:
+
+- Die Einstellungen ändert nur, wer in JTL das Recht für „Darstellung, Template“ hat. Das Template kopieren darf nur der Hauptadministrator.
+- Wenn Sie das Plugin wieder entfernen, bleiben alle Einstellungen erhalten.
+- Eine Liste der Plugin-Empfehlungen holt nur der Admin-Bereich. Besucher Ihres Shops lösen nie eine Abfrage aus. Fehlt die Verbindung, steht dort ein freundlicher Hinweis.
+- Datenschutz: Beim Prüfen der Lizenz gehen nur Lizenzcode und Domain an theme.michael-gahn.de. Die Symbole der Empfehlungen lädt Ihr Browser von dort (Ihre IP-Adresse geht dabei mit).
+- Getestet nur mit JTL-Shop 5.8.2.
+
 ## Neues Aussehen (ab 0.3.0)
 
 Das Theme hat ein neues Design. So ist es gemeint:
@@ -59,6 +78,8 @@ Einschränkung: Wer den Schalter im Benutzerkonto platziert, nimmt ihn Besuchern
 ## Farben und Colorpicker
 
 Der Colorpicker ist ein Farbwähler mit Farbfläche, Farbton-Regler, HEX-Feld (zum Beispiel `#c8161a`) mit Kopieren-Knopf, einer Palette für bis zu 12 gespeicherte Farben und einer Warnung bei schlecht lesbarem Text auf der Akzentfarbe.
+
+Ab 0.5.1 ist der Colorpicker im Plugin eingebunden: Tab „Einstellungen“, Gruppe „Eigene Farben“ (16 Farben je Hell und Dunkel, leer = Standard, Warnung bei schlechtem Kontrast).
 
 Wichtig: Er ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er kommt mit den Einstellungsseiten der Plugins in Version 0.5.0. Bis dahin gilt:
 

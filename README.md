@@ -6,7 +6,7 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 ## Funktionen
 
-29 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
+34 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
 Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.md), offene Punkte in [`TODO.md`](TODO.md).
 
 ## Installation
@@ -15,15 +15,19 @@ Pre-Alpha: getestet nur mit JTL-Shop 5.8.2. Bitte zuerst in einem Test-Shop ausp
 
 **Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Das Plugin legt seine Tabellen nicht selbst an: Die Datei `plugins/MichaThemeV5NotificationCenter/database/schema.sql` muss einmal von Hand ausgeführt werden. Eine Oberfläche zum Schreiben von Meldungen gibt es noch nicht. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
 
+## Plugin MichaThemeV5 (ab Version 0.5.1)
+
+Das Plugin gibt dem Template eine übersichtliche Einstellungsseite. Es hat vier Tabs: **Einstellungen** (Presets, Farben mit Farbwähler, Layout), **Lizenzen**, **Plugin-Empfehlungen** und **Info**. Es ist freiwillig: Das Template läuft auch ohne Plugin. Die Werte liegen am selben Ort wie die normalen Template-Einstellungen, es wird nichts umgezogen. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
+
 ## Aussehen (ab Version 0.3.0)
 
 Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lässt sich in den Theme-Einstellungen ändern. Rot steht nur bei bedienbaren Dingen (Kaufen-Button, Menüpunkt, Seitenzahl). Alle anderen Buttons sind neutral. Der Hell/Dunkel-Umschalter sitzt standardmäßig in der Kopfzeile.
 
 ## Farben und Colorpicker
 
-Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regler und ein Feld für den HEX-Wert (zum Beispiel `#c8161a`) mit Kopieren-Knopf. Dazu kommt eine Palette für bis zu 12 gespeicherte Farben und eine Warnung, wenn Text auf deiner Akzentfarbe schlecht lesbar wäre.
+Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regler und ein Feld für den HEX-Wert (zum Beispiel `#c8161a`) mit Kopieren-Knopf. Dazu kommt eine Palette für bis zu 12 gespeicherte Farben und eine Warnung, wenn Text auf deinen Farben schlecht lesbar wäre.
 
-Ehrlich gesagt: Der Colorpicker ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er wird mit den Einstellungsseiten der Plugins in Version 0.5.0 eingebunden. Bis dahin wählst du die Akzentfarbe wie bisher: aus der Liste oder als eigene Farbe (HEX-Wert) in den Theme-Einstellungen.
+Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5 (WooCommerce ab 0.5.0, JTL-Shop 5 ab 0.5.1). Dort gibt es 16 Farbfelder je Hell und Dunkel. Ohne Plugin wählst du die Akzentfarbe wie bisher aus der Liste oder als eigene Farbe (HEX-Wert) in den Template-Einstellungen. Das Plugin ist in diesem Repo (Ordner `plugins/MichaThemeV5`) noch nicht in einem Test-Shop außer dem Demo-Shop geprüft.
 
 ## Icon-Leiste in der Kopfzeile (ab Version 0.4.0)
 

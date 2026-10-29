@@ -108,8 +108,9 @@ legend { border-color: var(--mt-border); }
 
 /* Header: Logo links, Suche mittig, Werkzeuge rechts, Menü in zweiter Zeile */
 #header-top-bar { background: var(--mt-surface-2); color: var(--mt-text); border-bottom: 1px solid var(--mt-border); font-size: var(--mt-text-sm); }
-header, header.d-print-none { background: var(--mt-surface); color: var(--mt-text); border-bottom: 1px solid var(--mt-border); box-shadow: none; }
-header .navbar-collapse, header .dropdown-menu, .fixed-search, .fixed-search .form-control { background: var(--mt-surface); color: var(--mt-text); }
+header, header.d-print-none { background: var(--mt-header-bg, var(--mt-surface)); color: var(--mt-text); border-bottom: 1px solid var(--mt-border); box-shadow: none; }
+header .dropdown-menu, .fixed-search, .fixed-search .form-control { background: var(--mt-surface); color: var(--mt-text); }
+header .navbar-collapse { background: var(--mt-header-bg, var(--mt-surface)); color: var(--mt-text); }
 header .dropdown-menu { border: 1px solid var(--mt-border); box-shadow: var(--mt-shadow-md); }
 header .nav-right .dropdown-menu, header .navbar-nav > .nav-item > .dropdown-menu, header.full-width-mega .nav-right .dropdown-menu { box-shadow: var(--mt-shadow-md); }
 header .dropdown-item:hover, .account-icon-dropdown .dropdown-footer { background: var(--mt-surface-2); }
@@ -345,8 +346,8 @@ aside .nav-panel > .nav > .active > .nav-link, .productlist-filter-categories > 
 .consent-modal-content, #consent-banner { border-color: var(--mt-border); }
 
 /* Footer */
-#footer, footer { background: var(--mt-surface-2); color: var(--mt-text); border-top: 1px solid var(--mt-border); }
-#copyright { background: var(--mt-surface-2); color: var(--mt-text-muted); border-top: 1px solid var(--mt-border); margin-top: 1rem; }
+#footer, footer { background: var(--mt-footer-bg, var(--mt-surface-2)); color: var(--mt-text); border-top: 1px solid var(--mt-border); }
+#copyright { background: var(--mt-footer-bg, var(--mt-surface-2)); color: var(--mt-text-muted); border-top: 1px solid var(--mt-border); margin-top: 1rem; }
 #footer-boxes .card { background: transparent; border: 0; box-shadow: none; }
 #footer .productlist-filter-headline { font-family: var(--mt-font-heading); font-size: var(--mt-text-sm); text-transform: none; }
 #footer a, footer a, #footer .card .card-title, #footer .productlist-filter-headline, #footer .newsletter-footer-heading, #footer .btn-outline-primary { color: var(--mt-text); }
@@ -369,3 +370,20 @@ aside .nav-panel > .nav > .active > .nav-link, .productlist-filter-categories > 
 /* Schatten und Spezialfälle */
 .shadow-sm, .shadow, .shadow-lg { box-shadow: var(--mt-shadow-md) !important; }
 .lazyloading { color: transparent; }
+
+/* Kartenstil - cards_style */
+:root[data-mt-cards="flat"] .productbox-inner, :root[data-mt-cards="flat"] #content-wrapper .card:not(.dropdown-menu) { border-color: transparent; box-shadow: none; }
+:root[data-mt-cards="elevated"] .productbox-inner, :root[data-mt-cards="elevated"] #content-wrapper .card:not(.dropdown-menu) { box-shadow: var(--mt-shadow-md); }
+
+/* Glas-Flächen - surface_style, nur mit backdrop-filter */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @media (prefers-reduced-transparency: no-preference) {
+    :root[data-mt-surface="glass"] header.d-print-none, :root[data-mt-surface="glass"] .productbox-inner, :root[data-mt-surface="glass"] #content-wrapper .card:not(.dropdown-menu), :root[data-mt-surface="glass"] .mt-announcement {
+      background: var(--mt-glass-bg); border-color: var(--mt-glass-border); -webkit-backdrop-filter: blur(var(--mt-glass-blur)) saturate(140%); backdrop-filter: blur(var(--mt-glass-blur)) saturate(140%);
+    }
+  }
+}
+
+/* Inhaltsbreite - container_width, normal = NOVA Breite */
+:root[data-mt-container="narrow"] .container-fluid-xl, :root[data-mt-container="narrow"] .container { max-width: 75rem; margin-inline: auto; }
+:root[data-mt-container="wide"] .container-fluid-xl, :root[data-mt-container="wide"] .container { max-width: 120rem; margin-inline: auto; }

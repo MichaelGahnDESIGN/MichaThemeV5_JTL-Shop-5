@@ -2,6 +2,16 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.5.1
+
+Neu: Plugin MichaThemeV5 (Ordner `plugins/MichaThemeV5`) und passende Änderungen am Template. Die Versionsnummer ist wie bei WooCommerce (0.5.1).
+
+- Plugin mit vier Tabs: Einstellungen (Presets, 16 Farbfelder je Hell und Dunkel mit Farbwähler, Palette und Kontrast-Warnung, Layout), Lizenzen, Plugin-Empfehlungen, Info (Status, Template einrichten mit Rückfrage, ZIP-Sicherung und Prüfsummen, Sicherung der Einstellungen, Changelog). Genauer: [`plugins/MichaThemeV5/CHANGELOG.md`](plugins/MichaThemeV5/CHANGELOG.md).
+- Template: neue Einstellungen „Eigene Farben“ (32 Felder, leer = Standard), Kartenstil, Flächenstil (Glas) und Inhaltsbreite. Eigene Farben werden als CSS-Variablen ausgegeben, auch ohne Plugin.
+- Template: freundlicher Hinweis aufs Plugin in den Template-Einstellungen (Abschnitt „Tipp“). Im Shop selbst erscheint nichts.
+- Update von 0.4.x: Neue Einstellungen bekommen beim ersten Aufruf ihren Standardwert. Alle gespeicherten Werte bleiben.
+- Ehrlich gesagt: Der Demo-Shop steht im Wartungsmodus. Die Admin-Seiten des Plugins wurden dort mit der echten JTL-Umgebung geprüft, die Shop-Seiten nicht im Browser.
+
 ## 0.4.1
 
 Kleine Korrektur zu 0.4.0 und bessere Anleitung.

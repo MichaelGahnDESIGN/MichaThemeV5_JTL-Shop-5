@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jtlshopplugin>
+    <Name>MichaThemeV5</Name>
+    <Description>Einstellungen mit Farbwähler, Lizenzverwaltung und Plugin-Empfehlungen für das Template MichaThemeV5.</Description>
+    <Author>Michael Gahn DESIGN</Author>
+    <URL>https://theme.michael-gahn.de</URL>
+    <PluginID>MichaThemeV5</PluginID>
+    <XMLVersion>102</XMLVersion>
+    <ShopVersion>5.8.0</ShopVersion>
+    <CreateDate>2026-10-28</CreateDate>
+    <Version>0.5.1</Version>
+    <Install>
+        <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_PLUGIN</FlushTags>
+        <Adminmenu>
+            <Customlink sort="1"><Name>Einstellungen</Name><Filename>einstellungen.php</Filename></Customlink>
+            <Customlink sort="2"><Name>Lizenzen</Name><Filename>lizenzen.php</Filename></Customlink>
+            <Customlink sort="3"><Name>Plugin-Empfehlungen</Name><Filename>plugin-empfehlungen.php</Filename></Customlink>
+            <Customlink sort="4"><Name>Info</Name><Filename>info.php</Filename></Customlink>
+        </Adminmenu>
+    </Install>
+</jtlshopplugin>
