@@ -122,7 +122,7 @@
       var f = resolveToken(schema, values, mode, byToken, r.fg, 0), b = resolveToken(schema, values, mode, byToken, r.bg, 0);
       if (!(f[1] || b[1]) || f[0] === null || b[0] === null) { return; }
       var q = ratio(f[0], b[0]);
-      out.push({ label: r.label, ratio: Math.round(q * 100) / 100, min: r.min, ok: q >= r.min });
+      out.push({ label: r.label, fg: r.fg, bg: r.bg, ratio: Math.round(q * 100) / 100, min: r.min, ok: q >= r.min });
     });
     return out;
   }
