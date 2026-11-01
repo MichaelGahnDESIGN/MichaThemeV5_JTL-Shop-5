@@ -2,6 +2,17 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.6.0
+
+Neu: Demo-Inhalte importieren und entfernen (Plugin MichaThemeV5).
+
+- 16 Beispielartikel in 4 Kategorien, je 3 Platzhalterbilder (48 Bilder, ohne Internetzugriff).
+- Im Backend: Nach dem Plugin-Update erscheint im Plugin-Menü der Tab „Demo-Inhalte“. Dort importieren (wiederholbar, keine Dubletten) und entfernen.
+- Per Konsole (im Shop-Ordner): `php plugins/MichaThemeV5/src/Generated/demo-cli.php import`, `... status` und `... remove` (mit `--yes` ohne Rückfrage).
+- Entfernen löscht nur markierte Demo-Einträge. Eigene Artikel bleiben unberührt. Vor der Nutzung bitte ein Backup des Shops machen.
+- Ehrlich gesagt: Auf einem Demo-Shop mit JTL-Shop 5.8.0 per Konsole erprobt. Die Backend-Seite „Demo-Inhalte“ wurde im Admin noch nicht geprüft.
+- Template und Plugin tragen jetzt beide die Version 0.6.0 (am Template selbst hat sich nichts geändert).
+
 ## 0.5.1
 
 Neu: Plugin MichaThemeV5 (Ordner `plugins/MichaThemeV5`) und passende Änderungen am Template. Die Versionsnummer ist wie bei WooCommerce (0.5.1).

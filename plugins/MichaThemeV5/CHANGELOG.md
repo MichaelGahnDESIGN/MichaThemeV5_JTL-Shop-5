@@ -1,5 +1,11 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 0.6.0 (2026-11-01)
+- Neu: Tab „Demo-Inhalte“ im Plugin-Menü (erscheint nach dem Plugin-Update): 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern importieren und wieder entfernen. Wiederholbar, keine Dubletten.
+- Per Konsole: `php plugins/MichaThemeV5/src/Generated/demo-cli.php import|status|remove [--yes]`.
+- Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen.
+- Ehrlich gesagt: per Konsole auf JTL-Shop 5.8.0 erprobt, die Backend-Seite noch nicht im Admin geprüft.
+
 ## 0.5.1 (2026-10-28)
 - Neu: Das Plugin MichaThemeV5 mit vier Tabs im Menü „Plugins“: Einstellungen, Lizenzen, Plugin-Empfehlungen, Info.
 - Einstellungen: Design-Presets, Suche, Einfach/Experte, 16 Farbfelder je Hell und Dunkel mit Farbwähler, Palette (12 Farben) und Kontrast-Warnung, Layout (Kartenstil, Flächenstil, Inhaltsbreite).

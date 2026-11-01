@@ -51,6 +51,12 @@ Das Plugin hat vier Tabs:
 
 Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Ehrlich gesagt: Die Admin-Seiten des Plugins sind im Demo-Shop (JTL-Shop 5.8.2) geprüft, die fertigen Shop-Seiten dort nicht im Browser.
 
+## Demo-Inhalte (ab Version 0.6.0)
+
+Das Plugin kann 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern anlegen. Nach dem Plugin-Update gibt es dafür im Plugin-Menü den Tab **Demo-Inhalte**. Per Konsole geht es auch: `php plugins/MichaThemeV5/src/Generated/demo-cli.php import`, `status` oder `remove` (mit `--yes` ohne Rückfrage).
+
+Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen. Ehrlich gesagt: per Konsole auf JTL-Shop 5.8.0 erprobt, die Backend-Seite noch nicht im Admin geprüft.
+
 ## Weitere Funktionen (Pro)
 
 Dieses Repo enthält nur die kostenlosen Funktionen (Free). Pro-Funktionen und Erweiterungen werden separat und privat ausgeliefert und sind nicht Teil dieses Repos; Informationen, Kauf und Verwaltung unter https://theme.michael-gahn.de (Konto erforderlich).
