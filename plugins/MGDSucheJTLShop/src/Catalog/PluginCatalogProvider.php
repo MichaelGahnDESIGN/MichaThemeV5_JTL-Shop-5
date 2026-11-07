@@ -16,7 +16,7 @@ use JTL\Plugin\Helper;
  */
 final class PluginCatalogProvider
 {
-    private const CATALOG_URL = 'https://theme.michael-gahn.de/api/catalog/plugins.json';
+    private const CATALOG_URL = 'https://theme.michael-gahn.de/api/v1/recommendations/jtl.json';
     private const SELF_ID = 'plugin-mgd-suche-jtl';
     private const MAX_BYTES = 524288;
 
@@ -119,6 +119,9 @@ final class PluginCatalogProvider
      */
     private function normalizeFeed(array $feed): ?array
     {
+        if (($feed['schema'] ?? null) === 1 && ($feed['platform'] ?? null) === 'jtl' && is_array($feed['items'] ?? null)) {
+            return $this->normalizeRecommendations($feed);
+        }
         if (($feed['schemaVersion'] ?? null) !== 1 || !is_array($feed['items'] ?? null)) {
             return null;
         }
@@ -143,6 +146,45 @@ final class PluginCatalogProvider
         usort($items, static fn (array $left, array $right): int => [-$left['recommended'], $left['status'] === 'live' ? 0 : 1, $left['position']] <=> [-$right['recommended'], $right['status'] === 'live' ? 0 : 1, $right['position']]);
         foreach ($items as $index => $item) {
             unset($items[$index]['position']);
+        }
+
+        return $items;
+    }
+
+    /** Der neue Feed enthält absichtlich nur sichere Anzeige-Metadaten. */
+    private function normalizeRecommendations(array $feed): ?array
+    {
+        $details = $this->mgdUrl($feed['catalog_url'] ?? null);
+        if ($details === null || $details !== 'https://theme.michael-gahn.de/downloads?plattform=jtl') {
+            return null;
+        }
+        $items = [];
+        foreach (array_slice(array_values($feed['items']), 0, 80) as $position => $entry) {
+            if (!is_array($entry) || ($entry['platform'] ?? null) !== 'jtl') {
+                continue;
+            }
+            $id = $entry['slug'] ?? null;
+            $name = $this->plain($entry['name'] ?? '', 120);
+            if (!is_string($id) || preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/D', $id) !== 1 || $name === '') {
+                continue;
+            }
+            $items[] = [
+                'id' => $id,
+                'name' => $name,
+                'description' => $this->plain($entry['description'] ?? '', 500),
+                'category' => 'MGD Plugin',
+                'version' => ltrim($this->plain($entry['version'] ?? '', 30), 'vV'),
+                'status' => 'live',
+                'tier' => 'free',
+                'details_url' => $details,
+                'download_url' => null,
+                'image_url' => null,
+                'image_alt' => '',
+                'accent' => null,
+                'features' => [],
+                'recommended' => false,
+                'position' => $position,
+            ];
         }
 
         return $items;

@@ -35,8 +35,8 @@ Gut zu wissen:
 
 - Die Einstellungen ändert nur, wer in JTL das Recht für „Darstellung, Template“ hat. Das Template kopieren darf nur der Hauptadministrator.
 - Wenn Sie das Plugin wieder entfernen, bleiben alle Einstellungen erhalten.
-- Eine Liste der Plugin-Empfehlungen holt nur der Admin-Bereich. Besucher Ihres Shops lösen nie eine Abfrage aus. Fehlt die Verbindung, steht dort ein freundlicher Hinweis.
-- Datenschutz: Beim Prüfen der Lizenz gehen nur Lizenzcode und Domain an theme.michael-gahn.de. Die Symbole der Empfehlungen lädt Ihr Browser von dort (Ihre IP-Adresse geht dabei mit).
+- Eine Liste der Plugin-Empfehlungen holt nur der Admin-Bereich serverseitig von `theme.michael-gahn.de/api/v1/recommendations/jtl.json`. Besucher Ihres Shops lösen nie eine Abfrage aus. Fehlt die Verbindung, steht dort ein freundlicher Hinweis.
+- Datenschutz: Beim Prüfen der Lizenz gehen nur Lizenzcode und Domain an theme.michael-gahn.de. Die Empfehlungskarten verwenden lokale Symbole; der Browser lädt dafür keine Inhalte von der Plattform nach.
 - Getestet nur mit JTL-Shop 5.8.2.
 
 ## Neues Aussehen (ab 0.3.0)

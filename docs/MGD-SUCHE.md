@@ -34,7 +34,7 @@ Ein vollständiger eigener Suchindex mit Ranking, Tippfehlertoleranz und Live-Vo
 
 Die Erweiterung verarbeitet den eingegebenen Suchbegriff nur innerhalb der aktuellen PHP-Anfrage, um Merkmalwerte aus der Shopdatenbank zu lesen. Sie speichert selbst keine Suchbegriffe, Besucherkennungen oder IP-Adressen und überträgt keine Daten an Dritte. Das ersetzt keine individuelle Datenschutzprüfung des gesamten Shops.
 
-Der Bereich **Weitere Plugins** ruft ausschließlich beim Öffnen im Backend eine öffentliche Produktliste von `theme.michael-gahn.de` ab. Kategorie, Bild, Texte, Reihenfolge, Verfügbarkeit und Links werden dort zentral gepflegt. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Das Plugin akzeptiert ausschließlich `schemaVersion: 1` sowie HTTPS-Links zu `theme.michael-gahn.de`; fremde Links aus dem Feed werden verworfen. Ist der Katalog nicht erreichbar, nutzt das Plugin eine lokale Fallback-Liste.
+Der Bereich **Weitere Plugins** ruft ausschließlich im Backend eine öffentliche, plattformspezifische Liste von `theme.michael-gahn.de` ab. Sichtbarkeit, Texte, Reihenfolge und Version werden zentral gepflegt; die Darstellung erfolgt mit lokalen Symbolen und ohne externe Bilder. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Das Plugin akzeptiert ausschließlich `schema: 1`, die eigene Plattform und die fest verdrahtete Detailseite von `theme.michael-gahn.de`; fremde Links aus dem Feed werden verworfen. Ist der Katalog nicht erreichbar, nutzt das Plugin nur einen zuletzt lokal gespeicherten Stand.
 
 ## Updates
 
