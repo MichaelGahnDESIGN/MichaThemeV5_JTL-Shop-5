@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jtlshopplugin>
+    <Name>MGD Suche</Name>
+    <Description>Ergänzt die JTL-Shop-5-Suche um sichere Merkmal-Hinweise und eine konfigurierbare Darstellung.</Description>
+    <Author>Michael Gahn DESIGN</Author>
+    <URL>https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5</URL>
+    <PluginID>MGDSucheJTLShop</PluginID>
+    <XMLVersion>102</XMLVersion>
+    <ShopVersion>5.8.0</ShopVersion>
+    <CreateDate>2026-11-07</CreateDate>
+    <Version>0.1.0</Version>
+    <Install>
+        <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_FILTER,CACHING_GROUP_FILTER_CHARACTERISTIC</FlushTags>
+        <Adminmenu>
+            <Customlink sort="1">
+                <Name>Weitere Plugins</Name>
+                <Filename>plugin-empfehlungen.php</Filename>
+            </Customlink>
+            <Settingslink sort="2">
+                <Name>MGD Suche – Einstellungen</Name>
+                <Setting type="selectbox" initialValue="Y" sort="10" conf="Y">
+                    <Name>Merkmal-Hinweise aktivieren</Name>
+                    <Description>Ergänzt eine Suchseite um direkte Filterlinks für passende JTL-Merkmalwerte. Die native Suche, Preise und Sichtbarkeiten bleiben unverändert.</Description>
+                    <ValueName>mgd_search_enabled</ValueName>
+                    <SelectboxOptions>
+                        <Option value="Y" sort="1">Ja</Option>
+                        <Option value="N" sort="2">Nein</Option>
+                    </SelectboxOptions>
+                </Setting>
+                <Setting type="selectbox" initialValue="exact" sort="20" conf="Y">
+                    <Name>Abgleich von Merkmalwerten</Name>
+                    <Description>Exakt ist die sichere Voreinstellung. Präfix zeigt zusätzlich Werte, die mit dem Suchbegriff beginnen, und kann mehr Treffer erzeugen.</Description>
+                    <ValueName>mgd_search_match_mode</ValueName>
+                    <SelectboxOptions>
+                        <Option value="exact" sort="1">Exakt</Option>
+                        <Option value="prefix" sort="2">Beginnt mit</Option>
+                    </SelectboxOptions>
+                </Setting>
+                <Setting type="number" initialValue="3" sort="30" conf="Y">
+                    <Name>Mindestlänge des Suchbegriffs</Name>
+                    <Description>Unterhalb dieser Anzahl von Zeichen fragt das Plugin keine Merkmalwerte ab. Empfohlen: 3.</Description>
+                    <ValueName>mgd_search_minimum_length</ValueName>
+                </Setting>
+                <Setting type="number" initialValue="6" sort="40" conf="Y">
+                    <Name>Maximale Merkmal-Hinweise</Name>
+                    <Description>Begrenzt die Anzeige und schützt die Suchseite bei großen Sortimenten. Empfohlen: 6.</Description>
+                    <ValueName>mgd_search_maximum_hints</ValueName>
+                </Setting>
+                <Setting type="selectbox" initialValue="Y" sort="50" conf="Y">
+                    <Name>Hinweis am Suchfeld zeigen</Name>
+                    <Description>Zeigt einen kleinen, rein informativen Hinweis unter Suchfeldern. Es werden keine Daten gespeichert oder an Dritte übertragen.</Description>
+                    <ValueName>mgd_search_show_field_hint</ValueName>
+                    <SelectboxOptions>
+                        <Option value="Y" sort="1">Ja</Option>
+                        <Option value="N" sort="2">Nein</Option>
+                    </SelectboxOptions>
+                </Setting>
+                <Setting type="selectbox" initialValue="cards" sort="60" conf="Y">
+                    <Name>Darstellung der Merkmal-Hinweise</Name>
+                    <Description>Karten sind gut sichtbar; kompakt benötigt weniger Platz.</Description>
+                    <ValueName>mgd_search_display</ValueName>
+                    <SelectboxOptions>
+                        <Option value="cards" sort="1">Karten</Option>
+                        <Option value="compact" sort="2">Kompakt</Option>
+                    </SelectboxOptions>
+                </Setting>
+                <Setting type="colorpicker" initialValue="#5b4de3" sort="70" conf="Y">
+                    <Name>Akzentfarbe</Name>
+                    <Description>Farbe für Fokus und Merkmal-Links. Kontrast mit dem verwendeten Shop-Theme prüfen.</Description>
+                    <ValueName>mgd_search_accent_color</ValueName>
+                </Setting>
+            </Settingslink>
+        </Adminmenu>
+    </Install>
+</jtlshopplugin>

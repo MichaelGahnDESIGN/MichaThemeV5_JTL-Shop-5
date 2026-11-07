@@ -9,6 +9,10 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 34 Free-Funktionen sind aufgeführt (fertig oder noch in Arbeit, den Stand zeigt die Liste). Dieses Repo enthält ausschließlich die kostenlosen Funktionen.
 Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.md), offene Punkte in [`TODO.md`](TODO.md).
 
+## Zusätzliche JTL-Shop-Plugins
+
+- [`MGD Suche`](docs/MGD-SUCHE.md) – ergänzt die native JTL-Suche um datensparsame Merkmal-Hinweise, direkte Merkmalfilter und einen eigenen Bereich „Weitere Plugins“ im Backend.
+
 ## Installation
 
 Pre-Alpha: getestet nur mit JTL-Shop 5.8.2. Bitte zuerst in einem Test-Shop ausprobieren. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
