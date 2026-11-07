@@ -6,14 +6,15 @@ MGD Suche verbessert die bestehende JTL-Shop-5-Suche, ohne ihre Preis-, Sichtbar
 
 Beispiel: Sucht ein Besucher nach `Baumwolle` und dieser Wert ist als JTL-Merkmal gepflegt, erscheint ein Link wie `Material: Baumwolle`. Der Klick führt zu JTLs eigener Merkmalfilteransicht.
 
-## Funktionsumfang 0.2.0
+## Funktionsumfang 0.3.0
 
 - Einstellungen im JTL-Backend für Aktivierung, Abgleichart, Mindestlänge, Ergebnislimit, Darstellung und Akzentfarbe
 - exakter, optionaler Präfix-Abgleich von Merkmalwerten in der aktuellen Shopsprache
 - keine Änderung an JTL-Kerndateien, keine externe Suche, keine Cookies, kein LocalStorage und kein Tracking
 - lokale CSS- und JavaScript-Dateien; die JavaScript-Datei versendet keine Anfragen
 - barrierearme Links mit sichtbarem Tastaturfokus und ausreichend großen Touch-Zielen
-- Backend-Punkt **Weitere Plugins** mit Installationsstatus für MGD-JTL-Plugins und zentraler, validierter Katalog-JSON mit lokalem Fallback
+- Backend-Punkt **Weitere Plugins** als visuelle MGD-Plugin-Kollektion: Kategorie, Bild, Kurzbeschreibung, Funktionsliste, Version, Preisstatus, Installationsstatus und sichere Handlungslinks
+- zentrale, validierte Katalog-JSON von `theme.michael-gahn.de` mit lokaler Ausfallsicherung
 - opt-in-basierte Updateprüfung im JTL-Backend: akzeptiert ausschließlich das erwartete ZIP eines stabilen GitHub-Releases und verweist für die Installation auf die JTL-Pluginverwaltung
 
 ## Grenzen der ersten Version
@@ -33,7 +34,7 @@ Ein vollständiger eigener Suchindex mit Ranking, Tippfehlertoleranz und Live-Vo
 
 Die Erweiterung verarbeitet den eingegebenen Suchbegriff nur innerhalb der aktuellen PHP-Anfrage, um Merkmalwerte aus der Shopdatenbank zu lesen. Sie speichert selbst keine Suchbegriffe, Besucherkennungen oder IP-Adressen und überträgt keine Daten an Dritte. Das ersetzt keine individuelle Datenschutzprüfung des gesamten Shops.
 
-Der Bereich **Weitere Plugins** ruft ausschließlich beim Öffnen im Backend eine öffentliche Produktliste von `theme.michael-gahn.de` ab. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Ist der Katalog nicht erreichbar, nutzt das Plugin eine lokale Fallback-Liste.
+Der Bereich **Weitere Plugins** ruft ausschließlich beim Öffnen im Backend eine öffentliche Produktliste von `theme.michael-gahn.de` ab. Kategorie, Bild, Texte, Reihenfolge, Verfügbarkeit und Links werden dort zentral gepflegt. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Das Plugin akzeptiert ausschließlich `schemaVersion: 1` sowie HTTPS-Links zu `theme.michael-gahn.de`; fremde Links aus dem Feed werden verworfen. Ist der Katalog nicht erreichbar, nutzt das Plugin eine lokale Fallback-Liste.
 
 ## Updates
 
@@ -41,10 +42,11 @@ Unter **Updates** kann nach Aktivierung von **GitHub-Updatehinweise** in den Plu
 
 ## Prüfung
 
-Die reine Suchbegriffnormalisierung lässt sich ohne JTL-Installation prüfen:
+Die reine Suchbegriffnormalisierung und die Katalog-Validierung lassen sich ohne JTL-Installation prüfen:
 
 ```bash
 php plugins/MGDSucheJTLShop/tests/SearchTermNormalizerTest.php
+php plugins/MGDSucheJTLShop/tests/PluginCatalogProviderTest.php
 ```
 
 Für die Installation muss zusätzlich im Testshop geprüft werden: exakte Suche, Präfixsuche, mehrere Sprachen, deaktivierte Merkmale, mobile Darstellung und ein Child-Template.

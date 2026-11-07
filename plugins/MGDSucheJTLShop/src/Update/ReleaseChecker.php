@@ -137,7 +137,7 @@ final class ReleaseChecker
             CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_PROTOCOLS => CURLPROTO_HTTPS,
             CURLOPT_REDIR_PROTOCOLS => CURLPROTO_HTTPS,
-            CURLOPT_HTTPHEADER => ['Accept: application/vnd.github+json', 'User-Agent: MGD-Suche-JTL-Shop/0.2.0'],
+            CURLOPT_HTTPHEADER => ['Accept: application/vnd.github+json', 'User-Agent: MGD-Suche-JTL-Shop/0.3.0'],
             CURLOPT_WRITEFUNCTION => static function ($handle, string $chunk) use (&$body): int {
                 unset($handle);
                 if (strlen($body) + strlen($chunk) > self::MAX_BYTES) {
@@ -150,7 +150,9 @@ final class ReleaseChecker
         ]);
         $ok = curl_exec($curl);
         $status = (int) curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        curl_close($curl);
+        // Seit PHP 8 wird der Handle automatisch freigegeben. Das explizite
+        // Schließen ist ab PHP 8.5 nur noch eine unnötige Warnung.
+        unset($curl);
         if ($ok === false || $status !== 200) {
             return null;
         }

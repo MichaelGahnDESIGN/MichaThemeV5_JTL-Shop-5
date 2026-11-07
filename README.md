@@ -11,7 +11,7 @@ Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.m
 
 ## Zusätzliche JTL-Shop-Plugins
 
-- [`MGD Suche`](docs/MGD-SUCHE.md) – ergänzt die native JTL-Suche um datensparsame Merkmal-Hinweise, direkte Merkmalfilter und einen eigenen Bereich „Weitere Plugins“ im Backend.
+- [`MGD Suche`](docs/MGD-SUCHE.md) – ergänzt die native JTL-Suche um datensparsame Merkmal-Hinweise, direkte Merkmalfilter und eine visuelle, zentral über theme.michael-gahn.de gepflegte Plugin-Kollektion im Backend.
 
 ## Installation
 
