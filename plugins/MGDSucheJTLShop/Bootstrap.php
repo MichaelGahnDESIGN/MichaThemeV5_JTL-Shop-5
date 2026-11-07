@@ -63,6 +63,7 @@ final class Bootstrap extends Bootstrapper
             'src/Search/CharacteristicSuggestionProvider.php',
             'src/Search/SearchPageEnhancer.php',
             'src/Catalog/PluginCatalogProvider.php',
+            'src/Update/ReleaseChecker.php',
         ] as $file) {
             require_once __DIR__ . '/' . $file;
         }
