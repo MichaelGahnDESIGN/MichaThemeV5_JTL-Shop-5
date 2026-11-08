@@ -2,6 +2,12 @@
 
 > **Wichtig:** Das Theme ist eine frühe Testversion (Pre-Alpha). Es wurde in einem Demo-Shop mit JTL-Shop 5.8.2 getestet. In anderen Shops und Versionen ist es nicht geprüft. Bitte zuerst in einem Test-Shop ausprobieren, nicht direkt im Live-Shop. Vorher eine Sicherung machen.
 
+## Welche ZIP brauche ich?
+
+Die aktuelle Theme-Ausgabe steht unter [Release v0.6.1](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.1). Im selben Repository liegen getrennte MGD-Suche-Releases; diese nicht mit dem Theme verwechseln.
+
+Das Begleitplugin-ZIP ist direkt in JTL hochladbar und enthält das komplette Template samt Prüfsummen. Das Gesamtpaket ist für die manuelle Kopie in den Shop gedacht; es ist kein einzelnes Plugin-Uploadpaket. Das Notification Center bleibt optional und benötigt seine eigene Einrichtung.
+
 ## Neu installieren
 
 1. Auf GitHub unter „Releases“ die Datei `michatheme-v5-jtl5-<Version>.zip` herunterladen. Daneben liegt eine Datei mit der Endung `.sha256`. Damit lässt sich prüfen, ob die ZIP-Datei unverändert ist.
@@ -54,7 +60,7 @@ Wichtig beim Aktualisieren: Wer die Akzentfarbe schon gespeichert hat (zum Beisp
 
 Weniger erfundene Texte: Die Ersatz-Lieferzeit und der Text der Ankündigungsleiste sind jetzt leer. Bitte nur eintragen, was im Shop wirklich gilt.
 
-Ehrlich gesagt: Das neue Aussehen wurde mit einer Vorschau aus dem echten NOVA-Stylesheet und dem Theme-Stylesheet geprüft (hell und dunkel, Computer und Handy). Alle Templates lassen sich in JTL-Shop 5.8.2 übersetzen. Die fertigen Shop-Seiten wurden nicht live angesehen, weil der Demo-Shop im Wartungsmodus ist.
+Die aktuelle Darstellung ist im regulär angemeldeten JTL-Testshop in beiden Farbmodi geprüft. Die Vorschau für Administratoren funktioniert bei weiter aktivem Wartungsmodus. [Prüfumfang und Grenzen](HELL-DUNKEL-PRUEFUNG.md).
 
 ## Icon-Leiste in der Kopfzeile (ab 0.4.0)
 
@@ -81,7 +87,7 @@ Der Colorpicker ist ein Farbwähler mit Farbfläche, Farbton-Regler, HEX-Feld (z
 
 Ab 0.5.1 ist der Colorpicker im Plugin eingebunden: Tab „Einstellungen“, Gruppe „Eigene Farben“ (16 Farben je Hell und Dunkel, leer = Standard, Warnung bei schlechtem Kontrast).
 
-Wichtig: Er ist fertig und getestet, aber in diesem Theme noch nicht zu sehen. Er kommt mit den Einstellungsseiten der Plugins in Version 0.5.0. Bis dahin gilt:
+Der Colorpicker gehört zur Einstellungsseite des Begleitplugins. Ohne Plugin stehen weiterhin diese nativen Template-Einstellungen bereit:
 
 1. Öffne die Theme-Einstellungen (Admin-Bereich: Darstellung, Template, MichaThemeV5, Einstellungen, Bereich Farben).
 2. Wähle bei „Akzentfarbe“ eine Farbe aus der Liste.
@@ -94,7 +100,7 @@ JTL-Shop hat ab Version 5.7 ein eigenes Widerrufsformular. Das Theme zeigt desha
 
 ## Dateien aus dem Generator
 
-`template.xml`, `snippets/mt-config.tpl` und `mt/*` (außer `mt-jtl.css`, `mt-jtl.js`, `mt-legal.*` und `mt-notification-center.*`) werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt. Nicht von Hand ändern.
+`template.xml`, `snippets/mt-config.tpl` und `mt/*` (außer `mt-jtl.css`, `mt-jtl.js`, `mt-content-contrast.js`, `mt-legal.*` und `mt-notification-center.*`) werden aus dem Optionskatalog des Repos MichaThemeV5-Pro erzeugt. Nicht von Hand ändern.
 
 ## Erweiterungen
 

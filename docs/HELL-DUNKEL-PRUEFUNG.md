@@ -1,6 +1,6 @@
 # Hell-/Dunkelprüfung im JTL-Testshop
 
-Begonnen am 08.11.2026, abgeschlossen am 09.11.2026. JTL-Shop 5.8.2, installiertes Theme/Begleitplugin 0.6.0 mit gezieltem, noch unveröffentlichtem UI-Patch. Die öffentlichen 0.6.0-Pakete wurden nicht ersetzt.
+Begonnen am 08.11.2026, abgeschlossen am 09.11.2026. JTL-Shop 5.8.2, installiertes Theme/Begleitplugin 0.6.0 mit gezieltem UI-Patch. Diese korrigierten Dateien werden unverändert im Release 0.6.1 ausgeliefert; die Versionsmetadaten werden dabei auf 0.6.1 angehoben. Die öffentlichen 0.6.0-Pakete wurden nicht ersetzt.
 
 ## Korrekturen
 
