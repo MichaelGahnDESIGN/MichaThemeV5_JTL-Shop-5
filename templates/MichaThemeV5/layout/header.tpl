@@ -8,7 +8,8 @@
     {/if}
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-theme.js" defer></script>
     <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.js" defer></script>
-    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.js" defer></script>
+    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.js?v=64cf5b358e18" defer></script>
+    <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-content-contrast.js?v=4d7b779ea512" defer></script>
     {* Glocke: Skript nur mit aktivem Plugin und gewählter Platzierung *}
     {if $mtNotificationsAvailable === true && ($Einstellungen.template.mt_notification.mt_notification_placement|default:'none') !== 'none'}
         <script src="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.js" defer></script>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-fonts.css">
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-tokens.css">
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-base.css">
-    <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.css">
+    <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-jtl.css?v=69a58c9a47f3">
     <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-legal.css">
     {if $mtNotificationsAvailable === true && ($Einstellungen.template.mt_notification.mt_notification_placement|default:'none') !== 'none'}
         <link rel="stylesheet" href="{$ShopURL}/{$currentTemplateDir}mt/mt-notification-center.css">

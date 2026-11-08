@@ -2,12 +2,20 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## Noch nicht veröffentlicht
+
+- Navigationspfeile verwenden die Farben der Kopfzeile statt weißer Verläufe. Beschriftung, Tastaturbedienung und Fokus beim Erreichen eines Endes ergänzt.
+- Aus Word oder anderen Editoren eingefügte neutrale Textfarben werden bei unzureichendem Kontrast an die Theme-Farbe angepasst. Gespeicherte Inhalte bleiben unverändert; Akzentfarben und Bildbereiche werden nicht automatisch umgefärbt.
+- Suchfeld, Autovervollständigung und aktive Suchschrift folgen Hell-/Dunkelwechseln. Links werden ohne Textunterstreichung dargestellt; Fokusmarkierungen bleiben erhalten.
+- Gezielte Prüfung auf JTL 5.8.2 bei 390, 768 und 1280 Pixeln in beiden Modi. [Ergebnisse und Grenzen](docs/HELL-DUNKEL-PRUEFUNG.md). Bestehende Release-ZIPs bleiben unverändert.
+
 ## MGD Suche 0.3.0
 
 - Die Seite **Weitere Plugins** ist jetzt eine visuelle Plugin-Kollektion im Stil der MGD-WordPress-Plugins: Bild, Kategorie, Beschreibung, Version, Preis- und Installationsstatus sowie klare Download- und Detail-Links.
 - Inhalte, Reihenfolge und Verfügbarkeit kommen zentral aus `theme.michael-gahn.de/api/catalog/plugins.json`. Das Plugin akzeptiert nur die dokumentierte Schema-Version und sichere HTTPS-Links zu `theme.michael-gahn.de`.
 - Bei einem Ausfall des Katalogs erscheint eine kleine lokale Ausfallsicherung. Suche und Shopbetrieb bleiben davon unberührt.
 - Geprüft: PHP-Syntax, XML, Such- und Update-Tests, Katalog-Validierung sowie Live-Abruf der öffentlichen Katalog-JSON. Die Darstellung muss nach der Installation noch einmal in einem echten JTL-Backend bestätigt werden.
+
 
 ## 0.6.0
 

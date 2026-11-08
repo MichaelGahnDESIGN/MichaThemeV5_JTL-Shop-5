@@ -53,7 +53,7 @@ Das Plugin hat vier Tabs:
 3. **Plugin-Empfehlungen**: weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
 4. **Info**: Versionen, Template einrichten (mit Rückfrage und ZIP-Sicherung), Sicherung der Einstellungen und Changelog.
 
-Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Ehrlich gesagt: Die Admin-Seiten des Plugins sind im Demo-Shop (JTL-Shop 5.8.2) geprüft, die fertigen Shop-Seiten dort nicht im Browser.
+Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Das Theme und sein Begleitplugin sind im eigenen Demo-Shop mit JTL-Shop 5.8.2 nativ installiert und aktualisiert. Die aktuelle Hell-/Dunkelkorrektur wurde dort im Browser geprüft. [Prüfumfang, Ergebnisse und verbleibende Grenzen](docs/HELL-DUNKEL-PRUEFUNG.md).
 
 ## Demo-Inhalte (ab Version 0.6.0)
 

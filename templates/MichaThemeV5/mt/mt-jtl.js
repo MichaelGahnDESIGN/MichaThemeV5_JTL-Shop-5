@@ -29,9 +29,41 @@
       document.dispatchEvent(new Event('mt:favs-sync'));
     }, 50);
   }
+  function scrollControls() {
+    // NOVA liefert die Scrollpfeile als div: Namen, Fokus und Tastatur ergänzen.
+    document.querySelectorAll('.nav-scrollbar-arrow:not([data-mt-scroll-ready])').forEach(function (arrow) {
+      arrow.setAttribute('data-mt-scroll-ready', '1');
+      var label = arrow.classList.contains('left') ? 'Menü nach links scrollen' : 'Menü nach rechts scrollen';
+      arrow.setAttribute('aria-label', label);
+      arrow.setAttribute('title', label);
+      function syncArrow() {
+        var disabled = arrow.classList.contains('disabled');
+        var focused = document.activeElement === arrow;
+        arrow.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+        arrow.tabIndex = disabled ? -1 : 0;
+        // Verschwindet der benutzte Pfeil, bleibt der Fokus beim anderen Scrollpfeil.
+        if (disabled && focused) {
+          var other = arrow.parentElement.querySelector('.nav-scrollbar-arrow:not(.disabled)');
+          if (other) { other.focus(); }
+        }
+      }
+      syncArrow();
+      arrow.addEventListener('keydown', function (event) {
+        if ((event.key === 'Enter' || event.key === ' ') && arrow.getAttribute('aria-disabled') !== 'true') {
+          event.preventDefault();
+          arrow.focus();
+          arrow.click();
+        }
+      });
+      if ('MutationObserver' in window) {
+        new MutationObserver(syncArrow).observe(arrow, { attributes: true, attributeFilter: ['class'] });
+      }
+    });
+  }
 
   function start() {
     wishSync();
+    scrollControls();
     var badge = document.getElementById('badge-wl-count');
     if (badge && 'MutationObserver' in window) {
       new MutationObserver(wishSync).observe(badge, { attributes: true, childList: true, characterData: true, subtree: true });
@@ -42,6 +74,7 @@
           var added = list[i].addedNodes;
           for (var j = 0; j < added.length; j++) {
             var node = added[j];
+            if (node.nodeType === 1 && (node.matches('.nav-scrollbar-arrow') || node.querySelector('.nav-scrollbar-arrow'))) { scrollControls(); }
             if (node.nodeType === 1 && (node.matches('[data-mt-fav-toggle]') || node.querySelector('[data-mt-fav-toggle]'))) { favSoon(); return; }
           }
         }

@@ -12,11 +12,12 @@ h1, .h1 { font-size: var(--mt-text-2xl); }
 h2, .h2 { font-size: var(--mt-text-xl); }
 h3, .h3 { font-size: var(--mt-text-lg); letter-spacing: -.01em; }
 @media (min-width: 768px) { h1, .h1 { font-size: var(--mt-text-3xl); } h2, .h2 { font-size: var(--mt-text-2xl); } }
-a { color: var(--mt-accent-text); }
+a { color: var(--mt-accent-text); text-decoration: none; }
 a:hover, a:focus { color: var(--mt-accent-text); text-decoration: none; }
-/* UI Links ohne Unterstreichung, Hover = Unterstrich */
+/* Links ohne Unterstrich, Tastaturfokus bleibt sichtbar */
 .productbox-title a, .breadcrumb a, .nav a, .nav-link, .page-link, .dropdown-item, .list-group-item a, .card-title a, header a, #footer a, #copyright a, .cart-items-body a, .snippets-filter-item a, .box a, .btn { text-decoration: none; }
-.productbox-title a:hover, .breadcrumb a:hover, #footer a:hover, .cart-items-body a:hover { text-decoration: underline; }
+.productbox-title a:hover, .breadcrumb a:hover, #footer a:hover, .cart-items-body a:hover { text-decoration: none; }
+main p a { font-weight: 700; }
 .text-muted, .price-note, .footnote-reference, .text-gray, .text-gray-dark { color: var(--mt-text-muted) !important; }
 .text-dark, .text-gray-darker, .text-secondary, .text-body { color: var(--mt-text) !important; }
 .text-primary, .text-accent { color: var(--mt-accent-text) !important; }
@@ -65,7 +66,7 @@ hr, .border, .border-top, .border-bottom, .border-left, .border-right { border-c
 .alert-success { background: var(--mt-success-bg); border-color: var(--mt-success-border); color: var(--mt-success); }
 .alert-warning { background: var(--mt-warning-bg); border-color: var(--mt-warning-border); color: var(--mt-warning); }
 .alert-info { background: var(--mt-info-bg); border-color: var(--mt-info-border); color: var(--mt-info); }
-.alert a, .alert .alert-link { color: inherit; text-decoration: underline; font-weight: 700; }
+.alert a, .alert .alert-link { color: inherit; text-decoration: none; font-weight: 700; }
 /* Fehlerwort vor dem Text, nie nur Farbe */
 :lang(de) > .alert-danger::before, .alert-danger:lang(de)::before { content: "Fehler: "; font-weight: 700; }
 .alert-danger:lang(en)::before { content: "Error: "; font-weight: 700; }
@@ -123,6 +124,13 @@ body header a.nav-link:hover:not(.btn), body header a.nav-link.active:not(.btn),
 header .navbar-toggler, header .navbar-toggler:hover { color: var(--mt-text); border-color: transparent; min-width: 44px; min-height: 44px; }
 .nav-link { color: var(--mt-text); }
 .nav-link:hover, .nav-link.active { color: var(--mt-accent-text); }
+/* Scrollpfeile passend zur Kopfzeile, ohne weißen Fleck im Dunkelmodus */
+header .nav-scrollbar-arrow { color: var(--mt-text); min-height: 44px; display: flex; align-items: center; width: 3rem; padding-inline: .5rem; }
+header .nav-scrollbar-arrow.left { justify-content: flex-start; background: linear-gradient(to right, var(--mt-surface) 55%, transparent); }
+header .nav-scrollbar-arrow.right { justify-content: flex-end; background: linear-gradient(to left, var(--mt-surface) 55%, transparent); }
+header .nav-scrollbar-arrow:hover { color: var(--mt-accent-text); }
+header .nav-scrollbar-arrow:focus-visible { outline: var(--mt-focus-width) solid var(--mt-focus); outline-offset: -3px; }
+header .nav-scrollbar-arrow[aria-disabled="true"] { visibility: hidden; }
 header .nav-right .nav-link { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
 @media (min-width: 992px) {
   header .nav-right .nav-link { padding-top: .5rem; padding-bottom: .5rem; }
@@ -150,6 +158,15 @@ header .nav-right .nav-link { min-height: 44px; min-width: 44px; display: inline
 header .search-wrapper .form-control { border-radius: var(--mt-r) 0 0 var(--mt-r); padding-left: 1rem; background: var(--mt-surface); }
 header .search-wrapper .input-group-append .btn, .search-wrapper .input-group-append .btn { border-radius: 0 var(--mt-r) var(--mt-r) 0; min-width: 44px; background: var(--mt-surface-2); border-color: var(--mt-border-strong); color: var(--mt-text); }
 .form-clear { color: var(--mt-text-muted); }
+/* Typeahead setzt die alte Hintergrundfarbe inline und muss beim Umschalten mitziehen */
+.search-wrapper .twitter-typeahead .tt-input { color: var(--mt-text) !important; caret-color: var(--mt-text); }
+.search-wrapper .twitter-typeahead .tt-hint { background-color: var(--mt-surface) !important; color: var(--mt-text-muted) !important; }
+.tt-menu, .tt-suggestion { background-color: var(--mt-surface); color: var(--mt-text); border-color: var(--mt-border); }
+.tt-suggestion:hover, .tt-suggestion.tt-cursor { background-color: var(--mt-surface-2); }
+
+/* Nur vom Kontrastprüfer markierte, neutrale Textfarben überschreiben */
+.mt-copy-contrast { color: var(--mt-text) !important; }
+.mt-copy-contrast-muted { color: var(--mt-text-muted) !important; }
 .fa-sup { background-color: var(--mt-accent); color: var(--mt-on-accent); font-family: var(--mt-font-body); font-weight: 700; font-variant-numeric: tabular-nums; }
 .cart-icon-dropdown .cart-icon-dropdown-price { font-weight: 700; font-variant-numeric: tabular-nums; }
 .mt-mode-wrap { display: none; justify-content: flex-end; padding: .25rem 1rem; background: var(--mt-surface); }
@@ -237,7 +254,7 @@ header .nav-right .mt-notification-center { display: flex; }
 .btn-warning, .btn-warning:focus, .btn-warning.disabled, .btn-warning:disabled { background: var(--mt-warning-bg); border-color: var(--mt-warning-border); color: var(--mt-warning); }
 .btn-warning:hover, .btn-warning:not(:disabled):not(.disabled):active { background: var(--mt-warning-bg); border-color: var(--mt-warning); color: var(--mt-warning); }
 .btn-link { color: var(--mt-accent-text); background: transparent; border-color: transparent; }
-.btn-link:hover { color: var(--mt-accent-text); text-decoration: underline; }
+.btn-link:hover { color: var(--mt-accent-text); text-decoration: none; }
 :root[data-mt-buttons="outline"] .btn-primary { background: transparent; color: var(--mt-accent-text); border-color: var(--mt-accent); }
 :root[data-mt-buttons="outline"] .btn-primary:hover { background: var(--mt-accent-subtle); color: var(--mt-accent-text); border-color: var(--mt-accent); }
 :root[data-mt-buttons="pill"] .btn { border-radius: 999px; }
