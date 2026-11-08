@@ -1,6 +1,6 @@
 # Hell-/Dunkelprüfung im JTL-Testshop
 
-Stand: 08.11.2026. JTL-Shop 5.8.2, installiertes Theme/Begleitplugin 0.6.0 mit gezieltem, noch unveröffentlichtem UI-Patch. Die öffentlichen 0.6.0-Pakete wurden nicht ersetzt.
+Begonnen am 08.11.2026, abgeschlossen am 09.11.2026. JTL-Shop 5.8.2, installiertes Theme/Begleitplugin 0.6.0 mit gezieltem, noch unveröffentlichtem UI-Patch. Die öffentlichen 0.6.0-Pakete wurden nicht ersetzt.
 
 ## Korrekturen
 
@@ -37,3 +37,5 @@ Rückfall: Zuerst aktuelle Hashes mit dem letzten Auslieferungsmanifest vergleic
 ## Grenzen
 
 Die Kontrastwerte gelten für die konkret geprüfte Text-/Hintergrundkombination. Das ist keine vollständige WCAG-, Screenreader-, Bildkontrast- oder Leistungszertifizierung. Beliebige eigene Farben und beliebige Fotos können eine erneute Prüfung benötigen. Es wurden keine Zahlungs-/Bestellvorgänge ausgelöst. Die Plattform bleibt privat; Rechts- und öffentliche Startfreigabe sind eigenständige Schritte.
+
+Beim Git-Abgleich wurden die bereits vorhandenen MGD-Suche-/Katalogänderungen erhalten. Sie wurden nicht zusätzlich auf dem Testshop installiert. Der Rebase änderte keine der vier per Hash geprüften Produktdateien. Die gezielte UI-Abnahme ist kein Funktionstest dieser unabhängigen Sucherweiterung.
