@@ -21,7 +21,7 @@ final class LicenseService
     private const TEMPLATE = 'MichaThemeV5';
     private const TAG = 'mt_license';
 
-    /** @param (callable(string):?array)|null $http nur für Tests: ['status' => int, 'json' => array] */
+    /** @param (callable(string,array):?array)|null $http nur für Tests: ['status' => int, 'json' => array] */
     public function __construct(private readonly DbInterface $db, private $http = null)
     {
     }
@@ -87,10 +87,17 @@ final class LicenseService
         return new LicenseClient(
             $api,
             (string) parse_url(Shop::getURL(), PHP_URL_HOST),
-            $this->http ?? static function (string $url): ?array {
-                $ctx = stream_context_create(['http' => ['timeout' => 4, 'ignore_errors' => true, 'follow_location' => 0, 'max_redirects' => 0]]);
-                $body = @file_get_contents($url, false, $ctx, 0, 262144);
-                if ($body === false) {
+            $this->http ?? static function (string $url, array $request): ?array {
+                $headers = [];
+                foreach ($request['headers'] as $name => $value) {
+                    $headers[] = $name . ': ' . $value;
+                }
+                $ctx = stream_context_create([
+                    'http' => ['method' => 'POST', 'header' => implode("\r\n", $headers), 'content' => $request['body'], 'timeout' => 4, 'ignore_errors' => true, 'follow_location' => 0, 'max_redirects' => 0],
+                    'ssl' => ['verify_peer' => true, 'verify_peer_name' => true],
+                ]);
+                $body = @file_get_contents($url, false, $ctx, 0, 262145);
+                if ($body === false || strlen($body) > 262144) {
                     return null;
                 }
                 $status = 0;
