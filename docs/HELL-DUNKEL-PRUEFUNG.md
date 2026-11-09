@@ -39,3 +39,6 @@ Rückfall: Zuerst aktuelle Hashes mit dem letzten Auslieferungsmanifest vergleic
 Die Kontrastwerte gelten für die konkret geprüfte Text-/Hintergrundkombination. Das ist keine vollständige WCAG-, Screenreader-, Bildkontrast- oder Leistungszertifizierung. Beliebige eigene Farben und beliebige Fotos können eine erneute Prüfung benötigen. Es wurden keine Zahlungs-/Bestellvorgänge ausgelöst. Die Plattform bleibt privat; Rechts- und öffentliche Startfreigabe sind eigenständige Schritte.
 
 Beim Git-Abgleich wurden die bereits vorhandenen MGD-Suche-/Katalogänderungen erhalten. Sie wurden nicht zusätzlich auf dem Testshop installiert. Der Rebase änderte keine der vier per Hash geprüften Produktdateien. Die gezielte UI-Abnahme ist kein Funktionstest dieser unabhängigen Sucherweiterung.
+
+
+Nachtrag 09.11.2026: Theme und Begleitplugin sind inzwischen auch nativ auf 0.6.1 aktualisiert und erneut in Hell/Dunkel auf Desktop/Mobil geprüft. [Native 0.6.1-Abnahme](NATIVE-ABNAHME-061.md). Der oben beschriebene ursprüngliche Prüfstand bleibt als historischer Nachweis erhalten.

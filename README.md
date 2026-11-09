@@ -6,7 +6,7 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 ## Version 0.6.1 herunterladen
 
-**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Getestet mit JTL-Shop 5.8.2.
+**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Natives Update auf 0.6.1 mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
 
 - **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-0.6.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.1/MichaThemeV5-plugin-0.6.1.zip). In JTL unter Plugins hochladen; anschließend das Template im Info-Tab bewusst einrichten.
 - **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-0.6.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.1/michatheme-v5-jtl5-0.6.1.zip). Enthält das Template, das vollständige Begleitplugin und das bisher optionale Notification Center. Die zusätzlichen Plugins werden nicht automatisch installiert.
