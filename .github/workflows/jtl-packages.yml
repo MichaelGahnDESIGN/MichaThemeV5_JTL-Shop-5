@@ -1,0 +1,35 @@
+name: JTL-Pakete prüfen
+on:
+  pull_request:
+    paths: ['templates/MichaThemeV5/**', 'plugins/MichaThemeV5/**', 'plugins/MichaThemeV5NotificationCenter/**', 'tools/**', 'tests/**', '.github/workflows/jtl-packages.yml']
+  push:
+    branches: [main]
+    paths: ['templates/MichaThemeV5/**', 'plugins/MichaThemeV5/**', 'plugins/MichaThemeV5NotificationCenter/**', 'tools/**', 'tests/**', '.github/workflows/jtl-packages.yml']
+permissions:
+  contents: read
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
+        with:
+          php-version: '8.3'
+          extensions: zip, simplexml
+          coverage: none
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - run: node --test tests/content-contrast.test.cjs
+      - name: Beide Pakete bauen und prüfen
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(php -r 'echo simplexml_load_file("templates/MichaThemeV5/template.xml")->Version;')"
+          bash tools/build-plugin-zip.sh HEAD "$version" "$RUNNER_TEMP/jtl-packages"
+          php tools/check-template-install.php "$RUNNER_TEMP/jtl-packages/MichaThemeV5-plugin-$version.zip" "$version"
+          unzip -q "$RUNNER_TEMP/jtl-packages/michatheme-v5-jtl5-$version.zip" -d "$RUNNER_TEMP/jtl-files"
+          find "$RUNNER_TEMP/jtl-files" -name '*.php' -print0 | xargs -0 -n1 php -l

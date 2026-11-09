@@ -2,12 +2,12 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
-## Noch nicht veröffentlicht
+## 0.6.1 (09.11.2026)
 
 - Navigationspfeile verwenden die Farben der Kopfzeile statt weißer Verläufe. Beschriftung, Tastaturbedienung und Fokus beim Erreichen eines Endes ergänzt.
 - Aus Word oder anderen Editoren eingefügte neutrale Textfarben werden bei unzureichendem Kontrast an die Theme-Farbe angepasst. Gespeicherte Inhalte bleiben unverändert; Akzentfarben und Bildbereiche werden nicht automatisch umgefärbt.
 - Suchfeld, Autovervollständigung und aktive Suchschrift folgen Hell-/Dunkelwechseln. Links werden ohne Textunterstreichung dargestellt; Fokusmarkierungen bleiben erhalten.
-- Gezielte Prüfung auf JTL 5.8.2 bei 390, 768 und 1280 Pixeln in beiden Modi. [Ergebnisse und Grenzen](docs/HELL-DUNKEL-PRUEFUNG.md). Bestehende Release-ZIPs bleiben unverändert.
+- Gezielte Prüfung auf JTL 5.8.2 bei 390, 768 und 1280 Pixeln in beiden Modi. [Ergebnisse und Grenzen](docs/HELL-DUNKEL-PRUEFUNG.md). Neue getrennte Theme-/Begleitplugin-ZIPs enthalten denselben geprüften Template-Stand.
 
 ## MGD Suche 0.3.0
 
