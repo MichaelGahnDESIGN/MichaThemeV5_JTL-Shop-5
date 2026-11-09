@@ -4,6 +4,10 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 **Status:** in Entwicklung (Pre-Alpha).
 
+## Lizenztransport in Vorbereitung
+
+Der Entwicklungsstand stellt Lizenzprüfungen auf HTTPS-POST mit Autorisierungsheader um. Token stehen dabei nicht mehr in URLs. Theme und Begleitplugin müssen gemeinsam aktualisiert werden; vor der Veröffentlichung muss die Plattform den neuen Prüfweg unterstützen. Die bisherigen Release-Downloads bleiben unverändert. [Details und Grenzen](docs/LIZENZTRANSPORT.md).
+
 ## Version 0.6.1 herunterladen
 
 **Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Natives Update auf 0.6.1 mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
