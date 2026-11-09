@@ -15,8 +15,9 @@
             <Customlink sort="1"><Name>Einstellungen</Name><Filename>einstellungen.php</Filename></Customlink>
             <Customlink sort="2"><Name>Lizenzen</Name><Filename>lizenzen.php</Filename></Customlink>
             <Customlink sort="3"><Name>Plugin-Empfehlungen</Name><Filename>plugin-empfehlungen.php</Filename></Customlink>
-            <Customlink sort="4"><Name>Info</Name><Filename>info.php</Filename></Customlink>
-            <Customlink sort="5"><Name>Demo-Inhalte</Name><Filename>demo.php</Filename></Customlink>
+            <Customlink sort="4"><Name>Updates</Name><Filename>updates.php</Filename></Customlink>
+            <Customlink sort="5"><Name>Info</Name><Filename>info.php</Filename></Customlink>
+            <Customlink sort="6"><Name>Demo-Inhalte</Name><Filename>demo.php</Filename></Customlink>
         </Adminmenu>
     </Install>
 </jtlshopplugin>

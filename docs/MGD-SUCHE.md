@@ -38,7 +38,18 @@ Der Bereich **Weitere Plugins** ruft ausschließlich im Backend eine öffentlich
 
 ## Updates
 
-Unter **Updates** kann nach Aktivierung von **GitHub-Updatehinweise** in den Plugin-Einstellungen höchstens einmal pro Stunde nach einem stabilen Release gefragt werden. Da das Repository mehrere Komponenten enthält, akzeptiert die Prüfung ausschließlich Tags nach dem Muster `mgd-suche-v<Version>` und das dazugehörige Paket `MGD-Suche-JTL-Shop-Plugin-<Version>.zip`. Das Plugin lädt und installiert keine Dateien selbst; ZIP-Upload und Update führt bewusst die JTL-Pluginverwaltung aus.
+Unter **Updates** (MGD Update Client) kannst du auf neue Versionen prüfen. So geht es:
+
+1. Öffne im Backend **Plugins → MGD Suche → Updates**.
+2. Ohne dein Zutun wird nichts abgefragt. Erst nach **Update-Prüfung einschalten** oder **Jetzt prüfen** fragt das Plugin den Update-Server von Michael Gahn DESIGN. Dabei sieht der Server die IP-Adresse deines Shops, die Domain, die Plugin-Version und die Shop-Version. Keine Besucher-, Bestell- oder Kundendaten.
+3. Gibt es eine neue Version, kannst du das Paket herunterladen. Das Plugin prüft es dabei (Signatur, Prüfsumme, Inhalt) und legt es in einen gesperrten Ordner.
+4. Installieren musst du selbst: ZIP in der JTL-Pluginverwaltung hochladen. Das Plugin tauscht keine Dateien aus und aktiviert nichts.
+
+Der Bereich braucht das Recht für Plugins und prüft bei jeder Aktion das JTL-Sicherheits-Token.
+
+⚠️ Der Update-Kanal ist noch nicht eingerichtet (Signatur-Schlüssel fehlen, der Server kennt das Produkt `mgd-suche` noch nicht). Bis dahin zeigt der Bereich nur „Update-Kanal noch nicht eingerichtet“ und ruft nichts ab.
+
+Die frühere GitHub-Release-Abfrage und die Einstellung „GitHub-Updatehinweise“ sind entfallen.
 
 ## Prüfung
 
@@ -47,6 +58,7 @@ Die reine Suchbegriffnormalisierung und die Katalog-Validierung lassen sich ohne
 ```bash
 php plugins/MGDSucheJTLShop/tests/SearchTermNormalizerTest.php
 php plugins/MGDSucheJTLShop/tests/PluginCatalogProviderTest.php
+php plugins/MGDSucheJTLShop/tests/UpdateSmokeTest.php
 ```
 
 Für die Installation muss zusätzlich im Testshop geprüft werden: exakte Suche, Präfixsuche, mehrere Sprachen, deaktivierte Merkmale, mobile Darstellung und ein Child-Template.

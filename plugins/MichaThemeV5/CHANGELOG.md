@@ -1,5 +1,9 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## Unveröffentlicht
+- Neu: Tab „Updates“ (MGD Update Client). Update-Prüfung nur nach Einschalten oder Klick, Paket herunterladen und prüfen (Signatur, SHA-256, Inhalt). Es wird nichts installiert: Das ZIP kommt in die JTL-Pluginverwaltung.
+- Der Update-Kanal ist noch nicht eingerichtet (B1 Schlüssel fehlen, B2 Produkt auf dem Server). Bis dahin zeigt der Tab nur einen Hinweis.
+
 ## 0.6.1 (2026-11-09)
 - Mitgeliefertes Template mit korrigiertem Hell-/Dunkelmodus, lesbaren eingefügten Texten, passenden Suchfarben und bedienbaren Navigationspfeilen.
 - Einstellungsplugin und Template-Bündel tragen dieselbe Version. Das vollständige Bündel ist auch im Pluginordner des Gesamtpakets enthalten.

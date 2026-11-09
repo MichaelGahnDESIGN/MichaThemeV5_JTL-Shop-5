@@ -56,7 +56,7 @@ Mehr dazu: [`docs/INSTALL.md`](docs/INSTALL.md).
 
 Das Plugin gibt dem Template eine übersichtliche Einstellungsseite. Es ist freiwillig: Das Template läuft auch ohne Plugin, dann stellst du alles wie bisher unter Darstellung, Template ein. Die Werte liegen am selben Ort wie die normalen Template-Einstellungen, es wird nichts umgezogen.
 
-Das Plugin hat vier Tabs:
+Das Plugin hat vier Tabs (ab der nächsten Version kommt ein fünfter, „Updates“, siehe unten):
 
 1. **Einstellungen**: oben die **Design-Presets** (Standard, Glas, Kompakt), ein Klick setzt mehrere Einstellungen, vorher wird gesichert. Darunter alle Optionen mit Suche. In der Gruppe „Eigene Farben“ stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Leer heißt: Standard des Templates. Dazu kommt das Layout: **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit).
 2. **Lizenzen**: Lizenzcode einfügen und prüfen. Ohne Code läuft alles in der Free-Version.
@@ -70,6 +70,31 @@ Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Da
 Das Plugin kann 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern anlegen. Nach dem Plugin-Update gibt es dafür im Plugin-Menü den Tab **Demo-Inhalte**. Per Konsole geht es auch: `php plugins/MichaThemeV5/src/Generated/demo-cli.php import`, `status` oder `remove` (mit `--yes` ohne Rückfrage).
 
 Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen. Ehrlich gesagt: per Konsole auf JTL-Shop 5.8.0 erprobt, die Backend-Seite noch nicht im Admin geprüft.
+
+## Updates (neu, noch nicht veröffentlicht)
+
+Das Plugin hat einen fünften Tab **Updates**. Dort siehst du, ob es eine neue Version gibt. Es wird **nie** etwas automatisch installiert.
+
+So geht es, Schritt für Schritt:
+
+1. Öffne im Backend Plugins, MichaThemeV5, Tab **Updates**.
+2. Setze das Häkchen bei „Update-Prüfung einschalten“ und klicke auf Speichern. Ohne dieses Häkchen fragt das Plugin nie nach Updates.
+3. Oder klicke auf „Jetzt nach Updates suchen“. Das gilt nur für diese eine Abfrage.
+4. Gibt es ein Update, setze das Häkchen bei der Bestätigung und klicke auf „Paket herunterladen und prüfen“.
+5. Das Plugin prüft Signatur, Prüfsumme und Inhalt des Pakets. Es packt nichts aus und ändert keine Dateien im Plugin-Ordner.
+6. Klicke auf „Geprüftes Paket als ZIP speichern“ und mache eine Datensicherung deines Shops.
+7. Lade die ZIP-Datei selbst in der JTL-Pluginverwaltung hoch. Dort macht JTL das Update.
+
+Was dabei an den Update-Server von Michael Gahn DESIGN geht: die IP-Adresse deines Servers. Keine Besucher-, Kunden- oder Bestelldaten.
+
+Wer darf das? Wer in JTL das Recht für die Pluginverwaltung hat.
+
+Ehrlich gesagt: Der Update-Kanal ist noch **nicht eingerichtet**. Zwei Dinge fehlen auf Seiten von Michael Gahn DESIGN:
+
+- **B1:** Die Schlüssel für die Signatur sind noch nicht erzeugt (`update/root-keys.json` ist leer). Bis dahin zeigt der Tab „Update-Kanal noch nicht eingerichtet“ und fragt nichts ab.
+- **B2:** Der Update-Server muss das Produkt dieses Plugins kennen (`michatheme-v5`). Das ist der Stand der Update-API v1.
+
+Der Code des Update Clients liegt in `plugins/MichaThemeV5/src/Update` und wird automatisch erzeugt. Bitte nicht von Hand ändern. Der Test dazu: `php tests/update-smoke.php`.
 
 ## Weitere Funktionen (Pro)
 

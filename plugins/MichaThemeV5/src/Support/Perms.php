@@ -49,6 +49,12 @@ final class Perms
         return self::can(Permissions::PLUGIN_ADMIN_VIEW);
     }
 
+    /** Updates prüfen und Paket laden: Recht für die Pluginverwaltung (installiert wird dort von JTL) */
+    public static function updates(): bool
+    {
+        return self::can(Permissions::PLUGIN_ADMIN_VIEW);
+    }
+
     /** Dateien schreiben (Template einrichten): nur Hauptadministrator und mit Template-Recht */
     public static function files(): bool
     {
