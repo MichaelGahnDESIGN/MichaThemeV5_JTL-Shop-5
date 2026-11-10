@@ -2,6 +2,13 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## MGD Suche 0.3.2 (10.11.2026)
+
+- Neu: Sicherheitsnetz. Macht das Plugin einen Fehler (zum Beispiel eine fehlende oder kaputte Datei, ein Datenbankfehler), schaltet sich nur das Plugin für diesen Seitenaufruf ab. Der Shop und das Backend laufen normal weiter, statt eine weiße Seite zu zeigen.
+- Jeder abgefangene Fehler steht im JTL-Systemlog. Der Eintrag beginnt mit `MGDSucheJTLShop:` und nennt Fehlerart, Datei und Zeile.
+- Die Bereiche **Updates** und **Weitere Plugins** zeigen bei einem Fehler einen Hinweis statt einer weißen Seite.
+- Technik: neuer Test `php plugins/MGDSucheJTLShop/tests/SafetyNetTest.php`. ⚠️ Nur lokal mit Attrappen geprüft, noch nicht in einem echten JTL-Shop.
+
 ## 0.6.2 (10.11.2026) und MGD Suche 0.3.1
 
 - Neu: MGD Suche 0.3.1 hat den Bereich **Updates** mit dem MGD Update Client. Er arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de nennt Version und SHA-256, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Nichts wird ohne Einschalten oder Klick abgefragt, nichts automatisch installiert. Die alte GitHub-Abfrage und die Einstellung „GitHub-Updatehinweise“ entfallen. Produktname `mgd-suche`.

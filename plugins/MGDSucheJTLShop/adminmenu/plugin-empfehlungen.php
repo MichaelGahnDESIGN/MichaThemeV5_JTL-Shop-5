@@ -14,11 +14,15 @@ if (!defined('PFAD_ROOT') || !isset($oPlugin) || !$oPlugin instanceof PluginInte
     return;
 }
 
-require_once dirname(__DIR__) . '/src/Catalog/PluginCatalogProvider.php';
-
 $escape = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 
 try {
+    // Datei fehlt = Hinweis statt weißer Seite
+    $catalogFile = dirname(__DIR__) . '/src/Catalog/PluginCatalogProvider.php';
+    if (!is_file($catalogFile)) {
+        throw new \RuntimeException('Plugin-Datei fehlt: PluginCatalogProvider.php');
+    }
+    require_once $catalogFile;
     $catalog = new PluginCatalogProvider();
     $items = $catalog->recommendations();
     ?>
