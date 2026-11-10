@@ -89,10 +89,10 @@ Was dabei an den Update-Server von Michael Gahn DESIGN geht: die IP-Adresse dein
 
 Wer darf das? Wer in JTL das Recht für die Pluginverwaltung hat.
 
-Ehrlich gesagt: Der Update-Kanal ist noch **nicht eingerichtet**. Zwei Dinge fehlen auf Seiten von Michael Gahn DESIGN:
+So arbeitet der Update-Kanal:
 
-- **B1:** Die Schlüssel für die Signatur sind noch nicht erzeugt (`update/root-keys.json` ist leer). Bis dahin zeigt der Tab „Update-Kanal noch nicht eingerichtet“ und fragt nichts ab.
-- **B2:** Der Update-Server muss das Produkt dieses Plugins kennen (`michatheme-v5`). Das ist der Stand der Update-API v1.
+- Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. Solange die Textdatei noch nicht auf dem Server liegt, meldet der Bereich nur einen Fehler beim Abruf. Sonst passiert nichts.
+- Die signierte Variante (mit Schlüsseln in `update/root-keys.json`) ist vorbereitet, aber noch nicht aktiv.
 
 Der Code des Update Clients liegt in `plugins/MichaThemeV5/src/Update` und wird automatisch erzeugt. Bitte nicht von Hand ändern. Der Test dazu: `php tests/update-smoke.php`.
 

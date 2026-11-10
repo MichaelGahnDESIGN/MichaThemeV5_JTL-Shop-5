@@ -2,7 +2,7 @@
 
 ## Unveröffentlicht
 - Neu: Tab „Updates“ (MGD Update Client). Update-Prüfung nur nach Einschalten oder Klick, Paket herunterladen und prüfen (Signatur, SHA-256, Inhalt). Es wird nichts installiert: Das ZIP kommt in die JTL-Pluginverwaltung.
-- Der Update-Kanal ist noch nicht eingerichtet (B1 Schlüssel fehlen, B2 Produkt auf dem Server). Bis dahin zeigt der Tab nur einen Hinweis.
+- Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. Solange die Textdatei noch nicht auf dem Server liegt, meldet der Bereich nur einen Fehler beim Abruf. Sonst passiert nichts.
 
 ## 0.6.1 (2026-11-09)
 - Mitgeliefertes Template mit korrigiertem Hell-/Dunkelmodus, lesbaren eingefügten Texten, passenden Suchfarben und bedienbaren Navigationspfeilen.

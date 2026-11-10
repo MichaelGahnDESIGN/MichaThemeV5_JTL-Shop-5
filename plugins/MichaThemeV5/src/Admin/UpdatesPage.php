@@ -20,6 +20,8 @@ final class UpdatesPage extends Page
     public const PRODUCT = 'michatheme-v5';
     public const EDITION = 'free';
     public const PLUGIN_NAME = 'MichaThemeV5';
+    // Prüfsummen-Datei auf All-Inkl (einfacher Modus, bis die Schlüssel da sind)
+    public const SIMPLE_URL = 'https://theme.michael-gahn.de/plugin-updates/michatheme-v5.json';
 
     public function tabKey(): string
     {
@@ -45,6 +47,9 @@ final class UpdatesPage extends Page
             static fn (): bool => Perms::updates(),
             // CSRF Feld + Tab, damit man nach dem Klick wieder im Tab Updates landet
             Perms::tokenInput() . '<input type="hidden" name="cPluginTab" value="' . $this->e($this->tabName()) . '">',
+            null,
+            ['info.xml'],
+            self::SIMPLE_URL,
         );
         $res = $page->handle((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'), $_POST);
         if ($res['deliver'] !== null && !$this->send($res['deliver'], $dir)) {
