@@ -8,20 +8,12 @@
     <XMLVersion>102</XMLVersion>
     <ShopVersion>5.8.0</ShopVersion>
     <CreateDate>2026-11-07</CreateDate>
-    <Version>0.3.2</Version>
+    <Version>0.3.3</Version>
     <Install>
         <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_FILTER,CACHING_GROUP_FILTER_CHARACTERISTIC</FlushTags>
         <Adminmenu>
-            <Customlink sort="1">
-                <Name>Weitere Plugins</Name>
-                <Filename>plugin-empfehlungen.php</Filename>
-            </Customlink>
-            <Customlink sort="2">
-                <Name>Updates</Name>
-                <Filename>updates.php</Filename>
-            </Customlink>
-            <Settingslink sort="3">
-                <Name>MGD Suche – Einstellungen</Name>
+            <Settingslink sort="1">
+                <Name>Einstellungen</Name>
                 <Setting type="selectbox" initialValue="Y" sort="10" conf="Y">
                     <Name>Merkmal-Hinweise aktivieren</Name>
                     <Description>Ergänzt eine Suchseite um direkte Filterlinks für passende JTL-Merkmalwerte. Die native Suche, Preise und Sichtbarkeiten bleiben unverändert.</Description>
@@ -50,15 +42,6 @@
                     <Description>Begrenzt die Anzeige und schützt die Suchseite bei großen Sortimenten. Empfohlen: 6.</Description>
                     <ValueName>mgd_search_maximum_hints</ValueName>
                 </Setting>
-                <Setting type="selectbox" initialValue="Y" sort="50" conf="Y">
-                    <Name>Hinweis am Suchfeld zeigen</Name>
-                    <Description>Zeigt einen kleinen, rein informativen Hinweis unter Suchfeldern. Es werden keine Daten gespeichert oder an Dritte übertragen.</Description>
-                    <ValueName>mgd_search_show_field_hint</ValueName>
-                    <SelectboxOptions>
-                        <Option value="Y" sort="1">Ja</Option>
-                        <Option value="N" sort="2">Nein</Option>
-                    </SelectboxOptions>
-                </Setting>
                 <Setting type="selectbox" initialValue="cards" sort="60" conf="Y">
                     <Name>Darstellung der Merkmal-Hinweise</Name>
                     <Description>Karten sind gut sichtbar; kompakt benötigt weniger Platz.</Description>
@@ -74,6 +57,14 @@
                     <ValueName>mgd_search_accent_color</ValueName>
                 </Setting>
             </Settingslink>
+            <Customlink sort="2">
+                <Name>Updates</Name>
+                <Filename>updates.php</Filename>
+            </Customlink>
+            <Customlink sort="3">
+                <Name>Plugin-Empfehlungen</Name>
+                <Filename>plugin-empfehlungen.php</Filename>
+            </Customlink>
         </Adminmenu>
     </Install>
 </jtlshopplugin>

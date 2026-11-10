@@ -78,11 +78,10 @@ final class SearchPageEnhancer
         $css = htmlspecialchars($baseURL . '/frontend/css/mgd-search.css', ENT_QUOTES, 'UTF-8');
         $js = htmlspecialchars($baseURL . '/frontend/js/mgd-search.js', ENT_QUOTES, 'UTF-8');
         $accent = htmlspecialchars($this->config->accentColor(), ENT_QUOTES, 'UTF-8');
-        $fieldHint = $this->config->showsFieldHint() ? 'true' : 'false';
 
         $document->find('head')->append(
             '<link rel="stylesheet" href="' . $css . '">' .
-            '<script defer src="' . $js . '" data-mgd-search-field-hint="' . $fieldHint . '" ' .
+            '<script defer src="' . $js . '" ' .
             'data-mgd-search-accent="' . $accent . '"></script>'
         );
     }

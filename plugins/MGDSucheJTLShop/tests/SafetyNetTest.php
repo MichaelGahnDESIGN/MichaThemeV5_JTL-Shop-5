@@ -144,6 +144,21 @@ $enhancer = $makeEnhancer($makePlugin(), $makeDatabase(false));
 $check('Normalfall: kein Fehler', $survives(static fn () => $enhancer->inject(['document' => $document])));
 $check('Normalfall: Assets und Hinweis eingefügt', str_contains($document->html, 'mgd-search.css') && str_contains($document->html, '?m=7'));
 $check('Normalfall: nichts gemeldet', $errors === []);
+// Suchformular gehört dem Theme, da darf nix rein
+$check('Normalfall: kein Text am Suchfeld', !str_contains($document->html, 'field-hint'));
+$searchJs = (string) file_get_contents($pluginDir . '/frontend/js/mgd-search.js');
+$check('JS fasst das Suchfeld nicht an', !str_contains($searchJs, 'insertAdjacent') && !str_contains($searchJs, 'querySelector') && !str_contains($searchJs, 'createElement'));
+$check('CSS ohne Suchfeld-Hinweis', !str_contains((string) file_get_contents($pluginDir . '/frontend/css/mgd-search.css'), 'field-hint'));
+
+// Tabs im Backend: Einstellungen, Updates, Plugin-Empfehlungen
+$menu = simplexml_load_file($pluginDir . '/info.xml')->Install->Adminmenu;
+$tabs = [];
+foreach ($menu->children() as $entry) {
+    $tabs[(int) $entry['sort']] = (string) $entry->Name;
+}
+ksort($tabs);
+$check('Tab-Reihenfolge stimmt', array_values($tabs) === ['Einstellungen', 'Updates', 'Plugin-Empfehlungen']);
+$check('Einstellung für Suchfeld-Hinweis ist weg', !str_contains((string) file_get_contents($pluginDir . '/info.xml'), 'show_field_hint'));
 
 $errors = [];
 $enhancer = $makeEnhancer($makePlugin(true), $makeDatabase(false));

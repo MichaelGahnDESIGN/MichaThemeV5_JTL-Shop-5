@@ -16,7 +16,6 @@
 .mgd-search-feature-link:hover, .mgd-search-feature-link:focus-visible { color: #fff; background: var(--mgd-search-accent); outline: 3px solid color-mix(in srgb, var(--mgd-search-accent) 40%, transparent); outline-offset: 2px; }
 .mgd-search-feature-hints--compact { padding: .75rem; }
 .mgd-search-feature-hints--compact li { display: inline; }
-.mgd-search-field-hint { display: block; margin-top: .35rem; color: inherit; font-size: .8125rem; opacity: .78; }
 
 @media (max-width: 575px) {
   .mgd-search-feature-link { min-height: 2.75rem; display: inline-flex; align-items: center; }

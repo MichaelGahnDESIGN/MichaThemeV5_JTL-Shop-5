@@ -2,6 +2,13 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## MGD Suche 0.3.3 (10.11.2026)
+
+- Behoben: Das Plugin schreibt keinen Text mehr unter das Suchfeld des Shops ("Passende Merkmale werden auf der Ergebnisseite angezeigt."). Das Suchformular gehört dem Theme, das Plugin fasst es nicht mehr an. Die Einstellung dazu ist entfallen.
+- Backend: Die Reiter stehen jetzt in der Reihenfolge **Einstellungen**, **Updates**, **Plugin-Empfehlungen**.
+- Backend: Der Reiter **Updates** hat dieselbe Optik wie die Plugin-Empfehlungen (dunkler Kopfbereich, Karte, klare Knöpfe). An der Funktion ändert sich nichts.
+- Nach dem Update bitte einmal den Template-Cache im JTL-Backend leeren.
+
 ## MGD Suche 0.3.2 (10.11.2026)
 
 - Neu: Sicherheitsnetz. Macht das Plugin einen Fehler (zum Beispiel eine fehlende oder kaputte Datei, ein Datenbankfehler), schaltet sich nur das Plugin für diesen Seitenaufruf ab. Der Shop und das Backend laufen normal weiter, statt eine weiße Seite zu zeigen.
