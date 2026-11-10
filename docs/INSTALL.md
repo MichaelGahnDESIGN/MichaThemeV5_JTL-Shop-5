@@ -4,7 +4,7 @@
 
 ## Welche ZIP brauche ich?
 
-Die aktuelle Theme-Ausgabe steht unter [Release v0.6.1](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.1). Im selben Repository liegen getrennte MGD-Suche-Releases; diese nicht mit dem Theme verwechseln.
+Die aktuelle Theme-Ausgabe steht unter [Release v0.6.2](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.2). Im selben Repository liegen getrennte MGD-Suche-Releases; diese nicht mit dem Theme verwechseln.
 
 Das Begleitplugin-ZIP ist direkt in JTL hochladbar und enthält das komplette Template samt Prüfsummen. Das Gesamtpaket ist für die manuelle Kopie in den Shop gedacht; es ist kein einzelnes Plugin-Uploadpaket. Das Notification Center bleibt optional und benötigt seine eigene Einrichtung.
 

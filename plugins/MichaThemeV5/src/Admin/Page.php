@@ -12,13 +12,13 @@ use Plugin\MichaThemeV5\Support\{Perms, Redirect};
 defined('PFAD_ROOT') || exit;
 
 /**
- * Gemeinsamer Rahmen der vier Admin-Seiten. JTL rendert alle Tabs bei jedem Aufruf der Plugin-Seite,
+ * Gemeinsamer Rahmen der fünf Admin-Seiten. JTL rendert alle Tabs bei jedem Aufruf der Plugin-Seite,
  * deshalb gilt: Formulare tragen "mt_action" + "cPluginTab", jede Seite reagiert nur auf ihre eigenen Aktionen,
  * und Meldungen erscheinen nur im Tab, der gemeint ist. Meldungen kommen aus einer festen Liste (nie aus der URL).
  */
 abstract class Page
 {
-    public const TABS = ['settings' => 'Einstellungen', 'license' => 'Lizenzen', 'catalog' => 'Plugin-Empfehlungen', 'info' => 'Info'];
+    public const TABS = ['settings' => 'Einstellungen', 'license' => 'Lizenzen', 'catalog' => 'Plugin-Empfehlungen', 'updates' => 'Updates', 'info' => 'Info'];
 
     public const MESSAGES = [
         'saved' => ['ok', 'Einstellungen gespeichert.'],
@@ -39,7 +39,7 @@ abstract class Page
         'no_template' => ['err', 'Das Template MichaThemeV5 ist nicht installiert. Bitte zuerst auf der Info-Seite einrichten.'],
     ];
 
-    /** Pro Aufruf Scripts und Styles nur einmal ausgeben (JTL rendert vier Tabs nacheinander). */
+    /** Pro Aufruf Scripts und Styles nur einmal ausgeben (JTL rendert fünf Tabs nacheinander). */
     private static bool $assetsDone = false;
 
     public function __construct(protected readonly PluginInterface $plugin)

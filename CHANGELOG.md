@@ -2,6 +2,13 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.6.2 (10.11.2026) und MGD Suche 0.3.1
+
+- Neu: MGD Suche 0.3.1 hat den Bereich **Updates** mit dem MGD Update Client. Er arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de nennt Version und SHA-256, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Nichts wird ohne Einschalten oder Klick abgefragt, nichts automatisch installiert. Die alte GitHub-Abfrage und die Einstellung „GitHub-Updatehinweise“ entfallen. Produktname `mgd-suche`.
+- Neu: Tab **Updates** im Plugin MichaThemeV5 (MGD Update Client). Prüft auf neue Versionen, lädt das Paket auf Wunsch herunter und prüft es (Signatur, Prüfsumme, Inhalt). Es wird nichts automatisch installiert: Das ZIP wird danach selbst in der JTL-Pluginverwaltung hochgeladen. Ohne Einschalten oder Klick wird nichts abgefragt.
+- Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. ⚠️ Noch nicht in einem echten JTL-Backend geprüft.
+- Technik: Datenordner `templates_c/mgd_update_michathemev5` (mit Zugriffssperre), Test `php tests/update-smoke.php`. Theme, Template und Begleitplugin tragen die Version 0.6.2. Am Aussehen des Themes ändert sich nichts.
+
 ## 0.6.1 (09.11.2026)
 
 - Navigationspfeile verwenden die Farben der Kopfzeile statt weißer Verläufe. Beschriftung, Tastaturbedienung und Fokus beim Erreichen eines Endes ergänzt.

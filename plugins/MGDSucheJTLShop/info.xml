@@ -8,7 +8,7 @@
     <XMLVersion>102</XMLVersion>
     <ShopVersion>5.8.0</ShopVersion>
     <CreateDate>2026-11-07</CreateDate>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <Install>
         <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_FILTER,CACHING_GROUP_FILTER_CHARACTERISTIC</FlushTags>
         <Adminmenu>
@@ -72,15 +72,6 @@
                     <Name>Akzentfarbe</Name>
                     <Description>Farbe für Fokus und Merkmal-Links. Kontrast mit dem verwendeten Shop-Theme prüfen.</Description>
                     <ValueName>mgd_search_accent_color</ValueName>
-                </Setting>
-                <Setting type="selectbox" initialValue="N" sort="80" conf="Y">
-                    <Name>GitHub-Updatehinweise</Name>
-                    <Description>Prüft im JTL-Backend höchstens stündlich auf ein neues stabiles Release. Dabei wird ausschließlich die öffentliche GitHub-Release-API kontaktiert; keine Shop-, Konto- oder Besucherdaten werden übertragen.</Description>
-                    <ValueName>mgd_search_update_notices</ValueName>
-                    <SelectboxOptions>
-                        <Option value="N" sort="1">Nein</Option>
-                        <Option value="Y" sort="2">Ja</Option>
-                    </SelectboxOptions>
                 </Setting>
             </Settingslink>
         </Adminmenu>
