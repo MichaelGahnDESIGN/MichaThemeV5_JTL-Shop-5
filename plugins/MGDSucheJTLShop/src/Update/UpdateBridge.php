@@ -21,6 +21,8 @@ final class UpdateBridge
     public const EDITION = 'free';
     public const PLUGIN_NAME = 'MGD Suche';
     public const FOLDER = 'mgd_suche_update';
+    // Prüfsummen-Datei auf All-Inkl > einfacher Modus ohne Schlüssel
+    public const SIMPLE_URL = 'https://theme.michael-gahn.de/plugin-updates/mgd-suche.json';
 
     private const HTACCESS = "# Datenordner Updates, kein Webzugriff\nOptions -Indexes\n<IfModule mod_authz_core.c>\n    Require all denied\n</IfModule>\n<IfModule !mod_authz_core.c>\n    Order allow,deny\n    Deny from all\n</IfModule>\n";
 
@@ -113,6 +115,9 @@ final class UpdateBridge
             $token,
             $right,
             \JTL\Helpers\Form::getTokenInput(),
+            null,
+            ['info.xml'],
+            self::SIMPLE_URL,
         );
         $res = $page->handle((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'), $_POST);
         if ($res['deliver'] !== null && !self::send($res['deliver'], $dir)) {

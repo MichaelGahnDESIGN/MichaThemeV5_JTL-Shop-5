@@ -6,7 +6,7 @@ MGD Suche verbessert die bestehende JTL-Shop-5-Suche, ohne ihre Preis-, Sichtbar
 
 Beispiel: Sucht ein Besucher nach `Baumwolle` und dieser Wert ist als JTL-Merkmal gepflegt, erscheint ein Link wie `Material: Baumwolle`. Der Klick führt zu JTLs eigener Merkmalfilteransicht.
 
-## Funktionsumfang 0.3.0
+## Funktionsumfang 0.3.1
 
 - Einstellungen im JTL-Backend für Aktivierung, Abgleichart, Mindestlänge, Ergebnislimit, Darstellung und Akzentfarbe
 - exakter, optionaler Präfix-Abgleich von Merkmalwerten in der aktuellen Shopsprache
@@ -47,7 +47,9 @@ Unter **Updates** (MGD Update Client) kannst du auf neue Versionen prüfen. So g
 
 Der Bereich braucht das Recht für Plugins und prüft bei jeder Aktion das JTL-Sicherheits-Token.
 
-⚠️ Der Update-Kanal ist noch nicht eingerichtet (Signatur-Schlüssel fehlen, der Server kennt das Produkt `mgd-suche` noch nicht). Bis dahin zeigt der Bereich nur „Update-Kanal noch nicht eingerichtet“ und ruft nichts ab.
+So wird geprüft (einfacher Modus): Auf theme.michael-gahn.de liegt die Datei `plugin-updates/mgd-suche.json` mit Version und Prüfsumme (SHA-256). Das ZIP selbst kommt von GitHub (nur vom Konto MichaelGahnDESIGN). Das Plugin rechnet die Prüfsumme nach, prüft die Zip-Inhalte und legt das ZIP erst dann in den gesperrten Ordner. Stimmt etwas nicht, gibt es keinen Download.
+
+⚠️ Das ist eine Prüfsumme, keine Signatur. Wer GitHub und den Webspace gleichzeitig übernimmt, könnte ein falsches ZIP anbieten. Für Free-Plugins ist das ein bewusster Kompromiss. Die signierte Variante bleibt vorbereitet (Schlüssel fehlen noch).
 
 Die frühere GitHub-Release-Abfrage und die Einstellung „GitHub-Updatehinweise“ sind entfallen.
 
