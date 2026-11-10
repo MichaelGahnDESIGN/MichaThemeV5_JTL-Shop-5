@@ -4,15 +4,15 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 **Status:** in Entwicklung (Pre-Alpha).
 
-## Version 0.6.1 herunterladen
+## Version 0.6.2 herunterladen
 
-**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Natives Update auf 0.6.1 mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
+**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Der Vorgänger 0.6.1 wurde als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen blieben erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md). ⚠️ 0.6.2 selbst ist noch nicht in einem echten JTL-Backend geprüft.
 
-- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-0.6.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.1/MichaThemeV5-plugin-0.6.1.zip). In JTL unter Plugins hochladen; anschließend das Template im Info-Tab bewusst einrichten.
-- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-0.6.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.1/michatheme-v5-jtl5-0.6.1.zip). Enthält das Template, das vollständige Begleitplugin und das bisher optionale Notification Center. Die zusätzlichen Plugins werden nicht automatisch installiert.
-- Zu beiden ZIPs liegt eine `.sha256`-Datei im [Release v0.6.1](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.1). Das eigenständige Plugin **MGD Suche** ist separat und gehört nicht zu diesen Paketen.
+- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-0.6.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.2/MichaThemeV5-plugin-0.6.2.zip). In JTL unter Plugins hochladen; anschließend das Template im Info-Tab bewusst einrichten.
+- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-0.6.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.2/michatheme-v5-jtl5-0.6.2.zip). Enthält das Template, das vollständige Begleitplugin und das bisher optionale Notification Center. Die zusätzlichen Plugins werden nicht automatisch installiert.
+- Zu beiden ZIPs liegt eine `.sha256`-Datei im [Release v0.6.2](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.2). Das eigenständige Plugin **MGD Suche** ist separat und gehört nicht zu diesen Paketen.
 
-0.6.1 korrigiert den weißen Navigationsverlauf im Dunkelmodus, zu schwachen Kontrast eingefügter Texte und Suchfarben beim Umschalten. Beide Modi wurden bei 390, 768 und 1280 Pixeln geprüft. [Prüfbericht](docs/HELL-DUNKEL-PRUEFUNG.md) · [Installation und Update](docs/INSTALL.md).
+0.6.2 bringt den Tab **Updates** im Begleitplugin (prüft auf neue Versionen, installiert nichts von allein). Am Aussehen des Themes ändert sich nichts. 0.6.1 korrigierte den weißen Navigationsverlauf im Dunkelmodus, zu schwachen Kontrast eingefügter Texte und Suchfarben beim Umschalten. Beide Modi wurden bei 390, 768 und 1280 Pixeln geprüft. [Prüfbericht](docs/HELL-DUNKEL-PRUEFUNG.md) · [Installation und Update](docs/INSTALL.md).
 
 ## Funktionen
 
@@ -91,7 +91,7 @@ Wer darf das? Wer in JTL das Recht für die Pluginverwaltung hat.
 
 So arbeitet der Update-Kanal:
 
-- Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. Solange die Textdatei noch nicht auf dem Server liegt, meldet der Bereich nur einen Fehler beim Abruf. Sonst passiert nichts.
+- Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur.
 - Die signierte Variante (mit Schlüsseln in `update/root-keys.json`) ist vorbereitet, aber noch nicht aktiv.
 
 Der Code des Update Clients liegt in `plugins/MichaThemeV5/src/Update` und wird automatisch erzeugt. Bitte nicht von Hand ändern. Der Test dazu: `php tests/update-smoke.php`.
