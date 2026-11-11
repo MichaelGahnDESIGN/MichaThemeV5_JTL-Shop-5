@@ -25,6 +25,7 @@ jobs:
           node-version: '24'
       - run: node --test tests/content-contrast.test.cjs
       - run: php tests/license-transport.php
+      - run: php tests/template-license-field.php
       - name: Beide Pakete bauen und prüfen
         shell: bash
         run: |

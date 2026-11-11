@@ -320,7 +320,7 @@
             </Setting>
         </Section>
         <Section Name="Lizenz" Key="mt_license">
-            <Setting Description="Lizenzschlüssel" Key="mt_license_token" Type="text" Value=""/>
+            <Setting Description="Lizenzschlüssel (Plugin MichaThemeV5, Lizenzen)" Key="mt_license_token" Type="text" Value="" Editable="0"/>
         </Section>
     </Settings>
 </Template>
