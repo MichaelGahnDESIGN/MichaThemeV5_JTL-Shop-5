@@ -2,6 +2,11 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## MGD Suche 0.3.4 (11.11.2026)
+
+- Behoben: Der Update-Bereich nutzt kein veraltetes `curl_close()` mehr. Unter PHP 8.5 erscheint dadurch kein Hinweis „veraltet“ mehr im Log. Der Update-Baustein wurde dafür neu erzeugt.
+- Sonst keine Änderungen an Suche, Einstellungen oder Aussehen.
+
 ## MGD Suche 0.3.3 (10.11.2026)
 
 - Behoben: Das Plugin schreibt keinen Text mehr unter das Suchfeld des Shops ("Passende Merkmale werden auf der Ergebnisseite angezeigt."). Das Suchformular gehört dem Theme, das Plugin fasst es nicht mehr an. Die Einstellung dazu ist entfallen.
