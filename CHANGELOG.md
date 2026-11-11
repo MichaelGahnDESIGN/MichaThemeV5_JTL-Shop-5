@@ -9,6 +9,7 @@ Lizenzprüfung sicherer. Am Aussehen des Themes ändert sich nichts.
 - Geändert: Der Lizenzcode steht nicht mehr in der Adresse (URL). Theme und Begleitplugin schicken ihn nur noch verschlüsselt per HTTPS im Kopfteil der Anfrage (`Authorization`-Header), ohne Weiterleitungen und mit geprüftem Zertifikat. [Details](docs/LIZENZTRANSPORT.md).
 - Geändert: Der Lizenzcode ist unter Darstellung, Template-Einstellungen nicht mehr bearbeitbar. Dort stand er lesbar, und JTL schrieb jede Änderung mit altem und neuem Code ins Änderungsprotokoll. Gepflegt wird er jetzt nur noch im Plugin MichaThemeV5 auf der Seite **Lizenzen**. Ein schon gespeicherter Code bleibt erhalten.
 - Unverändert: Fällt der Lizenzserver aus, läuft der Shop normal weiter (Zwischenspeicher bis 24 Stunden, danach noch 48 Stunden Gnadenfrist). Ohne gültige Lizenz gelten die Free-Funktionen, Hinweise erscheinen nur im Backend.
+- Behoben: Ist der Lizenzserver länger weg, wartet der Shop nicht mehr bei jedem Seitenaufruf bis zu 4 Sekunden. Der Ausfall wird 2 Minuten gemerkt. Die Gnadenfrist von 48 Stunden bleibt gleich.
 - ⚠️ Theme und Begleitplugin bitte zusammen auf 0.6.3 bringen.
 ## MGD Suche 0.3.4 (11.11.2026)
 
