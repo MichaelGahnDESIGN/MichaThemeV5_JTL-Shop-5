@@ -27,7 +27,7 @@ Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.m
 
 Pre-Alpha: getestet nur mit JTL-Shop 5.8.2. Bitte zuerst in einem Test-Shop ausprobieren. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
 
-**Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Das Plugin legt seine Tabellen nicht selbst an: Die Datei `plugins/MichaThemeV5NotificationCenter/database/schema.sql` muss einmal von Hand ausgeführt werden. Eine Oberfläche zum Schreiben von Meldungen gibt es noch nicht. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
+**Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Ab Plugin-Version 0.2.0 legt es seine Tabellen selbst an und hat einen Bereich „Updates“. Eine Oberfläche zum Schreiben von Meldungen gibt es noch nicht. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
 
 ## Aussehen (ab Version 0.3.0)
 
