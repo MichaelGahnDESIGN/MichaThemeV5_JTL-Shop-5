@@ -1,5 +1,9 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 0.6.3 (2026-11-11)
+- Lizenzprüfung nur noch per HTTPS-POST mit dem Code im `Authorization`-Header. Kein Code mehr in Adressen.
+- Lizenzcode nicht mehr in den Template-Einstellungen bearbeitbar (dort Klartext und Änderungsprotokoll). Pflege nur noch über die Seite Lizenzen.
+
 ## 0.6.2 (2026-11-10)
 - Neu: Tab „Updates“ (MGD Update Client). Update-Prüfung nur nach Einschalten oder Klick, Paket herunterladen und prüfen (Signatur, SHA-256, Inhalt). Es wird nichts installiert: Das ZIP kommt in die JTL-Pluginverwaltung.
 - Der Update-Kanal arbeitet im einfachen Modus: Eine kleine Textdatei auf theme.michael-gahn.de (`plugin-updates/michatheme-v5.json`) nennt Version und SHA-256-Prüfsumme, das ZIP kommt von GitHub, die Prüfsumme wird beim Download nachgerechnet. Das ist eine Prüfsumme, keine Signatur. Noch nicht in einem echten JTL-Backend geprüft.
