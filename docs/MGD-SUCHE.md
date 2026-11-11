@@ -6,14 +6,17 @@ MGD Suche verbessert die bestehende JTL-Shop-5-Suche, ohne ihre Preis-, Sichtbar
 
 Beispiel: Sucht ein Besucher nach `Baumwolle` und dieser Wert ist als JTL-Merkmal gepflegt, erscheint ein Link wie `Material: Baumwolle`. Der Klick führt zu JTLs eigener Merkmalfilteransicht.
 
-## Funktionsumfang 0.3.1
+## Funktionsumfang 0.3.3
 
+- Das Plugin verändert das Suchformular des Shops nicht. Es zeigt nur auf der Ergebnisseite passende Merkmale an
+- Reiter im Backend in dieser Reihenfolge: **Einstellungen**, **Updates**, **Plugin-Empfehlungen**
+- Sicherheitsnetz: Ein Fehler im Plugin schaltet nur das Plugin für diesen Seitenaufruf ab, der Shop läuft weiter. Der Fehler steht im JTL-Systemlog (Eintrag beginnt mit `MGDSucheJTLShop:`)
 - Einstellungen im JTL-Backend für Aktivierung, Abgleichart, Mindestlänge, Ergebnislimit, Darstellung und Akzentfarbe
 - exakter, optionaler Präfix-Abgleich von Merkmalwerten in der aktuellen Shopsprache
 - keine Änderung an JTL-Kerndateien, keine externe Suche, keine Cookies, kein LocalStorage und kein Tracking
-- lokale CSS- und JavaScript-Dateien; die JavaScript-Datei versendet keine Anfragen
+- lokale CSS- und JavaScript-Dateien; die JavaScript-Datei versendet keine Anfragen und fügt nichts in die Seite ein
 - barrierearme Links mit sichtbarem Tastaturfokus und ausreichend großen Touch-Zielen
-- Backend-Punkt **Weitere Plugins** als visuelle MGD-Plugin-Kollektion: Kategorie, Bild, Kurzbeschreibung, Funktionsliste, Version, Preisstatus, Installationsstatus und sichere Handlungslinks
+- Backend-Punkt **Plugin-Empfehlungen** als visuelle MGD-Plugin-Kollektion: Kategorie, Bild, Kurzbeschreibung, Funktionsliste, Version, Preisstatus, Installationsstatus und sichere Handlungslinks
 - zentrale, validierte Katalog-JSON von `theme.michael-gahn.de` mit lokaler Ausfallsicherung
 - opt-in-basierte Updateprüfung im JTL-Backend: akzeptiert ausschließlich das erwartete ZIP eines stabilen GitHub-Releases und verweist für die Installation auf die JTL-Pluginverwaltung
 
@@ -34,7 +37,7 @@ Ein vollständiger eigener Suchindex mit Ranking, Tippfehlertoleranz und Live-Vo
 
 Die Erweiterung verarbeitet den eingegebenen Suchbegriff nur innerhalb der aktuellen PHP-Anfrage, um Merkmalwerte aus der Shopdatenbank zu lesen. Sie speichert selbst keine Suchbegriffe, Besucherkennungen oder IP-Adressen und überträgt keine Daten an Dritte. Das ersetzt keine individuelle Datenschutzprüfung des gesamten Shops.
 
-Der Bereich **Weitere Plugins** ruft ausschließlich im Backend eine öffentliche, plattformspezifische Liste von `theme.michael-gahn.de` ab. Sichtbarkeit, Texte, Reihenfolge und Version werden zentral gepflegt; die Darstellung erfolgt mit lokalen Symbolen und ohne externe Bilder. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Das Plugin akzeptiert ausschließlich `schema: 1`, die eigene Plattform und die fest verdrahtete Detailseite von `theme.michael-gahn.de`; fremde Links aus dem Feed werden verworfen. Ist der Katalog nicht erreichbar, nutzt das Plugin nur einen zuletzt lokal gespeicherten Stand.
+Der Bereich **Plugin-Empfehlungen** ruft ausschließlich im Backend eine öffentliche, plattformspezifische Liste von `theme.michael-gahn.de` ab. Sichtbarkeit, Texte, Reihenfolge und Version werden zentral gepflegt; die Darstellung erfolgt mit lokalen Symbolen und ohne externe Bilder. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Das Plugin akzeptiert ausschließlich `schema: 1`, die eigene Plattform und die fest verdrahtete Detailseite von `theme.michael-gahn.de`; fremde Links aus dem Feed werden verworfen. Ist der Katalog nicht erreichbar, nutzt das Plugin nur einen zuletzt lokal gespeicherten Stand.
 
 ## Updates
 
@@ -61,6 +64,7 @@ Die reine Suchbegriffnormalisierung und die Katalog-Validierung lassen sich ohne
 php plugins/MGDSucheJTLShop/tests/SearchTermNormalizerTest.php
 php plugins/MGDSucheJTLShop/tests/PluginCatalogProviderTest.php
 php plugins/MGDSucheJTLShop/tests/UpdateSmokeTest.php
+php plugins/MGDSucheJTLShop/tests/SafetyNetTest.php
 ```
 
 Für die Installation muss zusätzlich im Testshop geprüft werden: exakte Suche, Präfixsuche, mehrere Sprachen, deaktivierte Merkmale, mobile Darstellung und ein Child-Template.

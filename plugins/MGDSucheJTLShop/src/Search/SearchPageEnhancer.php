@@ -15,7 +15,8 @@ final class SearchPageEnhancer
     public function __construct(
         private readonly object $plugin,
         private readonly CharacteristicSuggestionProvider $suggestions,
-        private readonly SearchConfig $config
+        private readonly SearchConfig $config,
+        private readonly ?\Closure $onError = null
     ) {
     }
 
@@ -23,6 +24,31 @@ final class SearchPageEnhancer
      * @param array<string, mixed> $args
      */
     public function inject(array $args): void
+    {
+        // Sicherheitsnetz: Hook läuft auf jeder Seite, Fehler darf die Seite nie weiß machen
+        try {
+            $this->enhance($args);
+        } catch (\Throwable $e) {
+            $this->report($e);
+        }
+    }
+
+    private function report(\Throwable $e): void
+    {
+        if ($this->onError === null) {
+            return;
+        }
+        try {
+            ($this->onError)($e);
+        } catch (\Throwable) {
+            // Melder kaputt, egal
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $args
+     */
+    private function enhance(array $args): void
     {
         $document = $args['document'] ?? null;
         if (is_object($document) === false || method_exists($document, 'find') === false) {
@@ -52,11 +78,10 @@ final class SearchPageEnhancer
         $css = htmlspecialchars($baseURL . '/frontend/css/mgd-search.css', ENT_QUOTES, 'UTF-8');
         $js = htmlspecialchars($baseURL . '/frontend/js/mgd-search.js', ENT_QUOTES, 'UTF-8');
         $accent = htmlspecialchars($this->config->accentColor(), ENT_QUOTES, 'UTF-8');
-        $fieldHint = $this->config->showsFieldHint() ? 'true' : 'false';
 
         $document->find('head')->append(
             '<link rel="stylesheet" href="' . $css . '">' .
-            '<script defer src="' . $js . '" data-mgd-search-field-hint="' . $fieldHint . '" ' .
+            '<script defer src="' . $js . '" ' .
             'data-mgd-search-accent="' . $accent . '"></script>'
         );
     }

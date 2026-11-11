@@ -21,10 +21,22 @@ use Plugin\MGDSucheJTLShop\Search\SearchTermNormalizer;
  */
 final class Bootstrap extends Bootstrapper
 {
+    private const LOG_MESSAGE_LENGTH = 200;
+
     public function boot(Dispatcher $dispatcher): void
     {
         parent::boot($dispatcher);
 
+        // Sicherheitsnetz: Fehler im Plugin schaltet nur das Plugin ab, nicht den Shop
+        try {
+            $this->start($dispatcher);
+        } catch (\Throwable $e) {
+            $this->logFailure($e);
+        }
+    }
+
+    private function start(Dispatcher $dispatcher): void
+    {
         $this->loadPluginClasses();
 
         // Im Backend wird keine Frontend-Logik und keine Produktdatenabfrage ausgeführt.
@@ -43,7 +55,14 @@ final class Bootstrap extends Bootstrapper
             $config,
             Shop::getLanguageID()
         );
-        $enhancer = new SearchPageEnhancer($this->getPlugin(), $provider, $config);
+        $enhancer = new SearchPageEnhancer(
+            $this->getPlugin(),
+            $provider,
+            $config,
+            function (\Throwable $e): void {
+                $this->logFailure($e);
+            }
+        );
 
         // Dieser dokumentierte Hook arbeitet mit dem finalen Smarty-Dokument.
         // Dadurch bleibt das Plugin mit NOVA und Child-Templates kompatibel.
@@ -64,7 +83,25 @@ final class Bootstrap extends Bootstrapper
             'src/Search/SearchPageEnhancer.php',
             'src/Catalog/PluginCatalogProvider.php',
         ] as $file) {
-            require_once __DIR__ . '/' . $file;
+            $path = __DIR__ . '/' . $file;
+            // fehlende Datei = fangbarer Fehler statt Fatal Error
+            if (is_file($path) === false) {
+                throw new \RuntimeException('Plugin-Datei fehlt: ' . $file);
+            }
+            require_once $path;
+        }
+    }
+
+    // Eintrag ins JTL Systemlog, darf selbst nie was kippen
+    private function logFailure(\Throwable $e): void
+    {
+        try {
+            Shop::Container()->getLogService()->warning(
+                'MGDSucheJTLShop: ' . get_class($e) . ' in ' . basename($e->getFile()) . ':' . $e->getLine()
+                . ' - ' . mb_substr($e->getMessage(), 0, self::LOG_MESSAGE_LENGTH, 'UTF-8')
+            );
+        } catch (\Throwable) {
+            // kein Log möglich, egal
         }
     }
 }

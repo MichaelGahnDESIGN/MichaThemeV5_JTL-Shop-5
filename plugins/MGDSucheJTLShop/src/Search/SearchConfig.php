@@ -37,11 +37,6 @@ final class SearchConfig
         return $this->boundedNumber('mgd_search_maximum_hints', 6, 1, 20);
     }
 
-    public function showsFieldHint(): bool
-    {
-        return $this->value('mgd_search_show_field_hint', 'Y') === 'Y';
-    }
-
     public function display(): string
     {
         return $this->value('mgd_search_display', 'cards') === 'compact' ? 'compact' : 'cards';
