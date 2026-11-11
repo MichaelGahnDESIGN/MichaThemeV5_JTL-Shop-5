@@ -34,7 +34,7 @@ Fehlt eines von beiden, wird weder die Glocke noch das dazugehörige CSS und Jav
 
 ## Wichtig zu wissen
 
-- Das Plugin ist noch jung (Version 0.2.0). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
+- Das Plugin ist noch jung (Version 0.2.1). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
 - Bei der Deinstallation bleiben die Meldungen in der Datenbank erhalten.
 - Eine Oberfläche zum Schreiben von Benachrichtigungen gibt es noch nicht. Die Meldungen müssen direkt in der Datenbank angelegt werden (Tabelle `xplugin_mgd_notifications`).
 - Die Tabellen trennen Meldungen nach Shop-Kunde. Es gehen keine Daten an Dritte.
