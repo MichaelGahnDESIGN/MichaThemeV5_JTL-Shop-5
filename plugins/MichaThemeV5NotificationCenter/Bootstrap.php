@@ -11,6 +11,7 @@ final class Bootstrap extends Bootstrapper
     public function boot(Dispatcher $dispatcher): void
     {
         parent::boot($dispatcher);
+        // Theme prüft class_exists(..., false), darum hier immer laden
         require_once __DIR__ . '/src/NotificationBridge.php';
     }
 }
