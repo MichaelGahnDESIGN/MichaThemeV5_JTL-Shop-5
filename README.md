@@ -4,15 +4,15 @@ Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtss
 
 **Status:** in Entwicklung (Pre-Alpha).
 
-## Version 0.6.2 herunterladen
+## Version 0.6.3 herunterladen
 
-**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Der Vorgänger 0.6.1 wurde als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen blieben erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md). ⚠️ 0.6.2 selbst ist noch nicht in einem echten JTL-Backend geprüft.
+**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Der Vorgänger 0.6.1 wurde als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen blieben erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md). ⚠️ 0.6.3 selbst ist noch nicht in einem echten JTL-Backend geprüft.
 
-- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-0.6.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.2/MichaThemeV5-plugin-0.6.2.zip). In JTL unter Plugins hochladen; anschließend das Template im Info-Tab bewusst einrichten.
-- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-0.6.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.2/michatheme-v5-jtl5-0.6.2.zip). Enthält das Template, das vollständige Begleitplugin und das bisher optionale Notification Center. Die zusätzlichen Plugins werden nicht automatisch installiert.
-- Zu beiden ZIPs liegt eine `.sha256`-Datei im [Release v0.6.2](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.2). Das eigenständige Plugin **MGD Suche** ist separat und gehört nicht zu diesen Paketen.
+- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-0.6.3.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.3/MichaThemeV5-plugin-0.6.3.zip). In JTL unter Plugins hochladen; anschließend das Template im Info-Tab bewusst einrichten.
+- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-0.6.3.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.3/michatheme-v5-jtl5-0.6.3.zip). Enthält das Template, das vollständige Begleitplugin und das bisher optionale Notification Center. Die zusätzlichen Plugins werden nicht automatisch installiert.
+- Zu beiden ZIPs liegt eine `.sha256`-Datei im [Release v0.6.3](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.3). Das eigenständige Plugin **MGD Suche** ist separat und gehört nicht zu diesen Paketen.
 
-0.6.2 bringt den Tab **Updates** im Begleitplugin (prüft auf neue Versionen, installiert nichts von allein). Am Aussehen des Themes ändert sich nichts. 0.6.1 korrigierte den weißen Navigationsverlauf im Dunkelmodus, zu schwachen Kontrast eingefügter Texte und Suchfarben beim Umschalten. Beide Modi wurden bei 390, 768 und 1280 Pixeln geprüft. [Prüfbericht](docs/HELL-DUNKEL-PRUEFUNG.md) · [Installation und Update](docs/INSTALL.md).
+0.6.3 macht die Lizenzprüfung sicherer: Der Lizenzcode geht nur noch per HTTPS im Kopfteil der Anfrage, nicht mehr in der Adresse. Er wird nur noch im Plugin auf der Seite **Lizenzen** gepflegt. Am Aussehen ändert sich nichts. 0.6.2 brachte den Tab **Updates** im Begleitplugin (prüft auf neue Versionen, installiert nichts von allein). Am Aussehen des Themes ändert sich nichts. 0.6.1 korrigierte den weißen Navigationsverlauf im Dunkelmodus, zu schwachen Kontrast eingefügter Texte und Suchfarben beim Umschalten. Beide Modi wurden bei 390, 768 und 1280 Pixeln geprüft. [Prüfbericht](docs/HELL-DUNKEL-PRUEFUNG.md) · [Installation und Update](docs/INSTALL.md).
 
 ## Funktionen
 
