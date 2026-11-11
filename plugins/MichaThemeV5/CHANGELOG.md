@@ -1,5 +1,8 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 0.6.4 (2026-11-12)
+- Update-Bereich ohne veraltetes `curl_close()` (kein Deprecated-Hinweis unter PHP 8.5).
+
 ## 0.6.3 (2026-11-11)
 - Lizenzprüfung nur noch per HTTPS-POST mit dem Code im `Authorization`-Header. Kein Code mehr in Adressen.
 - Lizenzcode nicht mehr in den Template-Einstellungen bearbeitbar (dort Klartext und Änderungsprotokoll). Pflege nur noch über die Seite Lizenzen.

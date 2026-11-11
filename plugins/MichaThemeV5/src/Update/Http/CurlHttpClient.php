@@ -105,7 +105,7 @@ final class CurlHttpClient implements HttpClient
             $ok = curl_exec($ch);
             $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
             $errno = curl_errno($ch);
-            curl_close($ch);
+            // kein curl_close mehr, PHP 8.5 meckert (Handle räumt sich selbst weg)
             if ($status >= 300 && $status < 400 && $loc !== null) {
                 // Token nie zu einem anderen Host mitschicken
                 $next = $this->absolute($url, $loc);

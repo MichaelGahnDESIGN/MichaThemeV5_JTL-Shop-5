@@ -2,6 +2,10 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.6.4 (12.11.2026)
+
+- Behoben: Der Bereich **Updates** im Begleitplugin nutzt kein veraltetes `curl_close()` mehr. Unter PHP 8.5 erscheint dadurch kein Hinweis „Deprecated“ mehr. Sonst keine Änderungen.
+
 ## 0.6.3 (11.11.2026)
 
 Lizenzprüfung sicherer. Am Aussehen des Themes ändert sich nichts.
