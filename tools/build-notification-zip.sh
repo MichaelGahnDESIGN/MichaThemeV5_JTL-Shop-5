@@ -15,7 +15,7 @@ rm -rf "$TMP/pkg/$PL/tests"
 VER="$(sed -n 's#.*<Version>\([0-9.]*\)</Version>.*#\1#p' "$TMP/pkg/$PL/info.xml" | head -1)"
 [[ "$VER" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Version in info.xml fehlt" >&2; exit 1; }
 ZIP="$OUT/MGD-Notification-Center-JTL-Shop-Plugin-$VER.zip"
-EPOCH="$(git show -s --format=%ct "$REF")"
+EPOCH="$(git show -s --format=%ct "${REF}^{commit}")"
 # Unix-Rechte mit rein (Ordner 755, Dateien 644), sonst kommt beim Entpacken 700 raus
 python3 - "$TMP/pkg" "$ZIP" "$EPOCH" <<'PY'
 from pathlib import Path
