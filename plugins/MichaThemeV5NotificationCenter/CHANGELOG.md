@@ -1,5 +1,12 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
+## 0.2.1 – 11.11.2026
+
+Behoben:
+
+- Update-Bereich: Eine veraltete PHP-Funktion (`curl_close`) wird nicht mehr aufgerufen. Unter PHP 8.5 gibt es dadurch keine Warnung mehr.
+- Das Download-Paket hat jetzt feste Dateirechte (Ordner 755, Dateien 644). Vorher entstanden beim Entpacken auf manchen Servern gesperrte Ordner (700).
+
 ## 0.2.0 – 11.11.2026
 
 Neu:

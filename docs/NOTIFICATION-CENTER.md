@@ -25,9 +25,16 @@ Fehlt eines von beiden, wird weder die Glocke noch das dazugehörige CSS und Jav
 2. Die Update-Prüfung einmal einschalten. Vorher fragt das Plugin nirgends nach.
 3. Gibt es eine neue Version, steht sie dort. Das Plugin lädt das Paket nur auf Ihren Klick und prüft es. Installiert wird es von Ihnen, wie jedes Plugin.
 
+## Paket bauen (für Entwickler)
+
+1. Im Repo-Ordner ausführen: `tools/build-notification-zip.sh <Tag-oder-Commit> <Ausgabeordner>`
+2. Beispiel: `tools/build-notification-zip.sh origin/main /tmp/nc`
+3. Heraus kommen das ZIP und eine `.sha256`-Datei. Die Version liest das Skript aus `info.xml`.
+4. Im ZIP stehen feste Rechte: Ordner 755, Dateien 644. So stimmen die Rechte auch nach dem Entpacken auf dem Server. Der Ordner `tests/` kommt nicht mit ins Paket.
+
 ## Wichtig zu wissen
 
-- Das Plugin ist noch jung (Version 0.2.0). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
+- Das Plugin ist noch jung (Version 0.2.1). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
 - Bei der Deinstallation bleiben die Meldungen in der Datenbank erhalten.
 - Eine Oberfläche zum Schreiben von Benachrichtigungen gibt es noch nicht. Die Meldungen müssen direkt in der Datenbank angelegt werden (Tabelle `xplugin_mgd_notifications`).
 - Die Tabellen trennen Meldungen nach Shop-Kunde. Es gehen keine Daten an Dritte.
