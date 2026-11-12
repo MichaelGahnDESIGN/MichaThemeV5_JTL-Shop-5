@@ -36,10 +36,11 @@ Stand: 12.11.2026 · Auftrag von Michael in diesem Thread (`/fast-dev`)
 | WP-5 | Release 0.3.0 | Version, README, `scripts/build-package.py` | Release mit ZIP (755/644), Download gleich | `gh release download` + `cmp` | geprüft | PR #17, Release v0.3.0, Download gleich |
 | JTL-1 | Plugin 0.3.0: Einstellungen, IO gelesen/ausblenden | Plugin `MichaThemeV5NotificationCenter` | Einstellung wirkt, IO nur mit Token | Tests + Demo-Shop | geprüft | Tests 20/0 + 34/0; Demo: Update Code 1, Token-Prüfung ok |
 | JTL-2 | Theme: „Alle anzeigen“, Alle gelesen, Ausblenden | `templates/MichaThemeV5` (nur Glocke) | Sichtprüfung | Browser mit Theme-Tokens | geprüft | PR #22, Release mgd-notification-center-v0.3.0; echtes Shop-Frontend nicht geprüft (Wartungsmodus) |
-| SW-1 | Shopware: gleiche Funktionen | `MichaThemeV5_Shopware-6/src/NotificationCenter`, Storefront | | | geplant | |
-| SH-1 | Shopify: gleiche Funktionen | `michatheme-v5-app/extensions/michatheme-notification` | | | geplant | |
+| SW-1 | Shopware: gleiche Funktionen | `MichaThemeV5_Shopware-6/src/NotificationCenter`, Storefront | Einstellungen je Verkaufskanal, Routen nur mit Kunde aus der Sitzung | alle CI-Schritte lokal + Browser | geprüft | PR #18, Release v0.6.2 (CI), JSON an Plattform; echter Shop nicht geprüft |
+| SH-1 | Shopify: gleiche Funktionen (Theme + App-Block + App-Proxy) | `theme/`, `michatheme-v5-app/` | Proxy nur mit signiertem Kunden, `apiVersion` 1 bleibt | check-release, npm test 11/11, Theme Check 0, Browser | geprüft | PR #11, Release v0.5.2, Download gleich; App-Deploy macht Michael |
 
 ## Planänderungen
 
 - 12.11.2026: Michael wünscht zusätzlich: Ausblenden-Knopf, „Gelesene ausblenden“, eingebettete Icons mit Auswahl, schöneres Backend, Akzent blau (WordPress). Übernommen in WP-2 bis WP-4 und JTL.
 - 12.11.2026: Update-Client JTL neu erzeugt (Generator Pro 0.40.11).
+- 12.11.2026: Offen für das nächste Release von WordPress, JTL und Shopware: Fehlermeldung im Fenster „Alle anzeigen“ anzeigen (bei Shopify schon behoben).
