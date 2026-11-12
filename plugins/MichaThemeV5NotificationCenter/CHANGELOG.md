@@ -10,6 +10,8 @@ Neu:
 - „Ausblenden“ je Meldung und „Gelesene ausblenden“. Persönliche Meldungen merkt sich der Shop, öffentliche der Browser.
 - Gelesen/Ausblenden läuft über die JTL-Schnittstelle (IO) und nur mit gültigem Sicherheits-Token. Es betrifft nur eigene, gerade sichtbare Meldungen.
 
+- Update-Bereich: Nach dem Download steht jetzt korrekt „Paket heruntergeladen und geprüft (SHA-256, Inhalt)“. Im einfachen Modus gibt es keine Signatur-Prüfung, das wurde vorher falsch angezeigt.
+
 Wichtig: Die neue Glocke steckt im Theme MichaThemeV5 (ab der nächsten Theme-Version). Mit einem älteren Theme bleibt die einfache Liste.
 
 ## 0.2.1 – 11.11.2026
