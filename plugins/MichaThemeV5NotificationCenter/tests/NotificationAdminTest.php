@@ -107,6 +107,12 @@ namespace {
     $admin->save(['title' => 'Später', 'status' => 'published', 'published_at' => date('Y-m-d\TH:i', time() + 7200)]);
     ok('Entwurf und geplant unsichtbar', count(NotificationBridge::forTemplate($db, 0)['public']) === 1);
 
+    // Bearbeiten ohne Kundenwechsel: gelesen/ausgeblendet bleibt
+    $pdo->exec("UPDATE xplugin_mgd_notification_recipients SET read_at = '2026-11-12 10:00:00', dismissed_at = '2026-11-12 11:00:00' WHERE notification_id = " . (int) $p['id']);
+    $admin->save(['id' => $p['id'], 'title' => 'Für Kunde (korrigiert)', 'scope' => 'personal', 'customer' => '42', 'status' => 'published']);
+    $state = $pdo->query('SELECT read_at, dismissed_at FROM xplugin_mgd_notification_recipients WHERE notification_id = ' . (int) $p['id'])->fetch(PDO::FETCH_OBJ);
+    ok('Titel korrigiert: Lesestatus bleibt', $state && $state->read_at !== null && $state->dismissed_at !== null);
+
     // Bearbeiten: persönlich > öffentlich entfernt Empfänger
     $admin->save(['id' => $p['id'], 'title' => 'Jetzt öffentlich', 'scope' => 'public', 'status' => 'published']);
     ok('Empfänger entfernt', $admin->find($p['id'])['customer_id'] === null);

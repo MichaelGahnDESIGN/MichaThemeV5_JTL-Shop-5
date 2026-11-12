@@ -159,10 +159,14 @@ final class NotificationAdmin
         } else {
             $id = $this->db->insert('xplugin_mgd_notifications', (object) ($data + ['created_at' => gmdate('Y-m-d H:i:s')]));
         }
-        // Empfänger: bei persönlich genau einer, sonst keiner
-        $this->db->getAffectedRows('DELETE FROM xplugin_mgd_notification_recipients WHERE notification_id = :id', ['id' => $id]);
-        if ($scope === 'personal' && $id > 0) {
-            $this->db->insert('xplugin_mgd_notification_recipients', (object) ['notification_id' => $id, 'customer_id' => $customerId]);
+        // Empfänger: bei persönlich genau einer, sonst keiner. Gleicher Kunde > Zeile bleibt (gelesen/ausgeblendet bleibt erhalten)
+        $current = $this->db->getObjects('SELECT customer_id FROM xplugin_mgd_notification_recipients WHERE notification_id = :id', ['id' => $id]);
+        $same = $scope === 'personal' && count($current) === 1 && (int) $current[0]->customer_id === $customerId;
+        if (!$same) {
+            $this->db->getAffectedRows('DELETE FROM xplugin_mgd_notification_recipients WHERE notification_id = :id', ['id' => $id]);
+            if ($scope === 'personal' && $id > 0) {
+                $this->db->insert('xplugin_mgd_notification_recipients', (object) ['notification_id' => $id, 'customer_id' => $customerId]);
+            }
         }
 
         return ['ok' => true, 'id' => $id];
