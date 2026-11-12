@@ -6,7 +6,7 @@ MGD Suche verbessert die bestehende JTL-Shop-5-Suche, ohne ihre Preis-, Sichtbar
 
 Beispiel: Sucht ein Besucher nach `Baumwolle` und dieser Wert ist als JTL-Merkmal gepflegt, erscheint ein Link wie `Material: Baumwolle`. Der Klick führt zu JTLs eigener Merkmalfilteransicht.
 
-## Funktionsumfang 0.3.4
+## Funktionsumfang 0.3.5
 
 - Das Plugin verändert das Suchformular des Shops nicht. Es zeigt nur auf der Ergebnisseite passende Merkmale an
 - Reiter im Backend in dieser Reihenfolge: **Einstellungen**, **Updates**, **Plugin-Empfehlungen**
@@ -45,7 +45,7 @@ Unter **Updates** (MGD Update Client) kannst du auf neue Versionen prüfen. So g
 
 1. Öffne im Backend **Plugins → MGD Suche → Updates**.
 2. Ohne dein Zutun wird nichts abgefragt. Erst nach **Update-Prüfung einschalten** oder **Jetzt prüfen** fragt das Plugin den Update-Server von Michael Gahn DESIGN. Dabei sieht der Server die IP-Adresse deines Shops, die Domain, die Plugin-Version und die Shop-Version. Keine Besucher-, Bestell- oder Kundendaten.
-3. Gibt es eine neue Version, kannst du das Paket herunterladen. Das Plugin prüft es dabei (Signatur, Prüfsumme, Inhalt) und legt es in einen gesperrten Ordner.
+3. Gibt es eine neue Version, kannst du das Paket herunterladen. Das Plugin prüft es dabei (SHA-256-Prüfsumme, Inhalt) und legt es in einen gesperrten Ordner.
 4. Installieren musst du selbst: ZIP in der JTL-Pluginverwaltung hochladen. Das Plugin tauscht keine Dateien aus und aktiviert nichts.
 
 Der Bereich braucht das Recht für Plugins und prüft bei jeder Aktion das JTL-Sicherheits-Token.
