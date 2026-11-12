@@ -27,6 +27,8 @@ jobs:
       - run: php tests/license-transport.php
       - run: php tests/template-license-field.php
       - run: php tests/license-grace.php
+      - run: php tests/notification-bell.php
+      - run: php tests/update-text.php
       - name: Beide Pakete bauen und prüfen
         shell: bash
         run: |
