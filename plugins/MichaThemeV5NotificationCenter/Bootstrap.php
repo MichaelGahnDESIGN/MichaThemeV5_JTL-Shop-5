@@ -25,6 +25,10 @@ final class Bootstrap extends Bootstrapper
         }
         // Gelesen/Ausblenden übers JTL-IO, nur mit gültigem Token
         $dispatcher->listen('shop.hook.' . \HOOK_IO_HANDLE_REQUEST, static function (array $args): void {
+            // nicht doppelt anmelden, sonst wirft JTL eine Exception
+            if ($args['io']->exists('mgdNotificationAction')) {
+                return;
+            }
             $args['io']->register('mgdNotificationAction', static function (string $action = '', int|string $id = 0, string $token = ''): array {
                 if (!Form::validateToken($token)) {
                     return ['success' => false, 'error' => 'token'];
