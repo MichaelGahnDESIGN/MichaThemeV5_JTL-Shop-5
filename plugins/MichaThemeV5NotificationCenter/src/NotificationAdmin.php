@@ -148,11 +148,19 @@ final class NotificationAdmin
             }
         }
         $published = self::date($input['published_at'] ?? null);
+        $id = (int) ($input['id'] ?? 0);
+        // gleiches Datum wie gespeichert (Formular kennt evtl. keine Sekunden) > Original behalten, sonst gilt sie im Browser als neue Meldung
+        if ($id > 0 && $published !== null) {
+            $old = $this->db->getObjects('SELECT published_at FROM xplugin_mgd_notifications WHERE id = :id', ['id' => $id]);
+            $oldValue = (string) ($old[0]->published_at ?? '');
+            if ($oldValue !== '' && substr($oldValue, 0, 16) === substr($published, 0, 16)) {
+                $published = substr($oldValue, 0, 19);
+            }
+        }
         if ($status === 'published' && $published === null) {
             $published = gmdate('Y-m-d H:i:s');
         }
         $expires = self::date($input['expires_at'] ?? null);
-        $id = (int) ($input['id'] ?? 0);
         $data = ['scope' => $scope, 'status' => $status, 'title' => $title, 'body' => $body, 'target_url' => $target === '' ? null : $target, 'published_at' => $published, 'expires_at' => $expires];
         if ($id > 0) {
             $this->db->getAffectedRows('UPDATE xplugin_mgd_notifications SET scope = :scope, status = :status, title = :title, body = :body, target_url = :target_url, published_at = :published_at, expires_at = :expires_at WHERE id = :id', $data + ['id' => $id]);
@@ -184,9 +192,19 @@ final class NotificationAdmin
         return isset($rows[0]) ? (array) $rows[0] : null;
     }
 
-    /** @return list<array<string, mixed>> */
-    public function latest(int $limit = 100): array
+    /** @return list<array<string, mixed>> Seite für Seite, neueste zuerst */
+    public function latest(int $limit = 50, int $page = 1): array
     {
-        return array_map(static fn (object $r): array => (array) $r, $this->db->getObjects('SELECT id, scope, status, title, published_at, expires_at FROM xplugin_mgd_notifications ORDER BY id DESC LIMIT ' . max(1, min(500, $limit))));
+        $limit = max(1, min(500, $limit));
+        $offset = (max(1, $page) - 1) * $limit;
+
+        return array_map(static fn (object $r): array => (array) $r, $this->db->getObjects('SELECT id, scope, status, title, published_at, expires_at FROM xplugin_mgd_notifications ORDER BY id DESC LIMIT ' . $limit . ' OFFSET ' . $offset));
+    }
+
+    public function total(): int
+    {
+        $rows = $this->db->getObjects('SELECT COUNT(*) AS c FROM xplugin_mgd_notifications');
+
+        return (int) ($rows[0]->c ?? 0);
     }
 }

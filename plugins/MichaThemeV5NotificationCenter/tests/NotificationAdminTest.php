@@ -121,9 +121,21 @@ namespace {
         return $admin->find($r['id'])['published_at'] === '2026-07-01 10:00:00';
     })());
 
+    // Bearbeiten mit gleichem Datum ohne Sekunden: Sekunden bleiben
+    $pdo->exec("UPDATE xplugin_mgd_notifications SET published_at = '2026-11-12 09:15:37' WHERE id = " . (int) $r['id']);
+    $admin->save(['id' => $r['id'], 'title' => 'Zeit korrigiert', 'status' => 'published', 'published_at' => date('Y-m-d\TH:i', (int) strtotime('2026-11-12 09:15:37 UTC'))]);
+    ok('Sekunden bleiben beim Bearbeiten', $admin->find($r['id'])['published_at'] === '2026-11-12 09:15:37');
+    $admin->save(['id' => $r['id'], 'title' => 'Zeit', 'status' => 'draft', 'published_at' => '2026-07-01T12:00']);
+
+    // Seiten
+    for ($i = 0; $i < 60; $i++) {
+        $admin->save(['title' => 'Viele ' . $i, 'status' => 'draft']);
+    }
+    ok('Seite 1 hat 50, Seite 2 den Rest', count($admin->latest(50, 1)) === 50 && count($admin->latest(50, 2)) === $admin->total() - 50);
+
     // Archivieren
     ok('archivieren', $admin->archive($r['id']) === true && $admin->find($r['id'])['status'] === 'archived');
-    ok('Liste neueste zuerst', $admin->latest()[0]['title'] === 'Zeit');
+    ok('Liste neueste zuerst', $admin->latest()[0]['title'] === 'Viele 59');
 
     echo "\n$count Prüfungen, $fails Fehler\n";
     exit($fails === 0 ? 0 : 1);

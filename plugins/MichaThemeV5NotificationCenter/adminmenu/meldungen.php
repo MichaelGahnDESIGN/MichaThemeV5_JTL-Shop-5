@@ -63,7 +63,8 @@ try {
         }
     }
     $v = $form ?: ($edit ?? []);
-    $local = static fn (?string $utc): string => $utc ? date('Y-m-d\TH:i', (int) strtotime($utc . ' UTC')) : '';
+    // mit Sekunden, damit beim Speichern nix verloren geht
+    $local = static fn (?string $utc): string => $utc ? date('Y-m-d\TH:i:s', (int) strtotime($utc . ' UTC')) : '';
     $customer = $form['customer'] ?? (!empty($edit['customer_id']) ? (string) $edit['customer_id'] : '');
     $scope = ($v['scope'] ?? 'public') === 'personal' ? 'personal' : 'public';
 
@@ -84,13 +85,18 @@ try {
         echo '<option value="' . $key . '"' . (($v['status'] ?? 'published') === $key ? ' selected' : '') . '>' . $label . '</option>';
     }
     echo '</select></div>'
-        . '<div class="form-group col-md-4"><label for="mgd-nc-pub">Veröffentlichen ab</label><input type="datetime-local" class="form-control" id="mgd-nc-pub" name="published_at" value="' . $e(isset($form['published_at']) ? $form['published_at'] : $local($edit['published_at'] ?? null)) . '"><small class="form-text text-muted">Leer = sofort</small></div>'
-        . '<div class="form-group col-md-4"><label for="mgd-nc-exp">Ablaufen am (optional)</label><input type="datetime-local" class="form-control" id="mgd-nc-exp" name="expires_at" value="' . $e(isset($form['expires_at']) ? $form['expires_at'] : $local($edit['expires_at'] ?? null)) . '"></div></div>'
+        . '<div class="form-group col-md-4"><label for="mgd-nc-pub">Veröffentlichen ab</label><input type="datetime-local" step="1" class="form-control" id="mgd-nc-pub" name="published_at" value="' . $e(isset($form['published_at']) ? $form['published_at'] : $local($edit['published_at'] ?? null)) . '"><small class="form-text text-muted">Leer = sofort</small></div>'
+        . '<div class="form-group col-md-4"><label for="mgd-nc-exp">Ablaufen am (optional)</label><input type="datetime-local" step="1" class="form-control" id="mgd-nc-exp" name="expires_at" value="' . $e(isset($form['expires_at']) ? $form['expires_at'] : $local($edit['expires_at'] ?? null)) . '"></div></div>'
         . '<button type="submit" class="btn btn-primary">Meldung speichern</button>' . (!empty($v['id']) ? ' <a class="btn btn-outline-secondary" href="' . $e(strtok((string) ($_SERVER['REQUEST_URI'] ?? ''), '#')) . '">Neue Meldung</a>' : '')
         . '</form></div></div>';
     // Liste
-    $rows = $admin->latest();
-    echo '<div class="card"><div class="card-header"><h3 class="mb-0">Vorhandene Meldungen (' . count($rows) . ')</h3></div><div class="card-body p-0">';
+    // Seiten, je 50
+    $perPage = 50;
+    $total = $admin->total();
+    $pages = max(1, (int) ceil($total / $perPage));
+    $page = max(1, min($pages, (int) ($_POST['mgd_nc_page'] ?? 1)));
+    $rows = $admin->latest($perPage, $page);
+    echo '<div class="card"><div class="card-header"><h3 class="mb-0">Vorhandene Meldungen (' . $total . ')</h3></div><div class="card-body p-0">';
     if (!$rows) {
         echo '<p class="p-3 mb-0 text-muted">Noch keine Meldungen. Oben die erste anlegen.</p>';
     } else {
@@ -106,6 +112,15 @@ try {
                 . '</td></tr>';
         }
         echo '</tbody></table></div>';
+        if ($pages > 1) {
+            echo '<div class="p-3 d-flex flex-wrap align-items-center" style="gap:.5rem"><span class="text-muted">Seite ' . $page . ' von ' . $pages . '</span>';
+            foreach ([['Zurück', $page - 1], ['Weiter', $page + 1]] as [$label, $target]) {
+                if ($target >= 1 && $target <= $pages) {
+                    echo '<form method="post" class="d-inline">' . $hidden . '<input type="hidden" name="mgd_nc_action" value="page"><input type="hidden" name="mgd_nc_page" value="' . $target . '"><button class="btn btn-sm btn-outline-secondary">' . $label . '</button></form>';
+                }
+            }
+            echo '</div>';
+        }
     }
     echo '</div></div></div>';
 } catch (\Throwable $ex) {
