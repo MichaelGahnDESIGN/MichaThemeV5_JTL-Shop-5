@@ -140,22 +140,25 @@
     var dClose = el('button', 'mt-notification-dialog-close', '×'); dClose.type = 'button'; dClose.setAttribute('aria-label', 'Fenster schließen');
     dHead.append(dTitle, dReadAll, dHideRead, dClose);
     var dBody = el('div', 'mt-notification-dialog-body');
+    var dStatus = el('p', 'mt-notification-status'); dStatus.setAttribute('role', 'status'); dStatus.setAttribute('aria-live', 'polite');
     var dEmpty = el('p', 'mt-notification-empty', 'Keine Benachrichtigungen.');
     var dList = el('div', 'mt-notification-dialog-list');
-    dBody.append(dEmpty, dList); dialog.append(dHead, dBody); document.body.append(dialog);
+    dBody.append(dStatus, dEmpty, dList); dialog.append(dHead, dBody); document.body.append(dialog);
     function closeDialog() { if (typeof dialog.close === 'function') { dialog.close(); } else { dialog.removeAttribute('open'); button.focus(); } }
     dClose.addEventListener('click', closeDialog);
     dialog.addEventListener('close', function () { button.focus(); });
     dialog.addEventListener('click', function (e) { if (e.target === dialog) { closeDialog(); } });
     var dialogKeys = null;
 
+    // Meldung dahin, wo der Nutzer gerade ist (Fenster offen > Status im Fenster)
+    function say(text) { (dialog.open ? dStatus : status).textContent = text; }
     function meta(item) { return [formatDate(item.published_at), isRead(item) ? 'Gelesen' : 'Neu'].filter(Boolean).join(' · '); }
     function hideButton(item, cls, text) {
       var b = el('button', cls, text); b.type = 'button';
       b.setAttribute('aria-label', 'Meldung ausblenden: ' + String(item.title || ''));
       b.addEventListener('click', function (e) {
         e.preventDefault(); e.stopPropagation();
-        hide(item).then(function (ok) { if (!ok) { status.textContent = 'Meldung konnte nicht ausgeblendet werden. Bitte erneut versuchen.'; } });
+        hide(item).then(function (ok) { if (!ok) { say('Meldung konnte nicht ausgeblendet werden. Bitte erneut versuchen.'); } });
       });
       return b;
     }
@@ -219,13 +222,13 @@
 
     function onReadAll() {
       if (busy) { return; }
-      busy = true; render(); status.textContent = 'Wird als gelesen markiert …';
-      readAll().then(function (ok) { busy = false; render(); status.textContent = ok ? 'Alle Meldungen sind gelesen.' : 'Einige Meldungen konnten nicht als gelesen gespeichert werden.'; });
+      busy = true; render(); say('Wird als gelesen markiert …');
+      readAll().then(function (ok) { busy = false; render(); say(ok ? 'Alle Meldungen sind gelesen.' : 'Einige Meldungen konnten nicht als gelesen gespeichert werden.'); });
     }
     function onHideRead() {
       if (busy) { return; }
       busy = true; render();
-      hideRead().then(function (r) { busy = false; render(); status.textContent = !r.ok ? 'Einige Meldungen konnten nicht ausgeblendet werden.' : (r.count === 1 ? '1 gelesene Meldung ausgeblendet.' : r.count + ' gelesene Meldungen ausgeblendet.'); });
+      hideRead().then(function (r) { busy = false; render(); say(!r.ok ? 'Einige Meldungen konnten nicht ausgeblendet werden.' : (r.count === 1 ? '1 gelesene Meldung ausgeblendet.' : r.count + ' gelesene Meldungen ausgeblendet.')); });
     }
     readAllBtn.addEventListener('click', onReadAll); dReadAll.addEventListener('click', onReadAll);
     hideReadBtn.addEventListener('click', onHideRead); dHideRead.addEventListener('click', onHideRead);

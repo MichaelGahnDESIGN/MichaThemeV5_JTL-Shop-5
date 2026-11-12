@@ -41,9 +41,9 @@ Fehlt eines von beiden, wird weder die Glocke noch das dazugehörige CSS und Jav
 
 ## Wichtig zu wissen
 
-- Das Plugin ist noch jung (Version 0.3.0). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
+- Das Plugin ist noch jung (Version 0.7.0). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
 - Bei der Deinstallation bleiben die Meldungen in der Datenbank erhalten.
-- Eine Oberfläche zum Schreiben von Benachrichtigungen gibt es noch nicht. Die Meldungen müssen direkt in der Datenbank angelegt werden (Tabelle `xplugin_mgd_notifications`).
+- Meldungen schreiben Sie im Plugin unter „Meldungen“ (ab 0.7.0): Titel, Text, Link, öffentlich oder für einen Kunden, Start- und Ablaufdatum.
 - Die Tabellen trennen Meldungen nach Shop-Kunde. Es gehen keine Daten an Dritte.
 - Ab 0.4.0: Ist das Plugin aktiv, aber es gibt noch keine Meldungen, ist die Glocke unsichtbar (vorher stand dort „Keine neuen Benachrichtigungen“). Sie erscheint erst mit mindestens einem Eintrag.
 - Neue Platzierung „In der Icon-Leiste (Header)“: Die Glocke sitzt dann in der Kopfzeile zwischen Hell/Dunkel-Schalter und Merkliste. Das Panel schließt mit Escape oder mit einem Klick daneben. Der Zähler ist grau.

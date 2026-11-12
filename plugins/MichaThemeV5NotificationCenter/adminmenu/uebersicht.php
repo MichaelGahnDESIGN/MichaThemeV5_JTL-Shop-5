@@ -34,7 +34,7 @@ try {
         . '<p>Die Tabellen sind angelegt.</p>'
         . '<ul><li>Öffentliche Meldungen sichtbar: ' . $pub . '</li><li>Persönliche Meldungen sichtbar: ' . $pers . '</li></ul>'
         . '<p>Die Glocke erscheint im Shop erst, wenn im Theme eine Platzierung gewählt ist und mindestens eine Meldung sichtbar ist.</p>'
-        . '<p>Meldungen werden im Moment direkt in der Tabelle <code>xplugin_mgd_notifications</code> angelegt. Eine Eingabemaske folgt.</p>'
+        . '<p>Neue Meldungen schreiben Sie im Reiter „Meldungen“. Anzahl und Icon der Glocke stellen Sie unter „Einstellungen“ ein.</p>'
         . '</div></div>';
 } catch (\Throwable $e) {
     echo '<div class="alert alert-warning" role="alert">Dieser Bereich konnte gerade nicht geladen werden. Der Shop läuft normal weiter.</div>';
