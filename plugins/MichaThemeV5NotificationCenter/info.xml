@@ -8,7 +8,7 @@
     <XMLVersion>102</XMLVersion>
     <ShopVersion>5.8.0</ShopVersion>
     <CreateDate>2026-10-23</CreateDate>
-    <Version>0.2.1</Version>
+    <Version>0.3.0</Version>
     <Install>
         <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_PLUGIN</FlushTags>
         <Adminmenu>
@@ -16,7 +16,41 @@
                 <Name>Übersicht</Name>
                 <Filename>uebersicht.php</Filename>
             </Customlink>
-            <Customlink sort="2">
+            <Settingslink sort="2">
+                <Name>Einstellungen</Name>
+                <Setting type="selectbox" initialValue="5" sort="10" conf="Y">
+                    <Name>Anzahl im Panel</Name>
+                    <Description>So viele aktuelle Meldungen stehen beim Klick auf die Glocke. Alle weiteren (bis 30) zeigt „Alle anzeigen“.</Description>
+                    <ValueName>mgd_nc_visible_limit</ValueName>
+                    <SelectboxOptions>
+                        <Option value="3" sort="1">3</Option>
+                        <Option value="5" sort="2">5</Option>
+                        <Option value="8" sort="3">8</Option>
+                        <Option value="10" sort="4">10</Option>
+                        <Option value="15" sort="5">15</Option>
+                        <Option value="20" sort="6">20</Option>
+                        <Option value="30" sort="7">30</Option>
+                    </SelectboxOptions>
+                </Setting>
+                <Setting type="selectbox" initialValue="bell" sort="20" conf="Y">
+                    <Name>Icon der Glocke</Name>
+                    <Description>Alle Icons sind im Plugin eingebettet. Es wird nichts von außen geladen.</Description>
+                    <ValueName>mgd_nc_icon</ValueName>
+                    <SelectboxOptions>
+                        <Option value="bell" sort="1">Glocke</Option>
+                        <Option value="bell-ring" sort="2">Glocke mit Klang</Option>
+                        <Option value="bell-dot" sort="3">Glocke mit Punkt</Option>
+                        <Option value="megaphone" sort="4">Megafon</Option>
+                        <Option value="inbox" sort="5">Posteingang</Option>
+                        <Option value="mail" sort="6">Brief</Option>
+                        <Option value="message" sort="7">Sprechblase</Option>
+                        <Option value="info" sort="8">Info</Option>
+                        <Option value="star" sort="9">Stern</Option>
+                        <Option value="sparkles" sort="10">Neuigkeiten</Option>
+                    </SelectboxOptions>
+                </Setting>
+            </Settingslink>
+            <Customlink sort="3">
                 <Name>Updates</Name>
                 <Filename>updates.php</Filename>
             </Customlink>

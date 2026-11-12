@@ -105,6 +105,15 @@ class Bootstrap extends NovaBootstrap
         }
         $smarty->assign('mtNotifications', $notifications);
         $smarty->assign('mtNotificationsAvailable', $available);
+        // Daten fürs JS (Alle anzeigen, gelesen, ausblenden) + Token fürs IO
+        $bridge = '\\Plugin\\MichaThemeV5NotificationCenter\\NotificationBridge';
+        $smarty->assign('mtNotificationIcon', $available && method_exists($bridge, 'iconSvg') ? $bridge::iconSvg() : '');
+        $smarty->assign('mtNotificationJson', $available ? (string) json_encode([
+            'items'    => array_merge($notifications['personal'] ?? [], $notifications['public'] ?? []),
+            'settings' => $notifications['settings'] ?? ['visible_limit' => 5],
+            'customer' => (int) (Shop::getCustomer()->kKunde ?? 0) > 0,
+        ], \JSON_HEX_TAG | \JSON_HEX_AMP | \JSON_HEX_APOS | \JSON_HEX_QUOT | \JSON_UNESCAPED_UNICODE) : '');
+        $smarty->assign('mtNotificationToken', $available ? (string) ($_SESSION['jtl_token'] ?? '') : '');
     }
 
     /**

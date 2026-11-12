@@ -1,5 +1,17 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
+## 0.3.0 – 12.11.2026
+
+Neu:
+
+- Einstellungen im Plugin: „Anzahl im Panel“ (3 bis 30) und „Icon der Glocke“ (10 eingebettete Icons, kein Emoji).
+- „Alle anzeigen“: unten im Panel öffnet ein Fenster mit allen Meldungen. Überschriften untereinander, ein Klick klappt den ganzen Inhalt samt Links auf.
+- „Alle gelesen“ markiert wirklich alle Meldungen.
+- „Ausblenden“ je Meldung und „Gelesene ausblenden“. Persönliche Meldungen merkt sich der Shop, öffentliche der Browser.
+- Gelesen/Ausblenden läuft über die JTL-Schnittstelle (IO) und nur mit gültigem Sicherheits-Token. Es betrifft nur eigene, gerade sichtbare Meldungen.
+
+Wichtig: Die neue Glocke steckt im Theme MichaThemeV5 (ab der nächsten Theme-Version). Mit einem älteren Theme bleibt die einfache Liste.
+
 ## 0.2.1 – 11.11.2026
 
 Behoben:

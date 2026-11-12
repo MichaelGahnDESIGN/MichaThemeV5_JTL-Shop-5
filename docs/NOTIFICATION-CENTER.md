@@ -19,6 +19,13 @@ Fehlt eines von beiden, wird weder die Glocke noch das dazugehörige CSS und Jav
 4. Ab Version 0.2.0 legt das Plugin seine Tabellen bei der Installation selbst an. Prüfen können Sie das im Plugin unter „Übersicht“. Nur wenn dort „Die Tabellen des Plugins fehlen“ steht: die Datei `plugins/MichaThemeV5NotificationCenter/database/schema.sql` einmal in der Shop-Datenbank ausführen (zum Beispiel mit phpMyAdmin, Reiter „SQL“).
 5. Eine Platzierung wählen (siehe oben) und den Shop-Cache leeren.
 
+## Einstellungen (ab 0.3.0)
+
+1. Admin-Bereich: Plugins, MGD Notification Center, Reiter „Einstellungen“.
+2. „Anzahl im Panel“: So viele aktuelle Meldungen zeigt die Glocke. Alle weiteren stehen unter „Alle anzeigen“.
+3. „Icon der Glocke“: eines von 10 eingebetteten Icons wählen.
+4. Besucher können Meldungen ausblenden, alle als gelesen markieren und gelesene ausblenden.
+
 ## Updates
 
 1. Im Admin-Bereich: Plugins, MGD Notification Center, Reiter „Updates“.
@@ -34,7 +41,7 @@ Fehlt eines von beiden, wird weder die Glocke noch das dazugehörige CSS und Jav
 
 ## Wichtig zu wissen
 
-- Das Plugin ist noch jung (Version 0.2.1). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
+- Das Plugin ist noch jung (Version 0.3.0). Es wurde im Demo-Shop installiert. Mit echten Meldungen wurde die Glocke dort noch nicht getestet.
 - Bei der Deinstallation bleiben die Meldungen in der Datenbank erhalten.
 - Eine Oberfläche zum Schreiben von Benachrichtigungen gibt es noch nicht. Die Meldungen müssen direkt in der Datenbank angelegt werden (Tabelle `xplugin_mgd_notifications`).
 - Die Tabellen trennen Meldungen nach Shop-Kunde. Es gehen keine Daten an Dritte.
