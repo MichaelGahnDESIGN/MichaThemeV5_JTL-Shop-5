@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Prüft den Admin-Handler des Update Clients mit Fake-Callbacks und Fake-HTTP. Kein echter Netzabruf, keine echten Schlüssel.
  */
 
-use Plugin\MGDSucheJTLShop\UpdateClient\{ClientConfig, Factory, UpdateClient};
+use Plugin\MGDSucheJTLShop\UpdateClient\{ClientConfig, Factory, UpdateClient, UpdateResult};
 use Plugin\MGDSucheJTLShop\UpdateClient\Admin\UpdatesPage;
 use Plugin\MGDSucheJTLShop\UpdateClient\Crypto\KeyRing;
 use Plugin\MGDSucheJTLShop\UpdateClient\Http\{HttpClient, HttpResponse};
@@ -168,6 +168,10 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__ . 
     }
 }
 ok('kein privater Schlüssel im Client-Code', $bad === 0);
+
+// Erfolgstext einfacher Modus - keine Signatur behaupten
+$simpleTxt = UpdatesPage::verifiedText(new UpdateResult('update_available', '', null, null, ['mode' => 'simple']));
+ok('Erfolgstext einfacher Modus ohne Signatur', !str_contains($simpleTxt, 'Signatur') && str_contains($simpleTxt, 'SHA-256'));
 
 // aufräumen (nur eigener Temp-Ordner)
 $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($tmp, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);
