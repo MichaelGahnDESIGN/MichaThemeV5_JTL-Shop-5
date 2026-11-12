@@ -29,16 +29,17 @@ Stand: 12.11.2026 · Auftrag von Michael in diesem Thread (`/fast-dev`)
 
 | ID | Schritt | Dateien | Erfolgskriterium | Prüfung | Status | Beleg |
 |---|---|---|---|---|---|---|
-| WP-1 | Menü-Platzierung mit Divi 5 + Rückfall auf schwebend | `includes/class-mgd-notification-renderer.php` | Glocke erscheint auch ohne `theme_location` und ohne Menü | PHP-Test mit WP-Stubs | geplant | |
-| WP-2 | Backend: Anzahl einstellbar, alle Einstellungen speichern | `includes/class-mgd-notification-admin.php`, `class-mgd-notification-plugin.php` | Feld „Anzahl im Panel“ 1–30 wird gespeichert und genutzt | PHP-Test | geplant | |
-| WP-3 | REST: Alle gelesen in einem Aufruf, Ausblenden | `includes/class-mgd-notification-rest.php`, `class-mgd-notification-repository.php` | Routen nur für angemeldete Nutzer, nur eigene Einträge | PHP-Test | geplant | |
-| WP-4 | Frontend: Anzahl, „Alle anzeigen“-Modal, ausklappbar mit Links, Ausblenden | `assets/frontend.js`, `assets/frontend.css`, `templates/notification-center.php` | Sichtprüfung breit/schmal, Links sicher | Browser-Test mit Testseite | geplant | |
-| WP-5 | Release 0.3.0 | Version, CHANGELOG, `scripts/build-package.py` | Release mit ZIP (Rechte 755/644), Download gleich | `gh release download` + `cmp` | geplant | |
-| JTL-1 | Plugin 0.3.0: Anzahl-Einstellung, Ausblenden/Gelesen | Plugin `MichaThemeV5NotificationCenter` | Einstellung wirkt, Theme bekommt Daten | Tests | geplant | |
-| JTL-2 | Theme: „Alle anzeigen“-Modal, Alle gelesen, Ausblenden | `templates/MichaThemeV5` (nur Glocke) | Sichtprüfung | Browser | geplant | |
+| WP-1 | Menü-Platzierung mit Divi 5 + Rückfall auf schwebend | `includes/class-mgd-notification-renderer.php` | Glocke erscheint auch ohne `theme_location` und ohne Menü | PHP-Test mit WP-Stubs | geprüft | `tests/renderer-placement.php` 15/0; echtes WP: Rückfall schwebend; Skript-Fix `wp_footer` Prio 5 |
+| WP-2 | Backend: Anzahl, Icon-Auswahl, Karten-Look, Akzent blau | `includes/class-mgd-notification-admin.php`, `assets/admin.css` | Einstellungen werden gespeichert und genutzt | echtes WP im Browser | geprüft | gespeichert: menu/3/megaphone, Hinweis sichtbar |
+| WP-3 | REST: Alle gelesen, Ausblenden, Gelesene ausblenden | `includes/class-mgd-notification-rest.php`, `class-mgd-notification-repository.php` | nur angemeldet, nur eigene sichtbare Einträge | echtes WP + DB | geprüft | ohne Login 401; geplante Meldung bleibt ungelesen |
+| WP-4 | Frontend: Anzahl, „Alle anzeigen“, Links, Ausblenden, SVG-Icon | `assets/frontend.js`, `assets/frontend.css`, `templates/notification-center.php` | Sichtprüfung breit/schmal, Links sicher | Browser | geprüft | 375 px ohne Querscrollen, Skript-Inhalt wird verworfen |
+| WP-5 | Release 0.3.0 | Version, README, `scripts/build-package.py` | Release mit ZIP (755/644), Download gleich | `gh release download` + `cmp` | geprüft | PR #17, Release v0.3.0, Download gleich |
+| JTL-1 | Plugin 0.3.0: Einstellungen, IO gelesen/ausblenden | Plugin `MichaThemeV5NotificationCenter` | Einstellung wirkt, IO nur mit Token | Tests + Demo-Shop | geprüft | Tests 20/0 + 34/0; Demo: Update Code 1, Token-Prüfung ok |
+| JTL-2 | Theme: „Alle anzeigen“, Alle gelesen, Ausblenden | `templates/MichaThemeV5` (nur Glocke) | Sichtprüfung | Browser mit Theme-Tokens | geprüft | PR #22, Release mgd-notification-center-v0.3.0; echtes Shop-Frontend nicht geprüft (Wartungsmodus) |
 | SW-1 | Shopware: gleiche Funktionen | `MichaThemeV5_Shopware-6/src/NotificationCenter`, Storefront | | | geplant | |
 | SH-1 | Shopify: gleiche Funktionen | `michatheme-v5-app/extensions/michatheme-notification` | | | geplant | |
 
 ## Planänderungen
 
-(noch keine)
+- 12.11.2026: Michael wünscht zusätzlich: Ausblenden-Knopf, „Gelesene ausblenden“, eingebettete Icons mit Auswahl, schöneres Backend, Akzent blau (WordPress). Übernommen in WP-2 bis WP-4 und JTL.
+- 12.11.2026: Update-Client JTL neu erzeugt (Generator Pro 0.40.11).
