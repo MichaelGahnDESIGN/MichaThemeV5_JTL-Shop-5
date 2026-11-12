@@ -2,6 +2,15 @@
 
 Alle Versionen sind Pre-Alpha (frühe Testversion).
 
+## 0.6.5 (12.11.2026)
+
+Neue Glocke für das MGD Notification Center 0.3.0.
+
+- Neu: Mit dem Notification Center ab 0.3.0 kann die Glocke mehr: „Alle anzeigen“, Anzahl ungelesener Meldungen, „Alle gelesen“ und „Ausblenden“. Persönliche Meldungen merkt sich der Shop, öffentliche der Browser.
+- Mit einem älteren Notification Center oder ohne Plugin bleibt es wie bisher (einfache Liste oder keine Glocke).
+- Sicherheitsnetz: Macht das Notification Center einen Fehler, zeigt das Theme die einfache Liste. Der Shop bleibt heil, keine weiße Seite.
+- Begleitplugin: Nach dem Download nennt der Bereich **Updates** jetzt genau, was geprüft wurde (im einfachen Modus SHA-256-Prüfsumme und Inhalt, keine Signatur).
+
 ## 0.6.4 (12.11.2026)
 
 - Behoben: Der Bereich **Updates** im Begleitplugin nutzt kein veraltetes `curl_close()` mehr. Unter PHP 8.5 erscheint dadurch kein Hinweis „Deprecated“ mehr. Sonst keine Änderungen.

@@ -1,5 +1,9 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 0.6.5 (2026-11-12)
+- Template mit neuer Glocke für Notification Center 0.3.0 (älteres Plugin: einfache Liste).
+- Update-Bereich: Erfolgsmeldung nennt im einfachen Modus Prüfsumme und Inhalt, keine Signatur.
+
 ## 0.6.4 (2026-11-12)
 - Update-Bereich ohne veraltetes `curl_close()` (kein Deprecated-Hinweis unter PHP 8.5).
 
