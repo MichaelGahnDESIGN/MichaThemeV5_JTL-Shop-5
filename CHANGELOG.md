@@ -24,6 +24,11 @@ Lizenzprüfung sicherer. Am Aussehen des Themes ändert sich nichts.
 - Unverändert: Fällt der Lizenzserver aus, läuft der Shop normal weiter (Zwischenspeicher bis 24 Stunden, danach noch 48 Stunden Gnadenfrist). Ohne gültige Lizenz gelten die Free-Funktionen, Hinweise erscheinen nur im Backend.
 - Behoben: Ist der Lizenzserver länger weg, wartet der Shop nicht mehr bei jedem Seitenaufruf bis zu 4 Sekunden. Der Ausfall wird 2 Minuten gemerkt. Die Gnadenfrist von 48 Stunden bleibt gleich.
 - ⚠️ Theme und Begleitplugin bitte zusammen auf 0.6.3 bringen.
+## MGD Suche 0.3.5 (12.11.2026)
+
+- Behoben: Nach dem Download meldete der Bereich **Updates** „geprüft (Signatur, SHA-256, Inhalt)“. Im einfachen Modus wird aber keine Signatur geprüft. Die Meldung lautet jetzt richtig „geprüft (SHA-256-Prüfsumme, Inhalt)“. Der Update-Baustein wurde dafür neu erzeugt.
+- Sonst keine Änderungen an Suche, Einstellungen oder Aussehen.
+
 ## MGD Suche 0.3.4 (11.11.2026)
 
 - Behoben: Der Update-Bereich nutzt kein veraltetes `curl_close()` mehr. Unter PHP 8.5 erscheint dadurch kein Hinweis „veraltet“ mehr im Log. Der Update-Baustein wurde dafür neu erzeugt.
