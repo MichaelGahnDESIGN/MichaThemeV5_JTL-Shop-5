@@ -1,6 +1,6 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
-## Unveröffentlicht
+## 0.7.1 – 13.11.2026
 
 Behoben:
 
