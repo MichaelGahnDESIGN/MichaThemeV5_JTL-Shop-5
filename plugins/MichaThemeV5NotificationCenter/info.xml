@@ -8,15 +8,19 @@
     <XMLVersion>102</XMLVersion>
     <ShopVersion>5.8.0</ShopVersion>
     <CreateDate>2026-10-23</CreateDate>
-    <Version>0.3.0</Version>
+    <Version>0.7.0</Version>
     <Install>
         <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_PLUGIN</FlushTags>
         <Adminmenu>
             <Customlink sort="1">
+                <Name>Meldungen</Name>
+                <Filename>meldungen.php</Filename>
+            </Customlink>
+            <Customlink sort="2">
                 <Name>Übersicht</Name>
                 <Filename>uebersicht.php</Filename>
             </Customlink>
-            <Settingslink sort="2">
+            <Settingslink sort="3">
                 <Name>Einstellungen</Name>
                 <Setting type="selectbox" initialValue="5" sort="10" conf="Y">
                     <Name>Anzahl im Panel</Name>
@@ -50,7 +54,7 @@
                     </SelectboxOptions>
                 </Setting>
             </Settingslink>
-            <Customlink sort="3">
+            <Customlink sort="4">
                 <Name>Updates</Name>
                 <Filename>updates.php</Filename>
             </Customlink>

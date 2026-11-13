@@ -1,5 +1,16 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
+## 0.7.0 – 12.11.2026
+
+Neu:
+
+- Reiter „Meldungen“ im Plugin: Meldungen direkt im JTL-Admin schreiben, bearbeiten und archivieren. Öffentlich oder für einen Kunden (Kundennummer oder E-Mail), mit Link, Start- und Ablaufdatum, Entwurf/Veröffentlicht/Archiviert. Im Text sind einfache Formatierung und Links erlaubt, alles andere wird entfernt.
+- Die Versionsnummer ist jetzt auf allen Systemen gleich (0.7.0).
+
+Behoben:
+
+- Glocke im Theme: Fehlermeldungen erscheinen jetzt im Fenster „Alle anzeigen“, wenn es offen ist.
+
 ## 0.3.0 – 12.11.2026
 
 Neu:
