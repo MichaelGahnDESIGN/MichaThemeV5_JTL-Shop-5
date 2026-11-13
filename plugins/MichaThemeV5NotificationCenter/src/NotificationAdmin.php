@@ -165,7 +165,9 @@ final class NotificationAdmin
         if ($id > 0) {
             $this->db->getAffectedRows('UPDATE xplugin_mgd_notifications SET scope = :scope, status = :status, title = :title, body = :body, target_url = :target_url, published_at = :published_at, expires_at = :expires_at WHERE id = :id', $data + ['id' => $id]);
         } else {
-            $id = $this->db->insert('xplugin_mgd_notifications', (object) ($data + ['created_at' => gmdate('Y-m-d H:i:s')]));
+            // JTL insert() macht aus PHP-null einen Leerstring (= 0000-00-00), darum _DBNULL_ für echtes NULL
+            $row = array_map(static fn ($v) => $v === null ? '_DBNULL_' : $v, $data + ['created_at' => gmdate('Y-m-d H:i:s')]);
+            $id = $this->db->insert('xplugin_mgd_notifications', (object) $row);
         }
         // Empfänger: bei persönlich genau einer, sonst keiner. Gleicher Kunde > Zeile bleibt (gelesen/ausgeblendet bleibt erhalten)
         $current = $this->db->getObjects('SELECT customer_id FROM xplugin_mgd_notification_recipients WHERE notification_id = :id', ['id' => $id]);

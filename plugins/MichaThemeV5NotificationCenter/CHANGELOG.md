@@ -1,5 +1,11 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
+## Unveröffentlicht
+
+Behoben:
+
+- Meldungen, die im Reiter „Meldungen“ ohne Ablaufdatum gespeichert wurden, erschienen nicht in der Glocke. JTL speicherte das leere Datum als 0000-00-00 statt „kein Datum“. Neue Meldungen speichern jetzt wirklich „kein Datum“, und beim Update repariert eine Migration die schon gespeicherten Meldungen.
+
 ## 0.7.0 – 12.11.2026
 
 Neu:
