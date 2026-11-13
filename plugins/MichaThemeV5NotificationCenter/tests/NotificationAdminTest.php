@@ -50,7 +50,8 @@ namespace {
 
         public function insert(string $tableName, object $object, bool $echo = false): int
         {
-            $data = (array) $object;
+            // wie JTL NiceDB: null > '' (MySQL ohne strict = 0000-00-00), '_DBNULL_' > echtes NULL
+            $data = array_map(static fn ($v) => $v === '_DBNULL_' ? null : ($v === null ? '0000-00-00 00:00:00' : $v), (array) $object);
             $st = $this->pdo->prepare('INSERT INTO ' . $tableName . ' (' . implode(',', array_keys($data)) . ') VALUES (:' . implode(',:', array_keys($data)) . ')');
             $st->execute($data);
 
@@ -106,6 +107,16 @@ namespace {
     $admin->save(['title' => 'Entwurf', 'status' => 'draft']);
     $admin->save(['title' => 'Später', 'status' => 'published', 'published_at' => date('Y-m-d\TH:i', time() + 7200)]);
     ok('Entwurf und geplant unsichtbar', count(NotificationBridge::forTemplate($db, 0)['public']) === 1);
+
+    // Ohne Ablaufdatum: wirklich NULL, Meldung sichtbar (Fehler aus 0.7.0)
+    $noExp = $admin->save(['title' => 'Ohne Ablauf', 'status' => 'published']);
+    $raw = $pdo->query('SELECT expires_at, published_at FROM xplugin_mgd_notifications WHERE id = ' . (int) $noExp['id'])->fetch(PDO::FETCH_OBJ);
+    ok('leeres Ablaufdatum = NULL', $raw->expires_at === null);
+    ok('Meldung ohne Ablaufdatum ist in der Glocke', in_array('Ohne Ablauf', array_column(NotificationBridge::forTemplate($db, 0)['public'], 'title'), true));
+    $draft = $admin->save(['title' => 'Entwurf ohne Datum', 'status' => 'draft']);
+    ok('Entwurf ohne Datum: published_at NULL', $pdo->query('SELECT published_at FROM xplugin_mgd_notifications WHERE id = ' . (int) $draft['id'])->fetchColumn() === null);
+    $admin->save(['id' => $noExp['id'], 'title' => 'Ohne Ablauf', 'status' => 'archived']);
+    $admin->save(['id' => $draft['id'], 'title' => 'Entwurf ohne Datum', 'status' => 'archived']);
 
     // Bearbeiten ohne Kundenwechsel: gelesen/ausgeblendet bleibt
     $pdo->exec("UPDATE xplugin_mgd_notification_recipients SET read_at = '2026-11-12 10:00:00', dismissed_at = '2026-11-12 11:00:00' WHERE notification_id = " . (int) $p['id']);
