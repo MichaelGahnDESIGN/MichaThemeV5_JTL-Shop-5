@@ -6,7 +6,7 @@ MGD Suche verbessert die bestehende JTL-Shop-5-Suche, ohne ihre Preis-, Sichtbar
 
 Beispiel: Sucht ein Besucher nach `Baumwolle` und dieser Wert ist als JTL-Merkmal gepflegt, erscheint ein Link wie `Material: Baumwolle`. Der Klick führt zu JTLs eigener Merkmalfilteransicht.
 
-## Funktionsumfang 0.3.5
+## Funktionsumfang 1.4.0
 
 - Das Plugin verändert das Suchformular des Shops nicht. Es zeigt nur auf der Ergebnisseite passende Merkmale an
 - Reiter im Backend in dieser Reihenfolge: **Einstellungen**, **Updates**, **Plugin-Empfehlungen**
