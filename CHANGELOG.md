@@ -1,6 +1,17 @@
 # Änderungen
 
-Alle Versionen sind Pre-Alpha (frühe Testversion).
+Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
+
+## 1.4.0 (14.11.2026)
+
+Fertige Version. Keine Vorabversion mehr.
+
+- Versionsangleichung: Alle Themes und Plugins von Michael Gahn DESIGN tragen jetzt dieselbe Version 1.4.0. Das gilt für Template, Begleitplugin, Notification Center und MGD Suche.
+- Neu: Die Glocke zeigt eine Fehlermeldung jetzt direkt im offenen Fenster („Alle anzeigen“). Vorher stand sie unsichtbar hinter dem Fenster.
+- Behoben (Notification Center): Meldungen ohne Ablaufdatum werden wieder angezeigt. Eine Reparatur beim Update richtet schon gespeicherte Meldungen.
+- Neu (Notification Center): Meldungen lassen sich im JTL-Admin schreiben und bearbeiten. Beim Bearbeiten bleibt der Lesestatus der Kunden erhalten, das Datum verliert keine Sekunden mehr, die Meldungsliste hat Seiten.
+- Sonst keine Änderungen am Aussehen oder an den Einstellungen.
+- ⚠️ Vor dem Update bitte eine Sicherung machen.
 
 ## 0.6.5 (12.11.2026)
 

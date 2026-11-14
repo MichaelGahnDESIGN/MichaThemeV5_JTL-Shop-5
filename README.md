@@ -2,17 +2,17 @@
 
 Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtssicherer Ausrichtung für DE und EU.
 
-**Status:** in Entwicklung (Pre-Alpha).
+**Status:** fertige Version 1.4.0.
 
-## Version 0.6.5 herunterladen
+## Version 1.4.0 herunterladen
 
-**Pre-Alpha:** zuerst mit Sicherung in einem Testshop verwenden. Der Vorgänger 0.6.1 wurde als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12 geprüft; 94 Einstellungen blieben erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md). ⚠️ 0.6.5 selbst ist noch nicht in einem echten JTL-Backend geprüft.
+**Fertige Version.** Bitte vor jedem Update eine Sicherung machen. Am besten zuerst in einem Testshop ausprobieren. Geprüft wurde zuletzt 0.6.1 als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12. Dabei blieben 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
 
-- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-0.6.5.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.5/MichaThemeV5-plugin-0.6.5.zip). In JTL unter Plugins hochladen; anschließend das Template im Info-Tab bewusst einrichten.
-- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-0.6.5.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v0.6.5/michatheme-v5-jtl5-0.6.5.zip). Enthält das Template, das vollständige Begleitplugin und das bisher optionale Notification Center. Die zusätzlichen Plugins werden nicht automatisch installiert.
-- Zu beiden ZIPs liegt eine `.sha256`-Datei im [Release v0.6.5](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v0.6.5). Das eigenständige Plugin **MGD Suche** ist separat und gehört nicht zu diesen Paketen.
+- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-1.4.0.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.4.0/MichaThemeV5-plugin-1.4.0.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
+- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-1.4.0.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.4.0/michatheme-v5-jtl5-1.4.0.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
+- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v1.4.0](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v1.4.0). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
 
-0.6.5 bringt die neue Glocke für das MGD Notification Center ab 0.3.0 (mit älterem Plugin bleibt die einfache Liste). 0.6.4 entfernte einen Deprecated-Hinweis unter PHP 8.5 im Update-Bereich. 0.6.3 machte die Lizenzprüfung sicherer: Der Lizenzcode geht nur noch per HTTPS im Kopfteil der Anfrage, nicht mehr in der Adresse. Er wird nur noch im Plugin auf der Seite **Lizenzen** gepflegt. Am Aussehen ändert sich nichts. 0.6.2 brachte den Tab **Updates** im Begleitplugin (prüft auf neue Versionen, installiert nichts von allein). Am Aussehen des Themes ändert sich nichts. 0.6.1 korrigierte den weißen Navigationsverlauf im Dunkelmodus, zu schwachen Kontrast eingefügter Texte und Suchfarben beim Umschalten. Beide Modi wurden bei 390, 768 und 1280 Pixeln geprüft. [Prüfbericht](docs/HELL-DUNKEL-PRUEFUNG.md) · [Installation und Update](docs/INSTALL.md).
+Neu in 1.4.0: Alle Produkte von Michael Gahn DESIGN haben jetzt dieselbe Versionsnummer 1.4.0. Es ist eine fertige Version, keine Vorabversion mehr. Die Glocke zeigt Fehlermeldungen jetzt direkt im offenen Fenster. Meldungen ohne Ablaufdatum werden wieder angezeigt. Alle Änderungen stehen im [Changelog](CHANGELOG.md) · [Installation und Update](docs/INSTALL.md).
 
 ## Funktionen
 
@@ -25,9 +25,9 @@ Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.m
 
 ## Installation
 
-Pre-Alpha: getestet nur mit JTL-Shop 5.8.2. Bitte zuerst in einem Test-Shop ausprobieren. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
+Getestet mit JTL-Shop 5.8.2. Bitte vorher eine Sicherung machen und zuerst in einem Test-Shop ausprobieren. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
 
-**Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Ab Plugin-Version 0.2.0 legt es seine Tabellen selbst an und hat einen Bereich „Updates“. Eine Oberfläche zum Schreiben von Meldungen gibt es noch nicht. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
+**Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Ab Plugin-Version 0.2.0 legt es seine Tabellen selbst an und hat einen Bereich „Updates“. Meldungen schreibst Du im JTL-Admin im Plugin. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
 
 ## Aussehen (ab Version 0.3.0)
 
@@ -39,7 +39,7 @@ Der Colorpicker ist ein Farbwähler. Er hat eine Farbfläche, einen Farbton-Regl
 
 Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5: bei WooCommerce ab Plugin 0.5.0, bei JTL-Shop 5 ab Plugin 0.5.1 und bei Shopware 6 im Admin-Modul ab 0.5.1. Dort gibt es 16 Farbfelder je Hell und Dunkel. Ohne Plugin wählst du die Akzentfarbe wie bisher aus der Liste oder als eigene Farbe (HEX-Wert) in den Theme-Einstellungen. Bei Shopify gibt es den Colorpicker nicht: Der Theme-Editor hat einen eigenen Farbwähler, und gespeicherte Paletten sind dort nicht möglich.
 
-Ehrlich gesagt: Die Plugins sind Pre-Alpha und bisher nur in Test- und Demo-Umgebungen geprüft.
+Ehrlich gesagt: Der Colorpicker wurde bisher nur in Test- und Demo-Umgebungen geprüft.
 
 ## Icon-Leiste in der Kopfzeile (ab Version 0.4.0)
 
@@ -71,7 +71,7 @@ Das Plugin kann 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern anl
 
 Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup des Shops machen. Ehrlich gesagt: per Konsole auf JTL-Shop 5.8.0 erprobt, die Backend-Seite noch nicht im Admin geprüft.
 
-## Updates (neu, noch nicht veröffentlicht)
+## Updates
 
 Das Plugin hat einen fünften Tab **Updates**. Dort siehst du, ob es eine neue Version gibt. Es wird **nie** etwas automatisch installiert.
 

@@ -1,5 +1,10 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 1.4.0 (2026-11-14)
+- Fertige Version statt Vorabversion. Einheitliche Versionsnummer 1.4.0 für alle MGD-Produkte.
+- Mitgeliefertes Template: Die Glocke zeigt Fehlermeldungen im offenen Fenster.
+- Sonst keine Änderungen am Plugin.
+
 ## 0.6.5 (2026-11-12)
 - Template mit neuer Glocke für Notification Center 0.3.0 (älteres Plugin: einfache Liste).
 - Update-Bereich: Erfolgsmeldung nennt im einfachen Modus Prüfsumme und Inhalt, keine Signatur.
