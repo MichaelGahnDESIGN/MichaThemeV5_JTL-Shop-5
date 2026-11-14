@@ -24,6 +24,12 @@ Lizenzprüfung sicherer. Am Aussehen des Themes ändert sich nichts.
 - Unverändert: Fällt der Lizenzserver aus, läuft der Shop normal weiter (Zwischenspeicher bis 24 Stunden, danach noch 48 Stunden Gnadenfrist). Ohne gültige Lizenz gelten die Free-Funktionen, Hinweise erscheinen nur im Backend.
 - Behoben: Ist der Lizenzserver länger weg, wartet der Shop nicht mehr bei jedem Seitenaufruf bis zu 4 Sekunden. Der Ausfall wird 2 Minuten gemerkt. Die Gnadenfrist von 48 Stunden bleibt gleich.
 - ⚠️ Theme und Begleitplugin bitte zusammen auf 0.6.3 bringen.
+## MGD Suche 1.4.1 (14.11.2026)
+
+- Behoben: Der Reiter **Plugin-Empfehlungen** lädt die Liste wieder von theme.michael-gahn.de. Die alte Adresse gab es auf der Plattform nicht mehr, deshalb zeigte der Reiter nur eine eingebaute Notfall-Liste.
+- Behoben: MGD Suche empfiehlt sich in dieser Liste nicht mehr selbst.
+- Sonst keine Änderungen an Suche, Einstellungen, Updates oder Aussehen.
+
 ## MGD Suche 1.4.0 (14.11.2026)
 
 - Versionsangleichung: Alle Themes und Plugins von Michael Gahn DESIGN tragen jetzt die Version 1.4.0. Wird als fertiges Release veröffentlicht, nicht als Vorabversion.
