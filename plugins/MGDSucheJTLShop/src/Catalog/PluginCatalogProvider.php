@@ -16,8 +16,9 @@ use JTL\Plugin\Helper;
  */
 final class PluginCatalogProvider
 {
-    private const CATALOG_URL = 'https://theme.michael-gahn.de/api/v1/recommendations/jtl.json';
-    private const SELF_ID = 'plugin-mgd-suche-jtl';
+    private const CATALOG_URL = 'https://theme.michael-gahn.de/api/catalog/plugins.json';
+    // eigene Katalog-ID, alt + neu (Plattform nutzt plugin-suche-jtl)
+    private const SELF_IDS = ['plugin-suche-jtl', 'plugin-mgd-suche-jtl'];
     private const MAX_BYTES = 524288;
 
     /** @var list<array<string, mixed>> */
@@ -127,7 +128,7 @@ final class PluginCatalogProvider
         }
         $related = [];
         foreach ($feed['items'] as $entry) {
-            if (is_array($entry) && ($entry['id'] ?? null) === self::SELF_ID && is_array($entry['related'] ?? null)) {
+            if (is_array($entry) && in_array($entry['id'] ?? null, self::SELF_IDS, true) && is_array($entry['related'] ?? null)) {
                 $related = array_values(array_filter($entry['related'], 'is_string'));
                 break;
             }
@@ -135,7 +136,7 @@ final class PluginCatalogProvider
 
         $items = [];
         foreach (array_slice(array_values($feed['items']), 0, 80) as $position => $entry) {
-            if (!is_array($entry) || ($entry['id'] ?? null) === self::SELF_ID || !$this->supportsJTL($entry)) {
+            if (!is_array($entry) || in_array($entry['id'] ?? null, self::SELF_IDS, true) || !$this->supportsJTL($entry)) {
                 continue;
             }
             $item = $this->normalizeItem($entry, $related, $position);
