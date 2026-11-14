@@ -1,5 +1,9 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
+## 0.7.5 – 14.11.2026
+
+- Versionsangleichung: alle MGD-Themes und -Plugins stehen auf 0.7.5. Inhaltlich wie 0.7.1.
+
 ## 0.7.1 – 13.11.2026
 
 Behoben:
