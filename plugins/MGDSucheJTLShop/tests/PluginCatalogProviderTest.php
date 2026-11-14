@@ -41,4 +41,12 @@ catalogAssert($items[0]['features'] === ['Öffentliche Meldungen', 'Persönliche
 catalogAssert($items[1]['details_url'] === null && $items[1]['download_url'] === null, 'Fremde Katalog-Links wurden nicht verworfen.');
 catalogAssert($normalizer->invoke($provider, ['schemaVersion' => 2, 'items' => []]) === null, 'Unbekannte Schema-Version wurde akzeptiert.');
 
+// Plattform-Adresse + eigene ID wie im echten Katalog
+catalogAssert((new ReflectionClassConstant(PluginCatalogProvider::class, 'CATALOG_URL'))->getValue() === 'https://theme.michael-gahn.de/api/catalog/plugins.json', 'Katalog-Adresse passt nicht zur Plattform.');
+$own = $normalizer->invoke($provider, ['schemaVersion' => 1, 'items' => [
+    ['id' => 'plugin-suche-jtl', 'name' => 'MGD Suche', 'platform' => 'jtl', 'status' => 'live'],
+    ['id' => 'plugin-notification', 'name' => 'Notification Center', 'platform' => 'jtl', 'status' => 'live'],
+]]);
+catalogAssert(is_array($own) && count($own) === 1 && $own[0]['id'] === 'plugin-notification', 'Eigener Katalog-Eintrag wird als Empfehlung angezeigt.');
+
 echo "PluginCatalogProvider: OK\n";
