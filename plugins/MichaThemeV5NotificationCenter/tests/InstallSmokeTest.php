@@ -90,13 +90,29 @@ ok('Hinweistext ohne Entwurf', str_contains(Settings::HINT, 'höchstens einmal a
 $r = new InstallReporting(static fn () => null, static fn (): bool => true, static fn (bool $a) => null, static fn (): string => 'Noch nicht gemeldet.', Settings::HINT);
 ok('InstallReporting baut', $r->hint === Settings::HINT);
 
+// 4b. Update-Seite zeigt Schalter mit Hinweis (Admin mit Recht)
+$on = true;
+$rep = new InstallReporting(static fn () => null, static function () use (&$on): bool {
+    return $on;
+}, static function (bool $a) use (&$on): void {
+    $on = $a;
+}, static fn (): string => 'Noch nicht gemeldet.', Settings::HINT);
+$page = \Plugin\MichaThemeV5NotificationCenter\UpdateClient\Factory::page(__DIR__ . '/../update/root-keys.json', $tmp . '/data', 'mgd-notification-center', 'free', 'MGD Notification Center', '1.5.0', 'shop.example.test', '5.8.2', static fn (): bool => true, static fn (): bool => true, '<input type="hidden" name="jtl_token" value="T">', null, ['info.xml'], null, $rep);
+$html = $page->handle('GET', [])['html'];
+ok('Update-Seite: Schalter angehakt', str_contains($html, 'name="install_report" value="1" checked'));
+ok('Update-Seite: Hinweistext', str_contains($html, 'höchstens einmal am Tag'));
+$page->handle('POST', ['mgd_update_action' => 'save_install']);
+ok('Update-Seite: abhaken schaltet aus', $on === false);
+$page->handle('POST', ['mgd_update_action' => 'save_install', 'install_report' => '1']);
+ok('Update-Seite: anhaken schaltet an', $on === true);
+$noRight = \Plugin\MichaThemeV5NotificationCenter\UpdateClient\Factory::page(__DIR__ . '/../update/root-keys.json', $tmp . '/data', 'mgd-notification-center', 'free', 'MGD Notification Center', '1.5.0', 'shop.example.test', '5.8.2', static fn (): bool => true, static fn (): bool => false, '<input>', null, ['info.xml'], null, $rep);
+ok('ohne Recht kein Schalter', !str_contains($noRight->handle('GET', [])['html'], 'install_report'));
+
 // 5. Kurztext in info.xml
 $xml = (string) file_get_contents(__DIR__ . '/../info.xml');
 ok('Kurztext in info.xml', str_contains($xml, 'Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar in den Einstellungen.'));
 
-foreach (glob($tmp . '/*') ?: [] as $f) {
-    @unlink($f);
-}
+exec('rm -rf ' . escapeshellarg($tmp));
 @rmdir($tmp);
 
 echo "\n$count Prüfungen, $fails Fehler\n";
