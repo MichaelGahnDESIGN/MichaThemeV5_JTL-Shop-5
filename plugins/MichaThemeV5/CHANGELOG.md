@@ -1,5 +1,11 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 1.5.0 (2026-11-18)
+- Neu: Aktiv-Meldung (Install-Client für Free-Lizenzen). Das Plugin meldet sich beim Installieren, Aktivieren und Aktualisieren und danach höchstens einmal am Tag bei theme.michael-gahn.de. Nur im JTL-Admin, nie im Shop.
+- Gesendet werden nur: Plugin-Name, Version, Shopsystem, Domain und eine zufällige Installations-ID.
+- Abschalten im Tab „Updates“: Haken bei „Installation bei Michael Gahn DESIGN melden“ entfernen und speichern. Dann wird nichts mehr gesendet und der Eintrag bei uns gelöscht. Das Plugin läuft genauso weiter.
+- Die Aktiv-Meldung läuft auch, wenn die Update-Prüfung ausgeschaltet ist. Die Update-Prüfung selbst bleibt aus, bis du sie einschaltest.
+
 ## 1.4.0 (2026-11-14)
 - Fertige Version statt Vorabversion. Einheitliche Versionsnummer 1.4.0 für alle MGD-Produkte.
 - Mitgeliefertes Template: Die Glocke zeigt Fehlermeldungen im offenen Fenster.

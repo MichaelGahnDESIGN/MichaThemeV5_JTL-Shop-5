@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Plugin\MichaThemeV5\Admin;
 
 use JTL\Shop;
-use Plugin\MichaThemeV5\Support\{Perms, UpdateData};
+use Plugin\MichaThemeV5\Install\Settings as InstallSettings;
+use Plugin\MichaThemeV5\Support\{InstallPing, Perms, UpdateData};
+use Plugin\MichaThemeV5\Update\Admin\InstallReporting;
 use Plugin\MichaThemeV5\Update\Factory as UpdateFactory;
 
 defined('PFAD_ROOT') || exit;
@@ -50,6 +52,7 @@ final class UpdatesPage extends Page
             null,
             ['info.xml'],
             self::SIMPLE_URL,
+            $this->installReporting($dir),
         );
         $res = $page->handle((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'), $_POST);
         if ($res['deliver'] !== null && !$this->send($res['deliver'], $dir)) {
@@ -57,6 +60,27 @@ final class UpdatesPage extends Page
         }
 
         return $res['html'];
+    }
+
+    // Schalter Aktiv-Meldung (Free-Lizenz), läuft auch bei ausgeschalteter Update-Prüfung. null = Client nicht baubar
+    private function installReporting(string $dir): ?InstallReporting
+    {
+        try {
+            $ic = InstallPing::client($this->installedVersion() ?: null, $dir);
+        } catch (\Throwable) {
+            $ic = null;
+        }
+        if ($ic === null) {
+            return null;
+        }
+
+        return new InstallReporting(
+            static fn () => $ic->ping(),
+            static fn (): bool => $ic->isEnabled(),
+            static fn (bool $an) => $ic->setEnabled($an),
+            static fn (): string => $ic->status(),
+            InstallSettings::HINT,
+        );
     }
 
     private function basePath(): string

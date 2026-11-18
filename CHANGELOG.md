@@ -2,6 +2,13 @@
 
 Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
 
+## 1.5.0 (18.11.2026)
+
+- Neu (Begleitplugin): Aktiv-Meldung. Das Plugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. Gesendet werden nur: Plugin-Name, Version, Shopsystem, Domain deines Shops und eine zufällige Installations-ID. Keine Kundendaten, keine Bestellungen.
+- Die Meldung passiert nur im JTL-Admin, nie im Shop bei deinen Besuchern.
+- Abschalten: JTL-Admin › Plugins › MichaThemeV5 › Tab „Updates“ › Haken bei „Installation bei Michael Gahn DESIGN melden“ entfernen › Speichern. Das Plugin funktioniert dann genauso weiter.
+- Version 1.5.0 für Template und Begleitplugin.
+
 ## 1.4.0 (14.11.2026)
 
 Fertige Version. Keine Vorabversion mehr.
