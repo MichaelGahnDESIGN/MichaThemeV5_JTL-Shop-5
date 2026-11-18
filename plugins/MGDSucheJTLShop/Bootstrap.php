@@ -11,6 +11,7 @@ use Plugin\MGDSucheJTLShop\Search\CharacteristicSuggestionProvider;
 use Plugin\MGDSucheJTLShop\Search\SearchConfig;
 use Plugin\MGDSucheJTLShop\Search\SearchPageEnhancer;
 use Plugin\MGDSucheJTLShop\Search\SearchTermNormalizer;
+use Plugin\MGDSucheJTLShop\Update\UpdateBridge;
 
 /**
  * Startpunkt des Plugins.
@@ -41,6 +42,11 @@ final class Bootstrap extends Bootstrapper
 
         // Im Backend wird keine Frontend-Logik und keine Produktdatenabfrage ausgeführt.
         if (Shop::isFrontend() === false) {
+            // Aktiv-Meldung nur im Admin, max 1x am Tag (prüft der Install-Client selbst)
+            if (\PHP_SAPI !== 'cli' && Shop::isAdmin()) {
+                $this->reportInstall(false);
+            }
+
             return;
         }
 
@@ -89,6 +95,40 @@ final class Bootstrap extends Bootstrapper
                 throw new \RuntimeException('Plugin-Datei fehlt: ' . $file);
             }
             require_once $path;
+        }
+    }
+
+    public function installed(): void
+    {
+        parent::installed();
+        $this->reportInstall(true);
+    }
+
+    public function enabled(): void
+    {
+        parent::enabled();
+        $this->reportInstall(true);
+    }
+
+    /** @param mixed $oldVersion @param mixed $newVersion */
+    public function updated($oldVersion, $newVersion): void
+    {
+        parent::updated($oldVersion, $newVersion);
+        $this->reportInstall(true);
+    }
+
+    // Free-Lizenz Meldung bei theme.michael-gahn.de - darf nie die Installation kippen
+    private function reportInstall(bool $force): void
+    {
+        try {
+            $file = __DIR__ . '/src/Update/UpdateBridge.php';
+            if (is_file($file) === false) {
+                return;
+            }
+            require_once $file;
+            UpdateBridge::installClient(__DIR__, UpdateBridge::installedVersion($this->getPlugin(), __DIR__))?->ping($force);
+        } catch (\Throwable $e) {
+            $this->logFailure($e);
         }
     }
 

@@ -173,6 +173,18 @@ ok('kein privater Schlüssel im Client-Code', $bad === 0);
 $simpleTxt = UpdatesPage::verifiedText(new UpdateResult('update_available', '', null, null, ['mode' => 'simple']));
 ok('Erfolgstext einfacher Modus ohne Signatur', !str_contains($simpleTxt, 'Signatur') && str_contains($simpleTxt, 'SHA-256'));
 
+// Free-Lizenz Install-Client: wird gebaut, Schalter ab Werk an, kein Netz beim Bauen
+defined('URL_SHOP') || define('URL_SHOP', 'https://demo.example.test');
+$ic = Plugin\MGDSucheJTLShop\Update\UpdateBridge::installClient(__DIR__ . '/..', '1.5.0');
+ok('Install-Client gebaut', $ic instanceof Plugin\MGDSucheJTLShop\Install\InstallClient);
+ok('Install-Client Produkt wie Update-Datei', $ic?->product() === 'mgd-suche');
+ok('Install-Meldung ab Werk an', $ic?->isEnabled() === true);
+$rep = (new ReflectionMethod(Plugin\MGDSucheJTLShop\Update\UpdateBridge::class, 'installReporting'))->invoke(null, $ic);
+ok('Schalter für Update-Seite', $rep instanceof Plugin\MGDSucheJTLShop\UpdateClient\Admin\InstallReporting && $rep->hint === Plugin\MGDSucheJTLShop\Install\Settings::HINT);
+ok('ohne Client kein Schalter', (new ReflectionMethod(Plugin\MGDSucheJTLShop\Update\UpdateBridge::class, 'installReporting'))->invoke(null, null) === null);
+$ic?->setEnabled(false);
+ok('Schalter aus bleibt aus', Plugin\MGDSucheJTLShop\Update\UpdateBridge::installClient(__DIR__ . '/..', '1.5.0')?->isEnabled() === false);
+
 // aufräumen (nur eigener Temp-Ordner)
 $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($tmp, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);
 foreach ($it as $f) {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Plugin\MGDSucheJTLShop\UpdateClient;
 
-use Plugin\MGDSucheJTLShop\UpdateClient\Admin\UpdatesPage;
+use Plugin\MGDSucheJTLShop\UpdateClient\Admin\{InstallReporting, UpdatesPage};
 use Plugin\MGDSucheJTLShop\UpdateClient\Crypto\KeyRing;
 use Plugin\MGDSucheJTLShop\UpdateClient\Http\CurlHttpClient;
 use Plugin\MGDSucheJTLShop\UpdateClient\License\{LicenseProvider, NullLicenseProvider};
@@ -28,6 +28,7 @@ final class Factory
         ?LicenseProvider $license = null,
         array $requiredFiles = ['info.xml'],
         ?string $simpleUrl = null,
+        ?InstallReporting $install = null,
     ): UpdatesPage {
         $raw = is_file($rootKeysFile) ? file_get_contents($rootKeysFile) : false;
         $data = is_string($raw) ? json_decode($raw, true) : null;
@@ -36,6 +37,6 @@ final class Factory
         $store = new JsonFileStateStore(rtrim($dataDir, '/') . '/state.json');
         $client = new UpdateClient($cfg, new CurlHttpClient($cfg->allowedHosts(), $cfg->userAgent()), $license ?? new NullLicenseProvider(), $store);
 
-        return new UpdatesPage($client, $store, $csrfValid, $canManage, $csrfField, $pluginName, $installedVersion);
+        return new UpdatesPage($client, $store, $csrfValid, $canManage, $csrfField, $pluginName, $installedVersion, null, $install);
     }
 }
