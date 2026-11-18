@@ -6,6 +6,10 @@ namespace Plugin\MichaThemeV5NotificationCenter\Update;
 
 use JTL\Plugin\PluginInterface;
 use JTL\Shop;
+use Plugin\MichaThemeV5NotificationCenter\Install\InstallClient;
+use Plugin\MichaThemeV5NotificationCenter\Install\Platform\Jtl;
+use Plugin\MichaThemeV5NotificationCenter\Install\Settings as InstallSettings;
+use Plugin\MichaThemeV5NotificationCenter\UpdateClient\Admin\InstallReporting;
 use Plugin\MichaThemeV5NotificationCenter\UpdateClient\Factory;
 
 defined('PFAD_ROOT') || exit;
@@ -26,19 +30,57 @@ final class UpdateBridge
 
     private const HTACCESS = "# Datenordner Updates, kein Webzugriff\nOptions -Indexes\n<IfModule mod_authz_core.c>\n    Require all denied\n</IfModule>\n<IfModule !mod_authz_core.c>\n    Order allow,deny\n    Deny from all\n</IfModule>\n";
 
-    // eigener Autoloader für UpdateClient/ (Plugin hat sonst nur require_once)
+    // eigener Autoloader für UpdateClient/ + src/Install/ (Plugin hat sonst nur require_once)
     public static function registerAutoload(string $pluginDir): void
     {
-        spl_autoload_register(static function (string $class) use ($pluginDir): void {
-            $prefix = 'Plugin\\MichaThemeV5NotificationCenter\\UpdateClient\\';
-            if (!str_starts_with($class, $prefix)) {
+        static $done = [];
+        if (isset($done[$pluginDir])) {
+            return;
+        }
+        $done[$pluginDir] = true;
+        $map = [
+            'Plugin\\MichaThemeV5NotificationCenter\\UpdateClient\\' => '/UpdateClient/',
+            'Plugin\\MichaThemeV5NotificationCenter\\Install\\' => '/src/Install/',
+        ];
+        spl_autoload_register(static function (string $class) use ($pluginDir, $map): void {
+            foreach ($map as $prefix => $sub) {
+                if (!str_starts_with($class, $prefix)) {
+                    continue;
+                }
+                $file = rtrim($pluginDir, '/\\') . $sub . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
+                if (is_file($file)) {
+                    require_once $file;
+                }
+
                 return;
             }
-            $file = rtrim($pluginDir, '/\\') . '/UpdateClient/' . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
-            if (is_file($file)) {
-                require_once $file;
-            }
         });
+    }
+
+    // Free-Lizenz Anmeldung, null = aus/ungültig. Nie Exception
+    public static function installClient(PluginInterface $plugin, string $pluginDir): ?InstallClient
+    {
+        try {
+            self::registerAutoload($pluginDir);
+            $dir = self::dataDir();
+            if (!self::ensureDir($dir)) {
+                return null;
+            }
+
+            return Jtl::client($dir, self::PRODUCT, self::installedVersion($plugin, $pluginDir));
+        } catch (\Throwable) {
+            return null;
+        }
+    }
+
+    // einmal melden (installed/enabled/updated) oder max 1x am Tag
+    public static function ping(PluginInterface $plugin, string $pluginDir, bool $force = false): void
+    {
+        try {
+            self::installClient($plugin, $pluginDir)?->ping($force);
+        } catch (\Throwable) {
+            // Plattform weg ist egal, Plugin läuft weiter
+        }
     }
 
     // Datenordner in templates_c (Plugin-Ordner wird bei Updates ersetzt)
@@ -103,6 +145,15 @@ final class UpdateBridge
                 return false;
             }
         };
+        // Schalter Free-Lizenz auf der Update-Seite
+        $ic = self::installClient($plugin, $pluginDir);
+        $install = $ic === null ? null : new InstallReporting(
+            static fn () => $ic->ping(),
+            static fn (): bool => $ic->isEnabled(),
+            static fn (bool $an) => $ic->setEnabled($an),
+            static fn (): string => $ic->status(),
+            InstallSettings::HINT,
+        );
         $page = Factory::page(
             rtrim($pluginDir, '/\\') . '/update/root-keys.json',
             $dir,
@@ -118,6 +169,7 @@ final class UpdateBridge
             null,
             ['info.xml'],
             self::SIMPLE_URL,
+            $install,
         );
         $res = $page->handle((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'), $_POST);
         if ($res['deliver'] !== null && !self::send($res['deliver'], $dir)) {
