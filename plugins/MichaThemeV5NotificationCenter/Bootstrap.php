@@ -7,6 +7,7 @@ use JTL\Helpers\Form;
 use JTL\Plugin\Bootstrapper;
 use JTL\Session\Frontend;
 use JTL\Shop;
+use Plugin\MichaThemeV5NotificationCenter\Update\UpdateBridge;
 
 /** Registriert das Paket. Geschäftslogik liegt in der Bridge und nie im Theme. */
 final class Bootstrap extends Bootstrapper
@@ -22,6 +23,10 @@ final class Bootstrap extends Bootstrapper
             NotificationBridge::configure((int) ($config->getValue('mgd_nc_visible_limit') ?: 5), (string) ($config->getValue('mgd_nc_icon') ?: 'bell'));
         } catch (\Throwable) {
             // Standardwerte bleiben
+        }
+        // Free-Lizenz: im Admin max 1x am Tag melden, nie im Shop-Frontend
+        if (!Shop::isFrontend() && strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? '')) === 'GET') {
+            $this->report(false);
         }
         // Gelesen/Ausblenden übers JTL-IO, nur mit gültigem Token
         $dispatcher->listen('shop.hook.' . \HOOK_IO_HANDLE_REQUEST, static function (array $args): void {
@@ -39,5 +44,34 @@ final class Bootstrap extends Bootstrapper
                 return $count === null ? ['success' => false] : ['success' => true, 'count' => $count];
             });
         });
+    }
+
+    public function installed(): void
+    {
+        parent::installed();
+        $this->report(true);
+    }
+
+    public function enabled(): void
+    {
+        parent::enabled();
+        $this->report(true);
+    }
+
+    public function updated($oldVersion, $newVersion): void
+    {
+        parent::updated($oldVersion, $newVersion);
+        $this->report(true);
+    }
+
+    // Anmeldung theme.michael-gahn.de, darf nie was kaputt machen
+    private function report(bool $force): void
+    {
+        try {
+            require_once __DIR__ . '/src/Update/UpdateBridge.php';
+            UpdateBridge::ping($this->getPlugin(), __DIR__, $force);
+        } catch (\Throwable) {
+            // egal, Plugin läuft weiter
+        }
     }
 }

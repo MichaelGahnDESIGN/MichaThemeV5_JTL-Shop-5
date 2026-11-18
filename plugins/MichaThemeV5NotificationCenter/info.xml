@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jtlshopplugin>
     <Name>MGD Notification Center</Name>
-    <Description>Öffentliche und persönliche Benachrichtigungen (Glocke) für MichaThemeV5.</Description>
+    <Description>Öffentliche und persönliche Benachrichtigungen (Glocke) für MichaThemeV5. Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar in den Einstellungen.</Description>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5</URL>
     <PluginID>MichaThemeV5NotificationCenter</PluginID>
     <XMLVersion>102</XMLVersion>
     <ShopVersion>5.8.0</ShopVersion>
     <CreateDate>2026-10-23</CreateDate>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
     <Install>
         <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_PLUGIN</FlushTags>
         <Adminmenu>

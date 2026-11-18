@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Plugin\MichaThemeV5NotificationCenter\UpdateClient;
 
-use Plugin\MichaThemeV5NotificationCenter\UpdateClient\Admin\UpdatesPage;
+use Plugin\MichaThemeV5NotificationCenter\UpdateClient\Admin\{InstallReporting, UpdatesPage};
 use Plugin\MichaThemeV5NotificationCenter\UpdateClient\Crypto\KeyRing;
 use Plugin\MichaThemeV5NotificationCenter\UpdateClient\Http\CurlHttpClient;
 use Plugin\MichaThemeV5NotificationCenter\UpdateClient\License\{LicenseProvider, NullLicenseProvider};
@@ -28,6 +28,7 @@ final class Factory
         ?LicenseProvider $license = null,
         array $requiredFiles = ['info.xml'],
         ?string $simpleUrl = null,
+        ?InstallReporting $install = null,
     ): UpdatesPage {
         $raw = is_file($rootKeysFile) ? file_get_contents($rootKeysFile) : false;
         $data = is_string($raw) ? json_decode($raw, true) : null;
@@ -36,6 +37,6 @@ final class Factory
         $store = new JsonFileStateStore(rtrim($dataDir, '/') . '/state.json');
         $client = new UpdateClient($cfg, new CurlHttpClient($cfg->allowedHosts(), $cfg->userAgent()), $license ?? new NullLicenseProvider(), $store);
 
-        return new UpdatesPage($client, $store, $csrfValid, $canManage, $csrfField, $pluginName, $installedVersion);
+        return new UpdatesPage($client, $store, $csrfValid, $canManage, $csrfField, $pluginName, $installedVersion, null, $install);
     }
 }
