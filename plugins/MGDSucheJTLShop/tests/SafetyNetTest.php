@@ -150,14 +150,14 @@ $searchJs = (string) file_get_contents($pluginDir . '/frontend/js/mgd-search.js'
 $check('JS fasst das Suchfeld nicht an', !str_contains($searchJs, 'insertAdjacent') && !str_contains($searchJs, 'querySelector') && !str_contains($searchJs, 'createElement'));
 $check('CSS ohne Suchfeld-Hinweis', !str_contains((string) file_get_contents($pluginDir . '/frontend/css/mgd-search.css'), 'field-hint'));
 
-// Tabs im Backend: Einstellungen, Updates, Plugin-Empfehlungen
+// Tabs im Backend: Einstellungen, Übersicht (Baukasten), Weitere Plugins
 $menu = simplexml_load_file($pluginDir . '/info.xml')->Install->Adminmenu;
 $tabs = [];
 foreach ($menu->children() as $entry) {
     $tabs[(int) $entry['sort']] = (string) $entry->Name;
 }
 ksort($tabs);
-$check('Tab-Reihenfolge stimmt', array_values($tabs) === ['Einstellungen', 'Updates', 'Plugin-Empfehlungen']);
+$check('Tab-Reihenfolge stimmt', array_values($tabs) === ['Einstellungen', 'Übersicht', 'Weitere Plugins']);
 $check('Einstellung für Suchfeld-Hinweis ist weg', !str_contains((string) file_get_contents($pluginDir . '/info.xml'), 'show_field_hint'));
 
 $errors = [];

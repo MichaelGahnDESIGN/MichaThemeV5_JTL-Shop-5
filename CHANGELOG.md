@@ -62,6 +62,15 @@ Lizenzprüfung sicherer. Am Aussehen des Themes ändert sich nichts.
 - Unverändert: Fällt der Lizenzserver aus, läuft der Shop normal weiter (Zwischenspeicher bis 24 Stunden, danach noch 48 Stunden Gnadenfrist). Ohne gültige Lizenz gelten die Free-Funktionen, Hinweise erscheinen nur im Backend.
 - Behoben: Ist der Lizenzserver länger weg, wartet der Shop nicht mehr bei jedem Seitenaufruf bis zu 4 Sekunden. Der Ausfall wird 2 Minuten gemerkt. Die Gnadenfrist von 48 Stunden bleibt gleich.
 - ⚠️ Theme und Begleitplugin bitte zusammen auf 0.6.3 bringen.
+## MGD Suche 1.6.0 (24.11.2026)
+
+- Neu: Brückenversion mit dem MGD Plugin-Baukasten. Im Backend gibt es jetzt die Reiter **Einstellungen**, **Übersicht** und **Weitere Plugins**.
+- **Übersicht** zeigt auf einer Seite: Version, Updates, Weitere Plugins und den Schalter „Installation melden“.
+- **Weitere Plugins** zeigt die anderen MGD-Plugins für JTL-Shop als Karten mit Suche und Filter. Installiert wird weiter nur von Hand.
+- Deine Einstellungen, die Update-Prüfung und die Anmeldung bleiben erhalten. Das Plugin nutzt weiter denselben Datenordner.
+- Beim Deinstallieren meldet sich das Plugin bei theme.michael-gahn.de ab.
+- Die alten Reiter **Updates** und **Plugin-Empfehlungen** sind ausgeblendet. Die alten Dateien bleiben bis zur Endversion im Paket.
+
 ## MGD Suche 1.5.0 (18.11.2026)
 
 - Neu: MGD Suche meldet sich bei theme.michael-gahn.de an. Beim Installieren, Aktivieren und Aktualisieren einmal, danach höchstens einmal am Tag, wenn jemand das Backend öffnet. Gesendet werden nur Plugin, Version, Shopsystem, Domain und eine zufällige ID. Keine Kunden-, Bestell- oder Besucherdaten.

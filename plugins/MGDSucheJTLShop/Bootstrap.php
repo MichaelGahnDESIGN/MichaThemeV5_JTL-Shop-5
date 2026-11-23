@@ -11,7 +11,7 @@ use Plugin\MGDSucheJTLShop\Search\CharacteristicSuggestionProvider;
 use Plugin\MGDSucheJTLShop\Search\SearchConfig;
 use Plugin\MGDSucheJTLShop\Search\SearchPageEnhancer;
 use Plugin\MGDSucheJTLShop\Search\SearchTermNormalizer;
-use Plugin\MGDSucheJTLShop\Update\UpdateBridge;
+use Plugin\MGDSucheJTLShop\Kit\Platform\Jtl\Setup;
 
 /**
  * Startpunkt des Plugins.
@@ -23,6 +23,9 @@ use Plugin\MGDSucheJTLShop\Update\UpdateBridge;
 final class Bootstrap extends Bootstrapper
 {
     private const LOG_MESSAGE_LENGTH = 200;
+
+    // Baukasten: alter Datenordner bleibt (Schalter + Anmelde-ID gehen sonst verloren)
+    public const KIT_OPTIONS = ['dataFolder' => 'mgd_suche_update'];
 
     public function boot(Dispatcher $dispatcher): void
     {
@@ -43,7 +46,7 @@ final class Bootstrap extends Bootstrapper
         // Im Backend wird keine Frontend-Logik und keine Produktdatenabfrage ausgeführt.
         if (Shop::isFrontend() === false) {
             // Aktiv-Meldung nur im Admin, max 1x am Tag (prüft der Install-Client selbst)
-            if (\PHP_SAPI !== 'cli' && Shop::isAdmin()) {
+            if (\PHP_SAPI !== 'cli') {
                 $this->reportInstall(false);
             }
 
@@ -117,16 +120,22 @@ final class Bootstrap extends Bootstrapper
         $this->reportInstall(true);
     }
 
-    // Free-Lizenz Meldung bei theme.michael-gahn.de - darf nie die Installation kippen
+    public function uninstalled(bool $deleteData = true): void
+    {
+        // abmelden bei theme.michael-gahn.de, darf nix kippen
+        try {
+            Setup::forShop($this->getPlugin(), self::KIT_OPTIONS)?->uninstall($deleteData);
+        } catch (\Throwable $e) {
+            $this->logFailure($e);
+        }
+        parent::uninstalled($deleteData);
+    }
+
+    // Free-Lizenz Meldung über den Baukasten - darf nie die Installation kippen
     private function reportInstall(bool $force): void
     {
         try {
-            $file = __DIR__ . '/src/Update/UpdateBridge.php';
-            if (is_file($file) === false) {
-                return;
-            }
-            require_once $file;
-            UpdateBridge::installClient(__DIR__, UpdateBridge::installedVersion($this->getPlugin(), __DIR__))?->ping($force);
+            Setup::forShop($this->getPlugin(), self::KIT_OPTIONS)?->ping($force);
         } catch (\Throwable $e) {
             $this->logFailure($e);
         }
