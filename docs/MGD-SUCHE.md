@@ -6,17 +6,17 @@ MGD Suche verbessert die bestehende JTL-Shop-5-Suche, ohne ihre Preis-, Sichtbar
 
 Beispiel: Sucht ein Besucher nach `Baumwolle` und dieser Wert ist als JTL-Merkmal gepflegt, erscheint ein Link wie `Material: Baumwolle`. Der Klick führt zu JTLs eigener Merkmalfilteransicht.
 
-## Funktionsumfang 1.5.0
+## Funktionsumfang 1.6.0
 
 - Das Plugin verändert das Suchformular des Shops nicht. Es zeigt nur auf der Ergebnisseite passende Merkmale an
-- Reiter im Backend in dieser Reihenfolge: **Einstellungen**, **Updates**, **Plugin-Empfehlungen**
+- Reiter im Backend in dieser Reihenfolge: **Einstellungen**, **Übersicht**, **Weitere Plugins** (MGD Plugin-Baukasten)
 - Sicherheitsnetz: Ein Fehler im Plugin schaltet nur das Plugin für diesen Seitenaufruf ab, der Shop läuft weiter. Der Fehler steht im JTL-Systemlog (Eintrag beginnt mit `MGDSucheJTLShop:`)
 - Einstellungen im JTL-Backend für Aktivierung, Abgleichart, Mindestlänge, Ergebnislimit, Darstellung und Akzentfarbe
 - exakter, optionaler Präfix-Abgleich von Merkmalwerten in der aktuellen Shopsprache
 - keine Änderung an JTL-Kerndateien, keine externe Suche, keine Cookies, kein LocalStorage und kein Tracking
 - lokale CSS- und JavaScript-Dateien; die JavaScript-Datei versendet keine Anfragen und fügt nichts in die Seite ein
 - barrierearme Links mit sichtbarem Tastaturfokus und ausreichend großen Touch-Zielen
-- Backend-Punkt **Plugin-Empfehlungen** als visuelle MGD-Plugin-Kollektion: Kategorie, Bild, Kurzbeschreibung, Funktionsliste, Version, Preisstatus, Installationsstatus und sichere Handlungslinks
+- Reiter **Weitere Plugins** als MGD-Plugin-Kollektion: Karten mit Bild, Kategorie, Version, Preis, Beschreibung, Suche und Filter. Installiert wird nur von Hand
 - zentrale, validierte Katalog-JSON von `theme.michael-gahn.de` mit lokaler Ausfallsicherung
 - opt-in-basierte Updateprüfung im JTL-Backend: akzeptiert ausschließlich das erwartete ZIP eines stabilen GitHub-Releases und verweist für die Installation auf die JTL-Pluginverwaltung
 
@@ -37,13 +37,13 @@ Ein vollständiger eigener Suchindex mit Ranking, Tippfehlertoleranz und Live-Vo
 
 Die Erweiterung verarbeitet den eingegebenen Suchbegriff nur innerhalb der aktuellen PHP-Anfrage, um Merkmalwerte aus der Shopdatenbank zu lesen. Sie speichert selbst keine Suchbegriffe, Besucherkennungen oder IP-Adressen und überträgt keine Besucherdaten an Dritte. Was das Plugin selbst an theme.michael-gahn.de meldet, steht im Abschnitt „Anmeldung bei theme.michael-gahn.de“. Das ersetzt keine individuelle Datenschutzprüfung des gesamten Shops.
 
-Der Bereich **Plugin-Empfehlungen** ruft ausschließlich im Backend eine öffentliche, plattformspezifische Liste von `theme.michael-gahn.de` ab. Sichtbarkeit, Texte, Reihenfolge und Version werden zentral gepflegt; die Darstellung erfolgt mit lokalen Symbolen und ohne externe Bilder. Enthalten sind keine Shop-, Konto- oder Besucherdaten. Das Plugin akzeptiert ausschließlich `schema: 1`, die eigene Plattform und die fest verdrahtete Detailseite von `theme.michael-gahn.de`; fremde Links aus dem Feed werden verworfen. Ist der Katalog nicht erreichbar, nutzt das Plugin nur einen zuletzt lokal gespeicherten Stand.
+Der Reiter **Weitere Plugins** ruft nur im Backend eine öffentliche Liste von `theme.michael-gahn.de` ab (höchstens alle 15 Minuten). Bilder holt der Shop-Server selbst und legt sie in `mediafiles/mgd-kit-catalog/mgd-suche/` ab, der Browser lädt nie direkt von fremden Servern. Gesendet werden keine Shop-, Konto- oder Besucherdaten. Ist die Liste nicht erreichbar, zeigt das Plugin die letzte gute Liste oder eine mitgelieferte Ersatzliste.
 
 ## Updates
 
 Unter **Updates** (MGD Update Client) kannst du auf neue Versionen prüfen. So geht es:
 
-1. Öffne im Backend **Plugins → MGD Suche → Updates**.
+1. Öffne im Backend **Plugins → MGD Suche → Übersicht**. Dort steht der Bereich **Updates**.
 2. Nach Updates wird ohne dein Zutun nicht gesucht. Erst nach **Update-Prüfung einschalten** oder **Jetzt prüfen** fragt das Plugin den Update-Server von Michael Gahn DESIGN nach neuen Versionen. Dabei sieht der Server die IP-Adresse deines Shops, die Domain, die Plugin-Version und die Shop-Version. Keine Besucher-, Bestell- oder Kundendaten.
 3. Gibt es eine neue Version, kannst du das Paket herunterladen. Das Plugin prüft es dabei (SHA-256-Prüfsumme, Inhalt) und legt es in einen gesperrten Ordner.
 4. Installieren musst du selbst: ZIP in der JTL-Pluginverwaltung hochladen. Das Plugin tauscht keine Dateien aus und aktiviert nichts.
@@ -67,7 +67,7 @@ Seit Version 1.5.0 meldet sich MGD Suche bei theme.michael-gahn.de an. So weiß 
 
 **Was wird gesendet?** Nur Plugin (`mgd-suche`), Version, Shopsystem (`jtl5`), Domain deines Shops und eine zufällige ID. Keine Kunden-, Bestell- oder Besucherdaten, keine E-Mail.
 
-**Abschalten:** Im Backend **Plugins → MGD Suche → Updates** den Haken bei „Installation bei Michael Gahn DESIGN melden“ entfernen und speichern. Dann wird der Eintrag auf der Plattform gelöscht, und es wird nichts mehr gesendet. Ab Werk ist der Haken gesetzt.
+**Abschalten:** Im Backend **Plugins → MGD Suche → Übersicht** im Bereich **Installation melden** den Haken bei „Installation bei Michael Gahn DESIGN melden“ entfernen und speichern. Dann wird der Eintrag auf der Plattform gelöscht, und es wird nichts mehr gesendet. Ab Werk ist der Haken gesetzt.
 
 Gut zu wissen:
 
@@ -84,6 +84,7 @@ php plugins/MGDSucheJTLShop/tests/SearchTermNormalizerTest.php
 php plugins/MGDSucheJTLShop/tests/PluginCatalogProviderTest.php
 php plugins/MGDSucheJTLShop/tests/UpdateSmokeTest.php
 php plugins/MGDSucheJTLShop/tests/SafetyNetTest.php
+php plugins/MGDSucheJTLShop/tests/KitBridgeTest.php
 ```
 
 Für die Installation muss zusätzlich im Testshop geprüft werden: exakte Suche, Präfixsuche, mehrere Sprachen, deaktivierte Merkmale, mobile Darstellung und ein Child-Template.

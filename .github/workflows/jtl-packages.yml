@@ -57,3 +57,4 @@ jobs:
       - run: php plugins/MGDSucheJTLShop/tests/UpdateSmokeTest.php
       - run: php plugins/MGDSucheJTLShop/tests/SearchTermNormalizerTest.php
       - run: php plugins/MGDSucheJTLShop/tests/PluginCatalogProviderTest.php
+      - run: php plugins/MGDSucheJTLShop/tests/KitBridgeTest.php
