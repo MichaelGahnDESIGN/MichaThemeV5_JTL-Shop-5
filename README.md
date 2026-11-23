@@ -2,17 +2,17 @@
 
 Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtssicherer Ausrichtung für DE und EU.
 
-**Status:** fertige Version 1.5.2.
+**Status:** fertige Version 1.6.0.
 
-## Version 1.5.2 herunterladen
+## Version 1.6.0 herunterladen
 
 **Fertige Version.** Bitte vor jedem Update eine Sicherung machen. Am besten zuerst in einem Testshop ausprobieren. Geprüft wurde zuletzt 0.6.1 als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12. Dabei blieben 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
 
-- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-1.5.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.5.2/MichaThemeV5-plugin-1.5.2.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
-- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-1.5.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.5.2/michatheme-v5-jtl5-1.5.2.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
-- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v1.5.2](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v1.5.2). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
+- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-1.6.0.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.6.0/MichaThemeV5-plugin-1.6.0.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
+- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-1.6.0.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.6.0/michatheme-v5-jtl5-1.6.0.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
+- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v1.6.0](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v1.6.0). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
 
-Neu in 1.5.0: Das Begleitplugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. So sehen wir, wie viele Shops es nutzen. Du kannst das abschalten (siehe „Datenschutz: Aktiv-Meldung“). Alle Änderungen stehen im [Changelog](CHANGELOG.md) · [Installation und Update](docs/INSTALL.md).
+Neu in 1.6.0: Das Begleitplugin hat einen Reiter „Übersicht“ und eine Liste „Weitere Plugins“. Neu in 1.5.0: Das Begleitplugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. So sehen wir, wie viele Shops es nutzen. Du kannst das abschalten (siehe „Datenschutz: Aktiv-Meldung“). Alle Änderungen stehen im [Changelog](CHANGELOG.md) · [Installation und Update](docs/INSTALL.md).
 
 ## Datenschutz: Aktiv-Meldung
 
@@ -31,7 +31,7 @@ Keine Kundendaten, keine Bestellungen, keine E-Mail-Adressen, keine Shop-Inhalte
 **So schaltest du es ab:**
 
 1. JTL-Admin öffnen.
-2. Plugins › MichaThemeV5 › Tab „Updates“.
+2. Plugins › MichaThemeV5 › Tab „Übersicht“ › Bereich „Installation melden“.
 3. Den Haken bei „Installation bei Michael Gahn DESIGN melden“ entfernen.
 4. Auf „Speichern“ klicken.
 
@@ -92,11 +92,11 @@ Mehr dazu: [`docs/INSTALL.md`](docs/INSTALL.md).
 
 Das Plugin gibt dem Template eine übersichtliche Einstellungsseite. Es ist freiwillig: Das Template läuft auch ohne Plugin, dann stellst du alles wie bisher unter Darstellung, Template ein. Die Werte liegen am selben Ort wie die normalen Template-Einstellungen, es wird nichts umgezogen.
 
-Das Plugin hat vier Tabs (ab der nächsten Version kommt ein fünfter, „Updates“, siehe unten):
+Das Plugin hat ab Version 1.6.0 diese Tabs: **Übersicht** (Info, Updates, Weitere Plugins, Schalter „Installation melden“), Einstellungen, Lizenzen, **Weitere Plugins**, Info und Demo-Inhalte. Die alten Tabs „Plugin-Empfehlungen“ und „Updates“ gibt es nicht mehr, ihr Inhalt steht in der Übersicht:
 
 1. **Einstellungen**: oben die **Design-Presets** (Standard, Glas, Kompakt), ein Klick setzt mehrere Einstellungen, vorher wird gesichert. Darunter alle Optionen mit Suche. In der Gruppe „Eigene Farben“ stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Leer heißt: Standard des Templates. Dazu kommt das Layout: **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit).
 2. **Lizenzen**: Lizenzcode einfügen und prüfen. Ohne Code läuft alles in der Free-Version.
-3. **Plugin-Empfehlungen**: weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
+3. **Weitere Plugins** (früher „Plugin-Empfehlungen“): weitere Plugins von Michael Gahn DESIGN. Es wird nichts automatisch installiert.
 4. **Info**: Versionen, Template einrichten (mit Rückfrage und ZIP-Sicherung), Sicherung der Einstellungen und Changelog.
 
 Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Das Theme und sein Begleitplugin sind im eigenen Demo-Shop mit JTL-Shop 5.8.2 nativ installiert und aktualisiert. Die aktuelle Hell-/Dunkelkorrektur wurde dort im Browser geprüft. [Prüfumfang, Ergebnisse und verbleibende Grenzen](docs/HELL-DUNKEL-PRUEFUNG.md).
@@ -109,11 +109,11 @@ Entfernen löscht nur markierte Demo-Einträge. Vor der Nutzung bitte ein Backup
 
 ## Updates
 
-Das Plugin hat einen fünften Tab **Updates**. Dort siehst du, ob es eine neue Version gibt. Es wird **nie** etwas automatisch installiert.
+Der Bereich **Updates** steht im Tab **Übersicht** (bis 1.5.x war es ein eigener Tab). Dort siehst du, ob es eine neue Version gibt. Es wird **nie** etwas automatisch installiert.
 
 So geht es, Schritt für Schritt:
 
-1. Öffne im Backend Plugins, MichaThemeV5, Tab **Updates**.
+1. Öffne im Backend Plugins, MichaThemeV5, Tab **Übersicht**, Bereich „Updates“.
 2. Setze das Häkchen bei „Update-Prüfung einschalten“ und klicke auf Speichern. Ohne dieses Häkchen fragt das Plugin nie nach Updates.
 3. Oder klicke auf „Jetzt nach Updates suchen“. Das gilt nur für diese eine Abfrage.
 4. Gibt es ein Update, setze das Häkchen bei der Bestätigung und klicke auf „Paket herunterladen und prüfen“.

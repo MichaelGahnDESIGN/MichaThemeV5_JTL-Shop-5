@@ -1,5 +1,11 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 1.6.0 (2026-11-24)
+- Neu: Reiter „Übersicht“ (Info, Updates, Weitere Plugins, Schalter „Installation melden“) und Reiter „Weitere Plugins“.
+- Die Reiter „Plugin-Empfehlungen“ und „Updates“ sind weg, ihre Inhalte stehen in der Übersicht.
+- Gleich bleiben: Einstellungen, Lizenzen, Info, Demo-Inhalte. Die Einstellung für „Installation melden“ bleibt erhalten.
+- Beim Deinstallieren meldet sich das Plugin bei theme.michael-gahn.de ab.
+
 ## 1.5.2 (2026-11-23)
 - Template: Standard-Favicon ist jetzt das Michael-Gahn-DESIGN-Logo.
 

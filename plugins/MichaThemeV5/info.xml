@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jtlshopplugin>
     <Name>MichaThemeV5</Name>
-    <Description>Einstellungen mit Farbwähler, Lizenzverwaltung und Plugin-Empfehlungen für das Template MichaThemeV5. Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar im Plugin unter „Updates“.</Description>
+    <Description>Einstellungen mit Farbwähler, Lizenzverwaltung und Plugin-Empfehlungen für das Template MichaThemeV5. Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar im Plugin unter „Übersicht“.</Description>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
     <PluginID>MichaThemeV5</PluginID>
     <XMLVersion>102</XMLVersion>
     <ShopVersion>5.8.0</ShopVersion>
     <CreateDate>2026-10-28</CreateDate>
-    <Version>1.5.2</Version>
+    <Version>1.6.0</Version>
     <Install>
         <FlushTags>CACHING_GROUP_TEMPLATE,CACHING_GROUP_PLUGIN</FlushTags>
         <Adminmenu>
-            <Customlink sort="1"><Name>Einstellungen</Name><Filename>einstellungen.php</Filename></Customlink>
-            <Customlink sort="2"><Name>Lizenzen</Name><Filename>lizenzen.php</Filename></Customlink>
-            <Customlink sort="3"><Name>Plugin-Empfehlungen</Name><Filename>plugin-empfehlungen.php</Filename></Customlink>
-            <Customlink sort="4"><Name>Updates</Name><Filename>updates.php</Filename></Customlink>
+            <Customlink sort="1"><Name>Übersicht</Name><Filename>uebersicht.php</Filename></Customlink>
+            <Customlink sort="2"><Name>Einstellungen</Name><Filename>einstellungen.php</Filename></Customlink>
+            <Customlink sort="3"><Name>Lizenzen</Name><Filename>lizenzen.php</Filename></Customlink>
+            <Customlink sort="4"><Name>Weitere Plugins</Name><Filename>weitere-plugins.php</Filename></Customlink>
             <Customlink sort="5"><Name>Info</Name><Filename>info.php</Filename></Customlink>
             <Customlink sort="6"><Name>Demo-Inhalte</Name><Filename>demo.php</Filename></Customlink>
         </Adminmenu>

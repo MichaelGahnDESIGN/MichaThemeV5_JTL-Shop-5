@@ -2,6 +2,15 @@
 
 Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
 
+## 1.6.0 (24.11.2026)
+
+- Neu (Begleitplugin): Reiter „Übersicht“. Dort stehen Info, Updates, „Weitere Plugins“ und der Schalter „Installation melden“ auf einer Seite.
+- Neu: Reiter „Weitere Plugins“ mit einer Liste anderer Plugins von Michael Gahn DESIGN. Es wird nichts von allein installiert.
+- Die alten Reiter „Plugin-Empfehlungen“ und „Updates“ gibt es nicht mehr. Ihre Inhalte sind jetzt in der Übersicht.
+- Gleich bleiben: Einstellungen, Lizenzen, Info und Demo-Inhalte.
+- Der Schalter „Installation melden“ ist jetzt im Reiter „Übersicht“. Deine bisherige Einstellung bleibt erhalten.
+- Beim Deinstallieren meldet sich das Plugin bei theme.michael-gahn.de ab.
+
 ## 1.5.2 (23.11.2026)
 
 - Favicon: Ab Werk zeigt der Shop jetzt das Michael-Gahn-DESIGN-Logo (vorher das einfache rote „M“). Eigenes Favicon wie gehabt unter Template-Einstellungen › „Theme“ › „Eigenes Favicon“. Ohne eigenes Favicon erscheint wieder das Logo.

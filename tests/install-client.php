@@ -42,6 +42,16 @@ namespace JTL\Plugin {
             public function updated($oldVersion, $newVersion)
             {
             }
+
+            // neu seit Baukasten (1.6.0): uninstalled + getPlugin wie in JTL 5.8
+            public function uninstalled(bool $deleteData = true)
+            {
+            }
+
+            public function getPlugin()
+            {
+                return null;
+            }
         }
     }
 }
@@ -128,7 +138,7 @@ namespace {
     ok('client() bei ungültigem Produkt null', Jtl::client($dir, 'Micha Theme!', '1.5.0') === null);
     ok('client() bei leerem Produkt null', Jtl::client($dir, '', '1.5.0') === null);
     ok('Domain aus URL_SHOP, klein', Jtl::shopDomain() === 'shop.example.test');
-    ok('Version aus version.php = 1.5.2', InstallPing::version() === '1.5.2');
+    ok('Version aus version.php = 1.6.0', InstallPing::version() === '1.6.0');
 
     // 2. ping mit Fake-Transport: nur erlaubte Felder
     $http = new FakeTransport(new Response(200, ['x-mgd-install-key' => str_repeat('k', 32)], '{}'));
@@ -238,8 +248,8 @@ namespace {
 
     // 6. Kurztext in info.xml, keine Geheimnisse im Client
     $xml = simplexml_load_file($plugin . '/info.xml');
-    ok('info.xml Kurztext', str_contains((string) $xml->Description, 'Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar im Plugin unter „Updates“.'));
-    ok('info.xml Version 1.5.2', (string) $xml->Version === '1.5.2');
+    ok('info.xml Kurztext', str_contains((string) $xml->Description, 'Meldet sich höchstens einmal am Tag bei theme.michael-gahn.de (Plugin, Version, Shopsystem, Domain, zufällige ID). Abschaltbar im Plugin unter „Übersicht“.'));
+    ok('info.xml Version 1.6.0', (string) $xml->Version === '1.6.0');
     $bad = 0;
     foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($plugin . '/src/Install', FilesystemIterator::SKIP_DOTS)) as $f) {
         if (preg_match('/BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|sk_live|ghp_[A-Za-z0-9]{20}|MGD\\\\InstallClient/', (string) file_get_contents($f->getPathname()))) {

@@ -23,7 +23,9 @@ spl_autoload_register(static function (string $class): void {
     if (preg_match('/^[A-Za-z0-9\\\\]+$/', $rel) !== 1) {
         return;
     }
-    $file = __DIR__ . '/' . str_replace('\\', '/', $rel) . '.php';
+    // Baukasten liegt im Plugin-Ordner Kit/ (nicht in src/), JTL kennt den Pfad auch selbst
+    $base = str_starts_with($rel, 'Kit\\') ? dirname(__DIR__) : __DIR__;
+    $file = $base . '/' . str_replace('\\', '/', $rel) . '.php';
     if (is_file($file)) {
         require_once $file;
     }
