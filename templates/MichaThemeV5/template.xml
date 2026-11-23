@@ -4,7 +4,7 @@
     <Name>MichaThemeV5</Name>
     <Author>Michael Gahn DESIGN</Author>
     <URL>https://theme.michael-gahn.de</URL>
-    <Version>1.5.1</Version>
+    <Version>1.5.2</Version>
     <MinShopVersion>5.0.0</MinShopVersion>
     <Preview>preview.png</Preview>
     <Parent>NOVA</Parent>
@@ -13,7 +13,7 @@
             <Setting Description="Theme" Key="theme_default" Type="select" Value="clear">
                 <Option Value="clear">clear</Option>
             </Setting>
-            <Setting Description="Eigenes Favicon (PNG oder JPG). Leer lassen = MichaTheme-Favicon" Key="favicon" Type="upload" Value="favicon.ico" maxFileSize="123456" showPreview="false" allowedFileExtensions="['jpg','jpeg','png']" accept="image/png, image/jpeg" target="favicon/" targetFileName="favicon.ico" override="true"/>
+            <Setting Description="Eigenes Favicon (PNG oder JPG). Leer lassen = Michael-Gahn-DESIGN-Logo" Key="favicon" Type="upload" Value="favicon.ico" maxFileSize="123456" showPreview="false" allowedFileExtensions="['jpg','jpeg','png']" accept="image/png, image/jpeg" target="favicon/" targetFileName="favicon.ico" override="true"/>
         </Section>
         <Section Name="Header" Key="header">
             <Setting Description="Menü in eigener Zeile anzeigen" Key="menu_single_row" Type="select" Value="Y" override="true">

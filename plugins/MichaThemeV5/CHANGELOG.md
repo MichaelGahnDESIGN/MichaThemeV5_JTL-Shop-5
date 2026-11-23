@@ -1,5 +1,8 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 1.5.2 (2026-11-23)
+- Template: Standard-Favicon ist jetzt das Michael-Gahn-DESIGN-Logo.
+
 ## 1.5.1 (2026-11-23)
 - Beschreibung: Der Schalter für die Aktiv-Meldung sitzt im Plugin unter „Updates“ (vorher stand dort „in den Einstellungen“).
 - Template: MichaTheme-Favicon als Standard, eigenes Favicon per Upload in den Template-Einstellungen (Abschnitt „Theme“).

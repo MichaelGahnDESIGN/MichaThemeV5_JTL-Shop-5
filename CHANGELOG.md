@@ -2,6 +2,10 @@
 
 Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
 
+## 1.5.2 (23.11.2026)
+
+- Favicon: Ab Werk zeigt der Shop jetzt das Michael-Gahn-DESIGN-Logo (vorher das einfache rote „M“). Eigenes Favicon wie gehabt unter Template-Einstellungen › „Theme“ › „Eigenes Favicon“. Ohne eigenes Favicon erscheint wieder das Logo.
+
 ## 1.5.1 (23.11.2026)
 
 - Neu: Das Template bringt das MichaTheme-Favicon (rotes „M“) mit. Vorher fehlte die Datei und JTL schrieb immer wieder „favicon-default.png fehlt“ ins Fehler-Log.

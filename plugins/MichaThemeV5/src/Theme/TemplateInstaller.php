@@ -218,7 +218,7 @@ final class TemplateInstaller
 
     /**
      * Hochgeladenes Favicon (Template-Einstellungen > Favicon, landet als favicon/favicon.ico) ins neue Template übernehmen.
-     * Fehlt es, zeigt JTL wieder favicon/favicon-default.png aus dem Paket (MichaTheme-Logo).
+     * Fehlt es, zeigt JTL wieder favicon/favicon-default.png aus dem Paket (Michael-Gahn-DESIGN-Logo).
      */
     public static function keepOwnFavicon(string $oldDir, string $newDir): void
     {
