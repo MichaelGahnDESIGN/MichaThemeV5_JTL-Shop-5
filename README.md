@@ -2,15 +2,15 @@
 
 Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtssicherer Ausrichtung für DE und EU.
 
-**Status:** fertige Version 1.5.0.
+**Status:** fertige Version 1.5.1.
 
-## Version 1.5.0 herunterladen
+## Version 1.5.1 herunterladen
 
 **Fertige Version.** Bitte vor jedem Update eine Sicherung machen. Am besten zuerst in einem Testshop ausprobieren. Geprüft wurde zuletzt 0.6.1 als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12. Dabei blieben 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
 
-- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-1.5.0.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.5.0/MichaThemeV5-plugin-1.5.0.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
-- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-1.5.0.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.5.0/michatheme-v5-jtl5-1.5.0.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
-- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v1.5.0](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v1.5.0). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
+- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-1.5.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.5.1/MichaThemeV5-plugin-1.5.1.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
+- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-1.5.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v1.5.1/michatheme-v5-jtl5-1.5.1.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
+- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v1.5.1](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v1.5.1). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
 
 Neu in 1.5.0: Das Begleitplugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. So sehen wir, wie viele Shops es nutzen. Du kannst das abschalten (siehe „Datenschutz: Aktiv-Meldung“). Alle Änderungen stehen im [Changelog](CHANGELOG.md) · [Installation und Update](docs/INSTALL.md).
 
@@ -36,6 +36,19 @@ Keine Kundendaten, keine Bestellungen, keine E-Mail-Adressen, keine Shop-Inhalte
 4. Auf „Speichern“ klicken.
 
 Danach wird nichts mehr gesendet, und der Eintrag bei uns wird gelöscht. Das Plugin und das Template funktionieren genauso weiter.
+
+## Favicon (ab Version 1.5.1)
+
+Das Favicon ist das kleine Bild im Browser-Tab.
+
+- Ab Werk zeigt das Template das MichaTheme-Favicon (rotes „M“).
+- Eigenes Favicon:
+  1. JTL-Admin öffnen.
+  2. Darstellung › Templates › MichaThemeV5 › Einstellungen.
+  3. Im Abschnitt „Theme“ bei „Eigenes Favicon“ ein Bild hochladen (PNG oder JPG, am besten quadratisch, mindestens 192 × 192 Pixel).
+  4. Speichern.
+- Entfernst du dein eigenes Favicon wieder, erscheint automatisch das MichaTheme-Favicon.
+- Dein eigenes Favicon bleibt erhalten, wenn das Begleitplugin das Template aktualisiert.
 
 ## Funktionen
 

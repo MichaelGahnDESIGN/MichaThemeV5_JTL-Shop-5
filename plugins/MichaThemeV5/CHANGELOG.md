@@ -1,5 +1,10 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 1.5.1 (2026-11-23)
+- Beschreibung: Der Schalter für die Aktiv-Meldung sitzt im Plugin unter „Updates“ (vorher stand dort „in den Einstellungen“).
+- Template: MichaTheme-Favicon als Standard, eigenes Favicon per Upload in den Template-Einstellungen (Abschnitt „Theme“).
+- Template-Update übernimmt ein hochgeladenes Favicon (favicon/favicon.ico) ins neue Template.
+
 ## 1.5.0 (2026-11-18)
 - Neu: Aktiv-Meldung (Install-Client für Free-Lizenzen). Das Plugin meldet sich beim Installieren, Aktivieren und Aktualisieren und danach höchstens einmal am Tag bei theme.michael-gahn.de. Nur im JTL-Admin, nie im Shop.
 - Gesendet werden nur: Plugin-Name, Version, Shopsystem, Domain und eine zufällige Installations-ID.

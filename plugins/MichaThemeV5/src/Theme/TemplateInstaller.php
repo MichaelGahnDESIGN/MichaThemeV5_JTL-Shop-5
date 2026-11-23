@@ -208,10 +208,28 @@ final class TemplateInstaller
             return ['ok' => false, 'message' => 'Der Austausch ist fehlgeschlagen. Das bisherige Template wurde ' . ($moved ? 'zurückgespielt.' : 'nicht verändert.'), 'backup' => $backup];
         }
         if ($moved) {
+            // eigenes Favicon vom Händler mitnehmen, sonst wärs nach dem Update weg
+            self::keepOwnFavicon($old, $target);
             $this->removeTree($old);
         }
 
         return ['ok' => true, 'message' => 'Template kopiert.', 'backup' => $backup];
+    }
+
+    /**
+     * Hochgeladenes Favicon (Template-Einstellungen > Favicon, landet als favicon/favicon.ico) ins neue Template übernehmen.
+     * Fehlt es, zeigt JTL wieder favicon/favicon-default.png aus dem Paket (MichaTheme-Logo).
+     */
+    public static function keepOwnFavicon(string $oldDir, string $newDir): void
+    {
+        $src = $oldDir . '/favicon/favicon.ico';
+        if (!is_file($src) || is_link($src) || filesize($src) > 1048576) {
+            return;
+        }
+        if (!is_dir($newDir . '/favicon')) {
+            @mkdir($newDir . '/favicon', 0755, true);
+        }
+        @copy($src, $newDir . '/favicon/favicon.ico');
     }
 
     /** @param array<string,string> $files */

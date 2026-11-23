@@ -2,6 +2,13 @@
 
 Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
 
+## 1.5.1 (23.11.2026)
+
+- Neu: Das Template bringt das MichaTheme-Favicon (rotes „M“) mit. Vorher fehlte die Datei und JTL schrieb immer wieder „favicon-default.png fehlt“ ins Fehler-Log.
+- Eigenes Favicon: JTL-Admin › Darstellung › Templates › MichaThemeV5 › Einstellungen › Abschnitt „Theme“ › „Eigenes Favicon“ (PNG oder JPG) hochladen und speichern. Ohne eigenes Favicon erscheint wieder das MichaTheme-Favicon.
+- Ein eigenes Favicon bleibt jetzt erhalten, wenn das Begleitplugin das Template aktualisiert. Vorher wurde es beim Austausch des Template-Ordners mit ersetzt (es lag nur noch in der Sicherung).
+- Geändert: Die Beschreibung des Begleitplugins sagt jetzt genau, wo der Schalter für die Aktiv-Meldung sitzt: im Plugin unter „Updates“.
+
 ## 1.5.0 (18.11.2026)
 
 - Neu (Begleitplugin): Aktiv-Meldung. Das Plugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. Gesendet werden nur: Plugin-Name, Version, Shopsystem, Domain deines Shops und eine zufällige Installations-ID. Keine Kundendaten, keine Bestellungen.
