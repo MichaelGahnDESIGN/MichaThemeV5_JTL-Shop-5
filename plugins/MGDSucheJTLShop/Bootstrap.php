@@ -11,7 +11,7 @@ use Plugin\MGDSucheJTLShop\Search\CharacteristicSuggestionProvider;
 use Plugin\MGDSucheJTLShop\Search\SearchConfig;
 use Plugin\MGDSucheJTLShop\Search\SearchPageEnhancer;
 use Plugin\MGDSucheJTLShop\Search\SearchTermNormalizer;
-use Plugin\MGDSucheJTLShop\Kit\Platform\Jtl\Setup;
+use Plugin\MGDSucheJTLShop\Kit\Platform\Jtl\{JtlKit, Setup};
 
 /**
  * Startpunkt des Plugins.
@@ -46,8 +46,8 @@ final class Bootstrap extends Bootstrapper
         // Im Backend wird keine Frontend-Logik und keine Produktdatenabfrage ausgeführt.
         if (Shop::isFrontend() === false) {
             // Aktiv-Meldung nur im Admin, max 1x am Tag (prüft der Install-Client selbst)
-            if (\PHP_SAPI !== 'cli') {
-                $this->reportInstall(false);
+            if (Setup::isBackend()) {
+                $this->kit()?->ping();
             }
 
             return;
@@ -104,40 +104,45 @@ final class Bootstrap extends Bootstrapper
     public function installed(): void
     {
         parent::installed();
-        $this->reportInstall(true);
+        $this->kit()?->ping(true);
     }
 
     public function enabled(): void
     {
         parent::enabled();
-        $this->reportInstall(true);
+        $this->kit()?->ping(true);
     }
 
     /** @param mixed $oldVersion @param mixed $newVersion */
     public function updated($oldVersion, $newVersion): void
     {
         parent::updated($oldVersion, $newVersion);
-        $this->reportInstall(true);
+        // JTL hat hier noch die alte Version drin > neue mitgeben
+        $this->kit(is_string($newVersion) ? $newVersion : null)?->ping(true);
     }
 
     public function uninstalled(bool $deleteData = true): void
     {
         // abmelden bei theme.michael-gahn.de, darf nix kippen
-        try {
-            Setup::forShop($this->getPlugin(), self::KIT_OPTIONS)?->uninstall($deleteData);
-        } catch (\Throwable $e) {
-            $this->logFailure($e);
-        }
+        $this->kit()?->uninstall($deleteData);
         parent::uninstalled($deleteData);
     }
 
-    // Free-Lizenz Meldung über den Baukasten - darf nie die Installation kippen
-    private function reportInstall(bool $force): void
+    // Tabs Übersicht + Weitere Plugins (Customlink-Dateien in adminmenu/ nutzen dasselbe)
+    public function renderAdminMenuTab(string $tabName, int $menuID, $smarty): string
+    {
+        return Setup::renderTab($this->kit(), $tabName) ?? parent::renderAdminMenuTab($tabName, $menuID, $smarty);
+    }
+
+    // Baukasten holen, nie Exception nach außen (null = nix passiert)
+    private function kit(?string $version = null): ?JtlKit
     {
         try {
-            Setup::forShop($this->getPlugin(), self::KIT_OPTIONS)?->ping($force);
+            return Setup::forShop($this->getPlugin(), self::KIT_OPTIONS + ($version !== null ? ['version' => $version] : []));
         } catch (\Throwable $e) {
             $this->logFailure($e);
+
+            return null;
         }
     }
 
