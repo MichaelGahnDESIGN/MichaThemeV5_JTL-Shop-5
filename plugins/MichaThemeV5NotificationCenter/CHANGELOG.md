@@ -1,5 +1,9 @@
 # Änderungen – MGD Notification Center (JTL-Shop 5)
 
+## [2.1.1] - 2026-11-25
+
+- Aktueller Baukasten, einheitliche Version.
+
 ## 1.5.0 – 18.11.2026
 
 Neu:

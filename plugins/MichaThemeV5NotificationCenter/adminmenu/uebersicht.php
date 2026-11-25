@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use JTL\Plugin\PluginInterface;
 use JTL\Shop;
+use Plugin\MichaThemeV5NotificationCenter\Kit\Platform\Jtl\Setup;
 
 if (!defined('PFAD_ROOT') || !isset($oPlugin) || !$oPlugin instanceof PluginInterface) {
     http_response_code(403);
@@ -18,6 +19,7 @@ try {
     $ready = $db->tableExists('xplugin_mgd_notifications') && $db->tableExists('xplugin_mgd_notification_recipients');
     if (!$ready) {
         echo '<div class="alert alert-warning" role="alert">Die Tabellen des Plugins fehlen. Bitte das Plugin einmal deaktivieren und wieder aktivieren oder die Datei database/schema.sql ausführen.</div>';
+        echo Setup::renderTab(Setup::forShop($oPlugin, array('legacyFolders' => array('mgd_notification_center_update'))), 'Übersicht');
 
         return;
     }
@@ -39,3 +41,6 @@ try {
 } catch (\Throwable $e) {
     echo '<div class="alert alert-warning" role="alert">Dieser Bereich konnte gerade nicht geladen werden. Der Shop läuft normal weiter.</div>';
 }
+
+// Baukasten Übersicht: Info, Updates, Weitere Plugins, Installation melden
+echo Setup::renderTab(Setup::forShop($oPlugin, array('legacyFolders' => array('mgd_notification_center_update'))), 'Übersicht');
