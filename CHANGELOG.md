@@ -2,6 +2,10 @@
 
 Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
 
+## MGD Suche 2.1.1 (25.11.2026)
+
+- Aktueller Baukasten (Farbwähler, einheitliche Darstellung), einheitliche Version 2.1.1. Die Anmeldung läuft nur noch im Backend.
+
 ## 1.6.0 (24.11.2026)
 
 - Neu (Begleitplugin): Reiter „Übersicht“. Dort stehen Info, Updates, „Weitere Plugins“ und der Schalter „Installation melden“ auf einer Seite.
