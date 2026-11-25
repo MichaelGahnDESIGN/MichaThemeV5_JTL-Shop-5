@@ -1,5 +1,9 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 2.1.1 (2026-11-25)
+- Aktueller Baukasten 1.15.0: Übersicht, Updates, Weitere Plugins und Schalter „Installation melden“ überarbeitet.
+- Einheitliche Version 2.1.1 für alle MGD-Produkte.
+
 ## 1.6.0 (2026-11-24)
 - Neu: Reiter „Übersicht“ (Info, Updates, Weitere Plugins, Schalter „Installation melden“) und Reiter „Weitere Plugins“.
 - Die Reiter „Plugin-Empfehlungen“ und „Updates“ sind weg, ihre Inhalte stehen in der Übersicht.

@@ -23,10 +23,10 @@ final class KitSetup
     }
 
     // null = irgendwas fehlt, dann passiert einfach nix
-    public static function forShop(object $plugin): ?JtlKit
+    public static function forShop(object $plugin, array $extra = []): ?JtlKit
     {
         try {
-            return Setup::forShop($plugin, self::options());
+            return Setup::forShop($plugin, $extra + self::options());
         } catch (\Throwable) {
             return null;
         }
