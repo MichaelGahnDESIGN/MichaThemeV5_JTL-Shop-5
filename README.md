@@ -2,21 +2,21 @@
 
 Theme von Michael Gahn DESIGN mit Hell-/Dunkelmodus, vielen Optionen und rechtssicherer Ausrichtung für DE und EU.
 
-**Status:** fertige Version 2.1.1.
+**Status:** fertige Version 2.1.2.
 
-## Version 2.1.1 herunterladen
+## Version 2.1.2 herunterladen
 
 **Fertige Version.** Bitte vor jedem Update eine Sicherung machen. Am besten zuerst in einem Testshop ausprobieren. Geprüft wurde zuletzt 0.6.1 als natives Update mit JTL-Shop 5.8.2 und PHP 8.5.12. Dabei blieben 94 Einstellungen erhalten. [Abnahme und Grenzen](docs/NATIVE-ABNAHME-061.md).
 
-- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-2.1.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v2.1.1/MichaThemeV5-plugin-2.1.1.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
-- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-2.1.1.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v2.1.1/michatheme-v5-jtl5-2.1.1.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
-- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v2.1.1](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v2.1.1). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
+- **Empfohlen – Begleitplugin mit vollständigem Template:** [MichaThemeV5-plugin-2.1.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v2.1.2/MichaThemeV5-plugin-2.1.2.zip). In JTL unter Plugins hochladen. Danach das Template im Info-Tab einrichten.
+- **Für die manuelle Dateikopie:** [michatheme-v5-jtl5-2.1.2.zip](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/download/v2.1.2/michatheme-v5-jtl5-2.1.2.zip). Darin sind das Template, das Begleitplugin und das Notification Center. Die Plugins werden nicht von allein installiert.
+- Zu beiden ZIPs gibt es eine `.sha256`-Datei (Prüfsumme) im [Release v2.1.2](https://github.com/MichaelGahnDESIGN/MichaThemeV5_JTL-Shop-5/releases/tag/v2.1.2). Das Plugin **MGD Suche** ist ein eigenes Paket und nicht in diesen ZIPs.
 
 Neu in 1.6.0: Das Begleitplugin hat einen Reiter „Übersicht“ und eine Liste „Weitere Plugins“. Neu in 1.5.0: Das Begleitplugin meldet sich höchstens einmal am Tag bei theme.michael-gahn.de. So sehen wir, wie viele Shops es nutzen. Du kannst das abschalten (siehe „Datenschutz: Aktiv-Meldung“). Alle Änderungen stehen im [Changelog](CHANGELOG.md) · [Installation und Update](docs/INSTALL.md).
 
 ## Datenschutz: Aktiv-Meldung
 
-Ab Version 2.1.1 meldet sich das Begleitplugin MichaThemeV5 bei theme.michael-gahn.de. Das passiert einmal beim Installieren, Aktivieren oder Aktualisieren. Danach höchstens einmal am Tag, und nur wenn jemand im JTL-Admin arbeitet. Im Shop (bei deinen Besuchern) passiert nichts.
+Ab Version 2.1.2 meldet sich das Begleitplugin MichaThemeV5 bei theme.michael-gahn.de. Das passiert einmal beim Installieren, Aktivieren oder Aktualisieren. Danach höchstens einmal am Tag, und nur wenn jemand im JTL-Admin arbeitet. Im Shop (bei deinen Besuchern) passiert nichts.
 
 **Was wird gesendet?** Nur diese fünf Dinge:
 
@@ -37,7 +37,7 @@ Keine Kundendaten, keine Bestellungen, keine E-Mail-Adressen, keine Shop-Inhalte
 
 Danach wird nichts mehr gesendet, und der Eintrag bei uns wird gelöscht. Das Plugin und das Template funktionieren genauso weiter.
 
-## Favicon (ab Version 2.1.1, Logo ab 1.5.2)
+## Favicon (ab Version 2.1.2, Logo ab 1.5.2)
 
 Das Favicon ist das kleine Bild im Browser-Tab.
 
@@ -63,9 +63,9 @@ Die vollständige Liste mit Status steht in [`docs/FEATURES.md`](docs/FEATURES.m
 
 Getestet mit JTL-Shop 5.8.2. Bitte vorher eine Sicherung machen und zuerst in einem Test-Shop ausprobieren. Die Schritte stehen in [`docs/INSTALL.md`](docs/INSTALL.md).
 
-**Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Ab Plugin-Version 2.1.1 legt es seine Tabellen selbst an und hat einen Bereich „Updates“. Meldungen schreibst Du im JTL-Admin im Plugin. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
+**Glocke (Notification Center):** Standardmäßig aus. Sie erscheint nur, wenn zwei Dinge stimmen: Das Plugin `MichaThemeV5NotificationCenter` (Ordner `plugins/`) ist separat installiert und aktiv, und unter Einstellungen, Benachrichtigungen, Platzierung ist eine Platzierung gewählt. Ab Plugin-Version 2.1.2 legt es seine Tabellen selbst an und hat einen Bereich „Updates“. Meldungen schreibst Du im JTL-Admin im Plugin. Mehr dazu in [`docs/NOTIFICATION-CENTER.md`](docs/NOTIFICATION-CENTER.md).
 
-## Aussehen (ab Version 2.1.1)
+## Aussehen (ab Version 2.1.2)
 
 Hell: Weiß und Hellgrau. Dunkel: Anthrazit. Der Standard-Akzent ist Rot und lässt sich in den Theme-Einstellungen ändern. Rot steht nur bei bedienbaren Dingen (Kaufen-Button, Menüpunkt, Seitenzahl). Alle anderen Buttons sind neutral. Der Hell/Dunkel-Umschalter sitzt standardmäßig in der Kopfzeile.
 
@@ -77,7 +77,7 @@ Eingebunden ist er in der Einstellungsseite des Plugins MichaThemeV5: bei WooCom
 
 Ehrlich gesagt: Der Colorpicker wurde bisher nur in Test- und Demo-Umgebungen geprüft.
 
-## Icon-Leiste in der Kopfzeile (ab Version 2.1.1)
+## Icon-Leiste in der Kopfzeile (ab Version 2.1.2)
 
 Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto, Warenkorb. Die Suche bleibt in der Mitte.
 
@@ -88,11 +88,11 @@ Von links nach rechts: Hell/Dunkel-Schalter, Glocke, Merkliste, Favoriten, Konto
 
 Mehr dazu: [`docs/INSTALL.md`](docs/INSTALL.md).
 
-## Plugin MichaThemeV5 (ab Version 2.1.1)
+## Plugin MichaThemeV5 (ab Version 2.1.2)
 
 Das Plugin gibt dem Template eine übersichtliche Einstellungsseite. Es ist freiwillig: Das Template läuft auch ohne Plugin, dann stellst du alles wie bisher unter Darstellung, Template ein. Die Werte liegen am selben Ort wie die normalen Template-Einstellungen, es wird nichts umgezogen.
 
-Das Plugin hat ab Version 2.1.1 diese Tabs: **Übersicht** (Info, Updates, Weitere Plugins, Schalter „Installation melden“), Einstellungen, Lizenzen, **Weitere Plugins**, Info und Demo-Inhalte. Die alten Tabs „Plugin-Empfehlungen“ und „Updates“ gibt es nicht mehr, ihr Inhalt steht in der Übersicht:
+Das Plugin hat ab Version 2.1.2 diese Tabs: **Übersicht** (Info, Updates, Weitere Plugins, Schalter „Installation melden“), Einstellungen, Lizenzen, **Weitere Plugins**, Info und Demo-Inhalte. Die alten Tabs „Plugin-Empfehlungen“ und „Updates“ gibt es nicht mehr, ihr Inhalt steht in der Übersicht:
 
 1. **Einstellungen**: oben die **Design-Presets** (Standard, Glas, Kompakt), ein Klick setzt mehrere Einstellungen, vorher wird gesichert. Darunter alle Optionen mit Suche. In der Gruppe „Eigene Farben“ stellst du 16 Farben getrennt für Hell und Dunkel ein, mit Farbwähler, Palette für 12 Farben und Warnung bei schlecht lesbarem Text. Leer heißt: Standard des Templates. Dazu kommt das Layout: **Kartenstil** (flach, mit Rahmen, mit Schatten), **Flächenstil** (einfarbig oder Glas) und **Inhaltsbreite** (schmal, normal, breit).
 2. **Lizenzen**: Lizenzcode einfügen und prüfen. Ohne Code läuft alles in der Free-Version.
@@ -101,7 +101,7 @@ Das Plugin hat ab Version 2.1.1 diese Tabs: **Übersicht** (Info, Updates, Weite
 
 Die Schritte zum Installieren stehen in [`docs/INSTALL.md`](docs/INSTALL.md). Das Theme und sein Begleitplugin sind im eigenen Demo-Shop mit JTL-Shop 5.8.2 nativ installiert und aktualisiert. Die aktuelle Hell-/Dunkelkorrektur wurde dort im Browser geprüft. [Prüfumfang, Ergebnisse und verbleibende Grenzen](docs/HELL-DUNKEL-PRUEFUNG.md).
 
-## Demo-Inhalte (ab Version 2.1.1)
+## Demo-Inhalte (ab Version 2.1.2)
 
 Das Plugin kann 16 Beispielartikel in 4 Kategorien mit 48 Platzhalterbildern anlegen. Nach dem Plugin-Update gibt es dafür im Plugin-Menü den Tab **Demo-Inhalte**. Per Konsole geht es auch: `php plugins/MichaThemeV5/src/Generated/demo-cli.php import`, `status` oder `remove` (mit `--yes` ohne Rückfrage).
 

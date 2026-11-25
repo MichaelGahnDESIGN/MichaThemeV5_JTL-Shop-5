@@ -2,6 +2,10 @@
 
 Ab 1.4.0 sind es fertige Versionen. Alle Versionen davor (bis 0.6.5) waren Pre-Alpha (frühe Testversion).
 
+## [2.1.2] - 2026-11-25
+
+- Lizenzprüfung: Plugin-Lizenzen schalten keine Themes mehr frei.
+
 ## [2.1.1] - 2026-11-25
 
 - Aktueller Baukasten, einheitliche Version.

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Test Plugin-Baukasten (Brückenversion 2.1.1), läuft ohne JTL und ohne Netz: php tests/bruecke-baukasten.php
+ * Test Plugin-Baukasten (Brückenversion 2.1.2), läuft ohne JTL und ohne Netz: php tests/bruecke-baukasten.php
  * JTL-Klassen sind Mini-Stubs, HTTP ist ein Fake. Es wird nie echt gemeldet.
  */
 
@@ -154,7 +154,7 @@ namespace {
             return new class {
                 public function getVersion(): string
                 {
-                    return '2.1.1';
+                    return '2.1.2';
                 }
             };
         }
@@ -229,7 +229,7 @@ namespace {
     file_put_contents($old . '/state.json', json_encode(['enabled' => true]));
     $before = (string) file_get_contents($old . '/install.json');
     $kit = KitSetup::forShop($pluginObj);
-    ok('forShop liefert Kit', $kit instanceof JtlKit && $kit->version === '2.1.1' && $kit->product === 'michatheme-v5');
+    ok('forShop liefert Kit', $kit instanceof JtlKit && $kit->version === '2.1.2' && $kit->product === 'michatheme-v5');
     ok('Kit-Status liest alte install.json (Zuletzt gemeldet)', $kit?->installClient()?->status() === 'Zuletzt gemeldet: ' . gmdate('d.m.Y', 1_790_000_000) . '.' && $kit->installClient()->isEnabled());
     ok('kein neuer Datenordner nebenan', !is_dir($tmp . '/templates_c/michathemev5_update'));
     ok('install.json unverändert (ID + Schlüssel bleiben)', (string) file_get_contents($old . '/install.json') === $before);
@@ -247,7 +247,7 @@ namespace {
     // gleiche Datei auch bei direktem Bau (Test-Transport): ID aus der alten Datei geht in den Header
     $fake = new KitFake(new Response(200, [], '{}'));
     $guardOn = new Guard(static fn (): bool => true, static fn (string $t): bool => $t === 'TOK', static fn (): string => '<input type="hidden" name="jtl_token" value="TOK">');
-    $direct = new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.1', $old, $guardOn, 'shop.example.test', 'plugin-michatheme-v5-jtl', '', [], false, null, $fake);
+    $direct = new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.2', $old, $guardOn, 'shop.example.test', 'plugin-michatheme-v5-jtl', '', [], false, null, $fake);
     $direct->ping(true);
     $sentSt = json_decode((string) file_get_contents($old . '/install.json'), true);
     ok('Meldung nutzt dieselbe Install-ID', count($fake->sent) === 1 && ($sentSt['install_id'] ?? '') === $oldState['install_id'] && ($sentSt['key'] ?? '') === $oldState['key']);
@@ -265,7 +265,7 @@ namespace {
     try {
         $boot->installed();
         $boot->enabled();
-        $boot->updated('1.5.2', '2.1.1');
+        $boot->updated('1.5.2', '2.1.2');
         $boot->updated(null, null);
     } catch (\Throwable $e) {
         $thrown = true;
@@ -297,7 +297,7 @@ namespace {
     try {
         $boot->installed();
         $boot->enabled();
-        $boot->updated('1.5.2', '2.1.1');
+        $boot->updated('1.5.2', '2.1.2');
     } catch (\Throwable) {
         $thrown = true;
     }
@@ -339,7 +339,7 @@ namespace {
             throw new \RuntimeException('Server weg');
         }
     };
-    $k2 = new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.1', $old, $guardOn, 'shop.example.test', 'x', '', [], false, null, $boom);
+    $k2 = new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.2', $old, $guardOn, 'shop.example.test', 'x', '', [], false, null, $boom);
     $thrown = false;
     try {
         $r = $k2->uninstall(true);
@@ -353,7 +353,7 @@ namespace {
     file_put_contents($old . '/install.json', json_encode(['report' => true]));
     $fake = new KitFake();
     $guardNo = new Guard(static fn (): bool => false, static fn (): bool => true, static fn (): string => '');
-    $mk = static fn (Guard $g): JtlKit => new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.1', $old, $g, 'shop.example.test', 'plugin-michatheme-v5-jtl', '', [], false, null, $fake);
+    $mk = static fn (Guard $g): JtlKit => new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.2', $old, $g, 'shop.example.test', 'plugin-michatheme-v5-jtl', '', [], false, null, $fake);
     $field = \Plugin\MichaThemeV5\Kit\Install\Settings::fieldName($mk($guardOn)->installClient());
     $action = \Plugin\MichaThemeV5\Kit\Install\Settings::actionName($mk($guardOn)->installClient());
     $isOn = static fn (): bool => (json_decode((string) file_get_contents($GLOBALS['old'] . '/install.json'), true)['report'] ?? true) !== false;
@@ -372,7 +372,7 @@ namespace {
     ok('POST mit Token + Recht: Schalter aus', !$isOn());
     $page = $mk($guardOn)->page('GET', [], '2026-11-24');
     $h = $page['html'];
-    ok('Übersicht zeigt Info, Updates, Installation melden', str_contains($h, 'Version: 2.1.1') && str_contains($h, '>Updates<') && str_contains($h, '>Installation melden<'));
+    ok('Übersicht zeigt Info, Updates, Installation melden', str_contains($h, 'Version: 2.1.2') && str_contains($h, '>Updates<') && str_contains($h, '>Installation melden<'));
     ok('Übersicht: kein Lizenz-Bereich', !str_contains($h, '>Lizenz<') && !str_contains($h, 'mgd-kit-h-license'));
     ok('Übersicht: Hinweistext aus Baukasten', str_contains($h, htmlspecialchars(\Plugin\MichaThemeV5\Kit\Install\Settings::HINT, ENT_QUOTES)));
     ok('Tab Weitere Plugins ohne Recht gesperrt', str_contains($mk($guardNo)->recommendationsPage(), 'fehlt die Berechtigung'));
@@ -388,18 +388,18 @@ namespace {
     $feedHttp = new KitFake(new Response(200, [], $feed));
     $recWith = static function (string $repo) use ($old, $guardOn, $feedHttp): array {
         @unlink($old . '/kit-recommendations.json');
-        $k = new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.1', $old, $guardOn, 'shop.example.test', 'plugin-michatheme-v5-jtl', $repo, [], false, null, $feedHttp);
+        $k = new JtlKit('michatheme-v5', 'MichaThemeV5', '2.1.2', $old, $guardOn, 'shop.example.test', 'plugin-michatheme-v5-jtl', $repo, [], false, null, $feedHttp);
 
         return array_column($k->recommendations()->load()['items'], 'slug');
     };
     ok('mit repo-Wert aus KitSetup (leer): Suche + NC sichtbar, eigenes weg', $recWith(KitSetup::options()['repo']) === ['plugin-suche-jtl', 'plugin-notification-center-jtl']);
     ok('Kit 1.15: auch mit Config::REPO bleiben Suche + NC sichtbar (Sammelrepo)', $recWith(Config::REPO) === ['plugin-suche-jtl', 'plugin-notification-center-jtl']);
 
-    // 8. Version überall 2.1.1
+    // 8. Version überall 2.1.2
     $tpl = simplexml_load_file(__DIR__ . '/../templates/MichaThemeV5/template.xml');
     $ver = include $plugin . '/src/Generated/version.php';
     $schema = json_decode((string) file_get_contents($plugin . '/src/Generated/mt-admin-schema.json'), true);
-    ok('Version 2.1.1 in info.xml, template.xml, version.php, Schema', (string) $xml->Version === '2.1.1' && (string) $tpl->Version === '2.1.1' && $ver['version'] === '2.1.1' && ($schema['version'] ?? '') === '2.1.1');
+    ok('Version 2.1.2 in info.xml, template.xml, version.php, Schema', (string) $xml->Version === '2.1.2' && (string) $tpl->Version === '2.1.2' && $ver['version'] === '2.1.2' && ($schema['version'] ?? '') === '2.1.2');
 
     // aufräumen (nur eigener Temp-Ordner)
     $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($tmp, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST);

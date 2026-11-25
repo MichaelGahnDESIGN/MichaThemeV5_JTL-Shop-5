@@ -1,5 +1,8 @@
 # Änderungen am Plugin MichaThemeV5 (JTL-Shop 5)
 
+## 2.1.2 (2026-11-25)
+- Lizenzprüfung: Plugin-Lizenzen schalten keine Themes mehr frei.
+
 ## 2.1.1 (2026-11-25)
 - Aktueller Baukasten 1.15.0: Übersicht, Updates, Weitere Plugins und Schalter „Installation melden“ überarbeitet.
 - Einheitliche Version 2.1.1 für alle MGD-Produkte.
