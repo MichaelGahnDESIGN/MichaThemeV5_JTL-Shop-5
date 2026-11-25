@@ -113,7 +113,8 @@ final class LicenseService
             static fn (string $k): ?array => $cache->get($k) ?: null,
             static function (string $k, array $v, int $ttl) use ($cache): void {
                 $cache->set($k, $v, [self::TAG], $ttl);
-            }
+            },
+            platform: 'jtl5'
         );
     }
 

@@ -33,7 +33,7 @@ namespace {
     $calls = [];
     $http = static function (string $url, array $request) use (&$calls): array {
         $calls[] = [$url, $request];
-        return ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'modules' => []], 'cache_valid_until' => gmdate('c', time() + 3600)]];
+        return ['status' => 200, 'json' => ['valid' => true, 'license' => ['tier' => 'pro', 'platform' => 'jtl5', 'kind' => 'theme', 'modules' => []], 'cache_valid_until' => gmdate('c', time() + 3600)]];
     };
     $service = new \Plugin\MichaThemeV5\License\LicenseService(new class implements \JTL\DB\DbInterface {}, $http);
     if (!$service->client()->state('test.license.token')['valid']) {

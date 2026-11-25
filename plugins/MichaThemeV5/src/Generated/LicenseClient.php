@@ -19,11 +19,14 @@ defined('PFAD_ROOT') || exit;
  * Die Antwort wird bis zu "cache_valid_until" (höchstens 24 h) weiterverwendet. Ist der Lizenzserver nicht erreichbar,
  * gilt eine abgelaufene Antwort noch für die Gnadenfrist, damit ein Ausfall auf unserer Seite keine Kunden-Shops trifft.
  * Sagt der Server "ungültig" (widerrufen, abgelaufen, falsche Domain), wird sofort auf Free zurückgestellt.
+ * $platform (Pflicht: woocommerce, shopware6, jtl5, shopify): nur Theme-Lizenzen genau dieser Plattform gelten,
+ * Plugin-Pro-Lizenzen (platform wordpress, kind product) schalten das Theme nie frei.
  */
 final class LicenseClient
 {
     public const NEGATIVE_TTL = 300;
     public const FREE = ['valid' => false, 'tier' => 'free', 'modules' => [], 'source' => 'none', 'reason' => 'no_token'];
+    public const PLATFORMS = ['woocommerce', 'shopware6', 'jtl5', 'shopify'];
 
     /** @var callable */
     private $http;
@@ -41,7 +44,8 @@ final class LicenseClient
         callable $cacheGet,
         callable $cacheSet,
         private readonly int $graceSeconds = 172800,
-        ?callable $now = null
+        ?callable $now = null,
+        private readonly string $platform = ''
     ) {
         $this->http = $http;
         $this->cacheGet = $cacheGet;
@@ -65,6 +69,10 @@ final class LicenseClient
         if (strlen($token) > 5000 || !preg_match('/^[A-Za-z0-9_.-]+$/D', $token)) {
             return ['reason' => 'invalid_token'] + self::FREE;
         }
+        // Plattform Pflicht, ohne = Free
+        if (!in_array($this->platform, self::PLATFORMS, true)) {
+            return ['reason' => 'platform_missing'] + self::FREE;
+        }
         // Ein vom Server erneuertes Token (Abo-Verlängerung) gilt für genau den eingetragenen Schlüssel.
         $renewKey = 'mt_tok_' . hash('sha256', $token . '|' . $this->domain);
         $renewed = ($this->cacheGet)($renewKey);
@@ -72,7 +80,7 @@ final class LicenseClient
             && preg_match('/^[A-Za-z0-9_.-]+$/D', $renewed['token'])) {
             $token = $renewed['token'];
         }
-        $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain);
+        $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain . '|' . $this->platform);
         $now = (int) ($this->now)();
         $cached = ($this->cacheGet)($key);
         if (is_array($cached) && isset($cached['until'], $cached['state'])) {
@@ -108,6 +116,13 @@ final class LicenseClient
                 $until = strtotime((string) ($json['cache_valid_until'] ?? '')) ?: $now + 3600;
                 $until = min($until, $now + 86400);
                 $known = in_array($lic['tier'] ?? '', ['free', 'plus', 'pro', 'agency'], true);
+                // nur Theme-Lizenz der eigenen Plattform, sonst wrong_platform (z. B. Plugin-Pro auf wordpress)
+                if ($known && (($lic['platform'] ?? '') !== $this->platform || ($lic['kind'] ?? 'theme') !== 'theme')) {
+                    $state = ['valid' => false, 'tier' => 'free', 'modules' => [], 'source' => 'live', 'reason' => 'wrong_platform'];
+                    ($this->cacheSet)($key, ['until' => $now + self::NEGATIVE_TTL, 'state' => $state], self::NEGATIVE_TTL);
+
+                    return $state;
+                }
                 $state = [
                     'valid' => $known,
                     'tier' => $known ? $lic['tier'] : 'free',
@@ -154,7 +169,7 @@ final class LicenseClient
         if (is_array($renewed) && is_string($renewed['token'] ?? null) && $renewed['token'] !== '') {
             $token = $renewed['token'];
         }
-        $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain);
+        $key = 'mt_lic_' . hash('sha256', $token . '|' . $this->domain . '|' . $this->platform);
         $cached = ($this->cacheGet)($key);
         // Eintrag bleibt für die Gnadenfrist erhalten (falls der Server gerade fehlt), gilt aber als abgelaufen
         if (is_array($cached) && isset($cached['state'])) {
