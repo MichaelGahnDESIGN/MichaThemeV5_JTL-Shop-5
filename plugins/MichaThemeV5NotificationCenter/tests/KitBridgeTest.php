@@ -21,7 +21,7 @@ function ok(string $n, bool $c): void
 
 ok('Produktname mgd-notification-center', str_contains($cfg, "'mgd-notification-center'"));
 ok('Katalog-Kennung eigene', str_contains($cfg, 'plugin-notification-center-jtl'));
-ok('Version 2.1.1 in info.xml', str_contains($info, '<Version>2.1.1</Version>'));
+ok('Version 2.1.3 in info.xml', str_contains($info, '<Version>2.1.3</Version>'));
 ok('Tabs Übersicht und Weitere Plugins', str_contains($info, '<Name>Übersicht</Name>') && str_contains($info, '<Name>Weitere Plugins</Name>'));
 ok('alter Updates-Tab weg', !str_contains($info, 'updates.php') && !is_file($root . '/adminmenu/updates.php'));
 ok('alter Update-Code weg', !is_dir($root . '/UpdateClient') && !is_dir($root . '/src/Install') && !is_dir($root . '/src/Update'));
